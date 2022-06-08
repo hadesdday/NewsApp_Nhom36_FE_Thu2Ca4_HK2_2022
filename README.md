@@ -1,12 +1,12 @@
-## Thư viên được sử dụng trong project :
-<p>Updating...</p>
-
 ## Nhóm : 36
 ## Đề tài : App tin tức
 ## Thành viên :
 <p>19130073 - Nguyễn Văn Hiếu ( nhóm trưởng )</p>
 <p>19130078 - Trần Huy Hoàng</p>
 <p>19130031 - Nguyễn Hoàng Đạt</p>
+
+## Thư viên được sử dụng trong project :
+<p>Updating...</p>
 
 # NewsApp
 
