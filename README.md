@@ -1,4 +1,14 @@
-# Mdb5AngularUiKitProAdvanced
+## Nhóm : 36
+## Đề tài : App tin tức
+## Thành viên :
+<p>19130073 - Nguyễn Văn Hiếu ( nhóm trưởng )</p>
+<p>19130078 - Trần Huy Hoàng</p>
+<p>19130031 - Nguyễn Hoàng Đạt</p>
+
+## Thư viên được sử dụng trong project :
+<p>Updating...</p>
+
+# NewsApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.4.
 
@@ -25,3 +35,4 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+"# news-app"
