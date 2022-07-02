@@ -1,0 +1,47 @@
+.register-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  padding: 35px 25px 100px;
+  border: 1px solid grey;
+}
+.register-form .register-title {
+  margin-bottom: 30px;
+}
+.register-form .register-title h1 {
+  color: #467fd7;
+  font-weight: bold;
+}
+.register-form .term-check {
+  width: 100%;
+  display: flex;
+  margin-bottom: 20px;
+}
+.register-form .input-group {
+  margin-bottom: 20px;
+}
+.register-form .input-group .input-group-text {
+  border-right: 0px;
+}
+.register-form .input-group .form-control {
+  border-left: 0px;
+}
+.register-form .register-btn-groups {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.register-form .register-btn-groups button {
+  width: 135px;
+  height: 50px;
+}
+.register-form .register-btn-groups #button-cancel-register {
+  background: #aaaaaa;
+  color: white;
+}
+.register-form .register-btn-groups #button-accept-register {
+  background: #467fd7;
+}
+
+/*# sourceMappingURL=register-form.component.css.map */

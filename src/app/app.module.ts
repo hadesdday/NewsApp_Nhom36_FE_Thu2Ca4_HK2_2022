@@ -46,6 +46,10 @@ import { MdbTransferModule } from 'mdb-angular-transfer';
 import { MdbMentionModule } from 'mdb-angular-mention';
 import { MdbCookiesManagementService } from 'mdb-angular-cookies-management';
 import { MdbStorageManagementService } from 'mdb-angular-storage-management';
+import {RegisterModule} from "./register/register.module";
+import {RegisterFormComponent} from "./register/register-form/register-form.component";
+import {AppRoutingModule} from "./app-routing.module";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [AppComponent],
@@ -93,6 +97,8 @@ import { MdbStorageManagementService } from 'mdb-angular-storage-management';
     MdbTreeviewModule,
     MdbTransferModule,
     MdbMentionModule,
+    AppRoutingModule,
+
   ],
   providers: [MdbCookiesManagementService, MdbStorageManagementService],
   bootstrap: [AppComponent],
