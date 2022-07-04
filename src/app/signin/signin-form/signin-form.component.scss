@@ -1,14 +1,14 @@
-
-.register-form {
+.signin-form {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 400px;
-  padding: 35px 25px 100px;
+  padding: 35px 25px 5px;
   border: 1px solid grey;
 
-  .register-title {
+  .signin-title {
     margin-bottom: 30px;
+
     h1 {
       color: #467fd7;
       font-weight: bold;
@@ -21,6 +21,13 @@
     width: 100%;
     display: flex;
     margin-bottom: 20px;
+    justify-content: space-between;
+
+    .forgot-pass {
+      a {
+        color: #aaaaaa;
+      }
+    }
   }
 
   .input-group {
@@ -35,19 +42,22 @@
     }
   }
 
-  .register-btn-groups {
+  .signin-btn-groups {
     width: 100%;
     display: flex;
-    justify-content: space-between;
-    button{
+    justify-content: center;
+    margin-bottom: 100px;
+    button {
       width: 135px;
       height: 40px;
     }
-    #button-cancel-register{
+
+    #button-cancel-signin {
       background: #aaaaaa;
       color: white;
     }
-    #button-accept-register{
+
+    #button-accept-signin {
       background: #467fd7;
     }
   }

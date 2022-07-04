@@ -1,13 +1,13 @@
 
-.register-form {
+.change-pass-form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 400px;
+  width: 450px;
   padding: 35px 25px 100px;
   border: 1px solid grey;
 
-  .register-title {
+  .change-pass-title {
     margin-bottom: 30px;
     h1 {
       color: #467fd7;
@@ -15,12 +15,6 @@
     }
 
 
-  }
-
-  .term-check {
-    width: 100%;
-    display: flex;
-    margin-bottom: 20px;
   }
 
   .input-group {
@@ -35,7 +29,7 @@
     }
   }
 
-  .register-btn-groups {
+  .change-pass-btn-groups {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -43,11 +37,11 @@
       width: 135px;
       height: 40px;
     }
-    #button-cancel-register{
+    #button-cancel-change-pass{
       background: #aaaaaa;
       color: white;
     }
-    #button-accept-register{
+    #button-accept-change-pass{
       background: #467fd7;
     }
   }
