@@ -1,0 +1,54 @@
+.recover-pass-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  padding: 35px 25px 100px;
+  border: 1px solid grey;
+}
+.recover-pass-form .recovery-guide {
+  width: 80%;
+}
+.recover-pass-form .recovery-guide p {
+  text-align: center;
+  color: black;
+}
+.recover-pass-form .recover-pass-title {
+  margin-bottom: 30px;
+}
+.recover-pass-form .recover-pass-title h1 {
+  color: #467fd7;
+  font-weight: bold;
+}
+.recover-pass-form .input-group {
+  margin-bottom: 20px;
+}
+.recover-pass-form .input-group .input-group-text {
+  border-right: 0px;
+}
+.recover-pass-form .input-group .form-control {
+  border-left: 0px;
+}
+.recover-pass-form .recover-pass-btn-groups {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.recover-pass-form .recover-pass-btn-groups button {
+  width: 170px;
+  height: 40px;
+}
+.recover-pass-form .recover-pass-btn-groups #button-cancel-recover-pass {
+  background: #aaaaaa;
+  color: white;
+}
+.recover-pass-form .recover-pass-btn-groups #button-accept-recover-pass {
+  background: #467fd7;
+}
+.recover-pass-form .bottom-line-recover-pass-form a {
+  color: #aaaaaa;
+  font-size: 15px;
+}
+
+/*# sourceMappingURL=recover-pass-form.component.css.map */

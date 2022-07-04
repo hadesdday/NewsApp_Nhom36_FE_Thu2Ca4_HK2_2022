@@ -1,33 +1,20 @@
-.signin-form {
+
+.change-pass-form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 400px;
-  padding: 35px 25px 5px;
+  width: 450px;
+  padding: 35px 25px 100px;
   border: 1px solid grey;
 
-  .signin-title {
+  .change-pass-title {
     margin-bottom: 30px;
-
     h1 {
       color: #467fd7;
       font-weight: bold;
     }
 
 
-  }
-
-  .term-check {
-    width: 100%;
-    display: flex;
-    margin-bottom: 20px;
-    justify-content: space-between;
-
-    .forgot-pass {
-      a {
-        color: #aaaaaa;
-      }
-    }
   }
 
   .input-group {
@@ -42,22 +29,19 @@
     }
   }
 
-  .signin-btn-groups {
+  .change-pass-btn-groups {
     width: 100%;
     display: flex;
-    justify-content: center;
-    margin-bottom: 100px;
-    button {
+    justify-content: space-between;
+    button{
       width: 135px;
       height: 40px;
     }
-
-    #button-cancel-signin {
+    #button-cancel-change-pass{
       background: #aaaaaa;
       color: white;
     }
-
-    #button-accept-signin {
+    #button-accept-change-pass{
       background: #467fd7;
     }
   }

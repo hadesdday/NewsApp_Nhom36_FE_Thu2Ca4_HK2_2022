@@ -1,12 +1,18 @@
-.signin-form {
+.recover-pass-form {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 400px;
-  padding: 35px 25px 5px;
+  padding: 35px 25px 100px;
   border: 1px solid grey;
-
-  .signin-title {
+  .recovery-guide{
+    width: 80%;
+    p{
+      text-align: center;
+      color: black;
+    }
+  }
+  .recover-pass-title {
     margin-bottom: 30px;
 
     h1 {
@@ -17,18 +23,6 @@
 
   }
 
-  .term-check {
-    width: 100%;
-    display: flex;
-    margin-bottom: 20px;
-    justify-content: space-between;
-
-    .forgot-pass {
-      a {
-        color: #aaaaaa;
-      }
-    }
-  }
 
   .input-group {
     margin-bottom: 20px;
@@ -42,23 +36,28 @@
     }
   }
 
-  .signin-btn-groups {
+  .recover-pass-btn-groups {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-bottom: 100px;
+    margin-bottom: 10px;
     button {
-      width: 135px;
+      width: 170px;
       height: 40px;
     }
 
-    #button-cancel-signin {
+    #button-cancel-recover-pass {
       background: #aaaaaa;
       color: white;
     }
 
-    #button-accept-signin {
+    #button-accept-recover-pass {
       background: #467fd7;
     }
+  }
+  .bottom-line-recover-pass-form{
+    a{
+    color: #aaaaaa;
+    font-size: 15px;}
   }
 }
