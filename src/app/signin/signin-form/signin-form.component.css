@@ -1,0 +1,52 @@
+.signin-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  padding: 35px 25px 5px;
+  border: 1px solid grey;
+}
+.signin-form .signin-title {
+  margin-bottom: 30px;
+}
+.signin-form .signin-title h1 {
+  color: #467fd7;
+  font-weight: bold;
+}
+.signin-form .term-check {
+  width: 100%;
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: space-between;
+}
+.signin-form .term-check .forgot-pass a {
+  color: #aaaaaa;
+}
+.signin-form .input-group {
+  margin-bottom: 20px;
+}
+.signin-form .input-group .input-group-text {
+  border-right: 0px;
+}
+.signin-form .input-group .form-control {
+  border-left: 0px;
+}
+.signin-form .signin-btn-groups {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+.signin-form .signin-btn-groups button {
+  width: 135px;
+  height: 50px;
+}
+.signin-form .signin-btn-groups #button-cancel-signin {
+  background: #aaaaaa;
+  color: white;
+}
+.signin-form .signin-btn-groups #button-accept-signin {
+  background: #467fd7;
+}
+
+/*# sourceMappingURL=signin-form.component.css.map */

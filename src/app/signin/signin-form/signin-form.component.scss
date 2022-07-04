@@ -1,0 +1,64 @@
+.signin-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  padding: 35px 25px 5px;
+  border: 1px solid grey;
+
+  .signin-title {
+    margin-bottom: 30px;
+
+    h1 {
+      color: #467fd7;
+      font-weight: bold;
+    }
+
+
+  }
+
+  .term-check {
+    width: 100%;
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: space-between;
+
+    .forgot-pass {
+      a {
+        color: #aaaaaa;
+      }
+    }
+  }
+
+  .input-group {
+    margin-bottom: 20px;
+
+    .input-group-text {
+      border-right: 0px;
+    }
+
+    .form-control {
+      border-left: 0px;
+    }
+  }
+
+  .signin-btn-groups {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+    button {
+      width: 135px;
+      height: 50px;
+    }
+
+    #button-cancel-signin {
+      background: #aaaaaa;
+      color: white;
+    }
+
+    #button-accept-signin {
+      background: #467fd7;
+    }
+  }
+}
