@@ -1,0 +1,58 @@
+.container {
+  display: flex;
+  justify-content: center;
+
+  .left-panel {
+    display: flex;
+    width: 20%;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+
+    .img-group {
+      display: flex;
+      align-items: baseline;
+      .fa-camera{
+        position: relative;
+        right: 30px;
+      }
+      .profile-img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin-bottom: 20px;
+      }
+    }
+
+    .link-group {
+      margin-top: 80px;
+
+      .red {
+        color: red;
+      }
+    }
+  }
+
+  .right-panel {
+    border: 1px solid black;
+    padding: 30px 20px 60px;
+
+    .profile-title {
+      color: #467fd7;
+      font-weight: bold;
+    }
+
+    .input-group {
+      margin-top: 20px;
+
+      .input-group-text {
+        width: 200px;
+      }
+
+      .form-control {
+        width: 700px;
+
+      }
+    }
+  }
+}

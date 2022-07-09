@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+.container .contact-panel {
+  border: 1px solid black;
+  padding: 30px 20px 60px;
+}
+.container .contact-panel .contact-title {
+  color: #467fd7;
+  font-weight: bold;
+}
+.container .contact-panel .input-group {
+  margin-top: 20px;
+}
+.container .contact-panel .input-group .input-group-text {
+  width: 200px;
+}
+.container .contact-panel .input-group .form-control {
+  width: 700px;
+}
+.container .contact-panel .input-group .context {
+  height: 150px;
+}
+
+/*# sourceMappingURL=contact.component.css.map */

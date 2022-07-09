@@ -50,6 +50,8 @@ import {RegisterModule} from "./register/register.module";
 import {AppRoutingModule} from "./app-routing.module";
 import {HttpClientModule} from "@angular/common/http";
 import {SigninModule} from "./signin/signin.module";
+import {ProfileModule} from "./profile/profile.module";
+import {ContactModule} from "./contact/contact.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -100,6 +102,8 @@ import {SigninModule} from "./signin/signin.module";
     AppRoutingModule,
     RegisterModule,
     SigninModule,
+    ProfileModule,
+    ContactModule,
   ],
   providers: [MdbCookiesManagementService, MdbStorageManagementService],
   bootstrap: [AppComponent],
