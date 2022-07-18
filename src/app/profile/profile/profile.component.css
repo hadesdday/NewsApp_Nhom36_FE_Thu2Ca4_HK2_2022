@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+.container .left-panel {
+  display: flex;
+  width: 20%;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+}
+.container .left-panel .img-group {
+  display: flex;
+  align-items: baseline;
+}
+.container .left-panel .img-group .fa-camera {
+  position: relative;
+  right: 30px;
+}
+.container .left-panel .img-group .profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+.container .left-panel .link-group {
+  margin-top: 80px;
+}
+.container .left-panel .link-group .red {
+  color: red;
+}
+.container .right-panel {
+  border: 1px solid black;
+  padding: 30px 20px 60px;
+}
+.container .right-panel .profile-title {
+  color: #467fd7;
+  font-weight: bold;
+}
+.container .right-panel .input-group {
+  margin-top: 20px;
+}
+.container .right-panel .input-group .input-group-text {
+  width: 200px;
+}
+.container .right-panel .input-group .form-control {
+  width: 700px;
+}
+
+/*# sourceMappingURL=profile.component.css.map */

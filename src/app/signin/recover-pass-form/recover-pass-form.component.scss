@@ -1,0 +1,63 @@
+.recover-pass-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  padding: 35px 25px 100px;
+  border: 1px solid grey;
+  .recovery-guide{
+    width: 80%;
+    p{
+      text-align: center;
+      color: black;
+    }
+  }
+  .recover-pass-title {
+    margin-bottom: 30px;
+
+    h1 {
+      color: #467fd7;
+      font-weight: bold;
+    }
+
+
+  }
+
+
+  .input-group {
+    margin-bottom: 20px;
+
+    .input-group-text {
+      border-right: 0px;
+    }
+
+    .form-control {
+      border-left: 0px;
+    }
+  }
+
+  .recover-pass-btn-groups {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    button {
+      width: 170px;
+      height: 40px;
+    }
+
+    #button-cancel-recover-pass {
+      background: #aaaaaa;
+      color: white;
+    }
+
+    #button-accept-recover-pass {
+      background: #467fd7;
+    }
+  }
+  .bottom-line-recover-pass-form{
+    a{
+    color: #aaaaaa;
+    font-size: 15px;}
+  }
+}

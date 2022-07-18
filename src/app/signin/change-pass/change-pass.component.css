@@ -1,0 +1,42 @@
+.change-pass-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 450px;
+  padding: 35px 25px 100px;
+  border: 1px solid grey;
+}
+.change-pass-form .change-pass-title {
+  margin-bottom: 30px;
+}
+.change-pass-form .change-pass-title h1 {
+  color: #467fd7;
+  font-weight: bold;
+}
+.change-pass-form .input-group {
+  margin-bottom: 20px;
+}
+.change-pass-form .input-group .input-group-text {
+  border-right: 0px;
+}
+.change-pass-form .input-group .form-control {
+  border-left: 0px;
+}
+.change-pass-form .change-pass-btn-groups {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.change-pass-form .change-pass-btn-groups button {
+  width: 135px;
+  height: 40px;
+}
+.change-pass-form .change-pass-btn-groups #button-cancel-change-pass {
+  background: #aaaaaa;
+  color: white;
+}
+.change-pass-form .change-pass-btn-groups #button-accept-change-pass {
+  background: #467fd7;
+}
+
+/*# sourceMappingURL=change-pass.component.css.map */

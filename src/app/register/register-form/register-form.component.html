@@ -1,0 +1,66 @@
+<div class="container d-flex justify-content-center">
+  <div class="register-form justify-content-center ">
+    <div class="register-title"><h1>Đăng kí</h1></div>
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+      <div class="input-group flex-nowrap ">
+        <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-user"></i></span>
+        <input formControlName="username" required type="text" class="form-control" placeholder="Nhập email/Tài khoản"
+               aria-label="Username"
+               aria-describedby="addon-wrapping"/>
+      </div>
+      <div formGroupName="pw">
+        <div class="input-group flex-nowrap ">
+          <span class="input-group-text" id="addon-wrapping2"><i class="fa-solid fa-lock"></i></span>
+          <input formControlName="password" required type="password" class="form-control" placeholder="Nhập mật khẩu"
+                 aria-label="password"
+                 aria-describedby="addon-wrapping"
+          />
+        </div>
+        <div class="password-alert" role="alert"
+              *ngIf="registerForm.hasError('passwordnotmatch', ['pw']) &&
+    registerForm.get('pw')!.touched">
+            Password does not match!
+          </div>
+        <div class="input-group flex-nowrap ">
+
+          <span class="input-group-text" id="addon-wrapping3"><i class="fa-solid fa-lock"></i></span>
+          <input formControlName="re_password" required type="password"
+                 class="form-control" placeholder="Xác nhận mật khẩu"
+                 aria-label="re-password"
+                 aria-describedby="addon-wrapping"
+                 name="re_password"
+
+          />
+        </div>
+      </div>
+      <div *ngIf="submitted && registerForm.controls.termCheck.errors" >Accept Ts & Cs is required</div>
+      <div class="term-check">
+        <div class="form-check ">
+          <input
+            mdbCheckbox
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="flexCheckChecked"
+            formControlName="termCheck"
+          />
+          <label class="form-check-label" for="flexCheckChecked">
+            Đồng ý với
+          </label>
+          <a href="#"> Điều khoản sử dụng</a>
+        </div>
+      </div>
+      <div class="register-btn-groups">
+        <button type="submit" class="btn btn-primary btn-rounded" id="button-accept-register" mdbRipple
+                rippleColor="danger"
+        >
+          Đăng kí
+        </button>
+        <button class="btn btn-rounded" type="button" id="button-cancel-register" mdbRipple rippleColor="danger">
+          Hủy
+        </button>
+      </div>
+    </form>
+    <div class="bottom-line-register-form">Đã có tài khoản? <a href="register">Đăng nhập.</a></div>
+  </div>
+</div>
