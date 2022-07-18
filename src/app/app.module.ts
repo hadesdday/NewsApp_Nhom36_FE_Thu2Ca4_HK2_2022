@@ -52,6 +52,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {SigninModule} from "./signin/signin.module";
 import {ProfileModule} from "./profile/profile.module";
 import {ContactModule} from "./contact/contact.module";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [AppComponent],
@@ -104,6 +105,9 @@ import {ContactModule} from "./contact/contact.module";
     SigninModule,
     ProfileModule,
     ContactModule,
+    FormsModule,
+    ReactiveFormsModule,
+
   ],
   providers: [MdbCookiesManagementService, MdbStorageManagementService],
   bootstrap: [AppComponent],
