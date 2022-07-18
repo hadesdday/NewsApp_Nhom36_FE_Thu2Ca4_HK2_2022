@@ -4,11 +4,12 @@
   flex-direction: column;
   align-items: center;
   width: 400px;
-  padding: 35px 25px 100px;
+  padding: 35px 25px 0px;
   border: 1px solid grey;
 
   .register-title {
     margin-bottom: 30px;
+
     h1 {
       color: #467fd7;
       font-weight: bold;
@@ -35,20 +36,34 @@
     }
   }
 
+  .password-alert {
+    text-align: center;
+    border-radius: 0%;
+    background: #fed6dd;
+    color: white;
+  }
+
   .register-btn-groups {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    button{
+
+    button {
       width: 135px;
       height: 40px;
     }
-    #button-cancel-register{
+
+    #button-cancel-register {
       background: #aaaaaa;
       color: white;
     }
-    #button-accept-register{
+
+    #button-accept-register {
       background: #467fd7;
     }
+  }
+
+  .bottom-line-register-form {
+    margin-top: 100px;
   }
 }

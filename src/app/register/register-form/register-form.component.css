@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   width: 400px;
-  padding: 35px 25px 100px;
+  padding: 35px 25px 0px;
   border: 1px solid grey;
 }
 .register-form .register-title {
@@ -27,6 +27,12 @@
 .register-form .input-group .form-control {
   border-left: 0px;
 }
+.register-form .password-alert {
+  text-align: center;
+  border-radius: 0%;
+  background: #fed6dd;
+  color: white;
+}
 .register-form .register-btn-groups {
   width: 100%;
   display: flex;
@@ -42,6 +48,9 @@
 }
 .register-form .register-btn-groups #button-accept-register {
   background: #467fd7;
+}
+.register-form .bottom-line-register-form {
+  margin-top: 100px;
 }
 
 /*# sourceMappingURL=register-form.component.css.map */
