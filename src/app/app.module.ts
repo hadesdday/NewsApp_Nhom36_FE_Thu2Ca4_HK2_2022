@@ -47,15 +47,18 @@ import { MdbMentionModule } from 'mdb-angular-mention';
 import { MdbCookiesManagementService } from 'mdb-angular-cookies-management';
 import { MdbStorageManagementService } from 'mdb-angular-storage-management';
 import {RegisterModule} from "./register/register.module";
-import {AppRoutingModule} from "./app-routing.module";
-import {HttpClientModule} from "@angular/common/http";
 import {SigninModule} from "./signin/signin.module";
 import {ProfileModule} from "./profile/profile.module";
 import {ContactModule} from "./contact/contact.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-
+import { RouterModule } from '@angular/router';
+import { HttpClientModule } from "@angular/common/http";
+import { AppRoutingModule } from "./app-routing.module";
+import { HomeModule } from './pages/home/home.module';
+import { FooterComponent } from './shared/footer/footer.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, NavbarComponent, FooterComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -107,9 +110,12 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     ContactModule,
     FormsModule,
     ReactiveFormsModule,
-
+    RouterModule,
+    AppRoutingModule,
+    HttpClientModule,
+    HomeModule
   ],
   providers: [MdbCookiesManagementService, MdbStorageManagementService],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
