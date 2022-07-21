@@ -1,38 +1,42 @@
 <div class="container d-flex justify-content-center">
   <div class="signin-form justify-content-center ">
     <div class="signin-title"><h1>Đăng nhập</h1></div>
-    <div class="input-group flex-nowrap ">
-      <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-user"></i></span>
-      <input type="text" class="form-control" placeholder="Nhập email/Tài khoản" aria-label="Username"
-             aria-describedby="addon-wrapping"/>
-    </div>
-    <div class="input-group flex-nowrap ">
-      <span class="input-group-text" id="addon-wrapping2"><i class="fa-solid fa-lock"></i></span>
-      <input type="text" class="form-control" placeholder="Nhập mật khẩu" aria-label="password"
-             aria-describedby="addon-wrapping"/>
-    </div>
-
-    <div class="term-check">
-      <div class="form-check ">
-        <input
-          mdbCheckbox
-          class="form-check-input"
-          type="checkbox"
-          value=""
-          id="flexCheckChecked"
-        />
-        <label class="form-check-label" for="flexCheckChecked">
-          Ghi nhớ đăng nhập
-        </label>
-
+    <form [formGroup]="siginForm" (ngSubmit)="sigin()">
+      <div class="input-group flex-nowrap ">
+        <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-user"></i></span>
+        <input formControlName="username" type="text" class="form-control" placeholder="Nhập email/Tài khoản" aria-label="Username"
+               aria-describedby="addon-wrapping"/>
       </div>
-      <div class="forgot-pass"><a href="recovery-password">Quên mật khẩu?</a></div>
-    </div>
-    <div class="signin-btn-groups">
-      <button class="btn btn-primary btn-rounded" type="button" id="button-accept-signin" mdbRipple rippleColor="danger">
-        Đăng nhập
-      </button>
-    </div>
+      <div class="input-group flex-nowrap ">
+        <span class="input-group-text" id="addon-wrapping2"><i class="fa-solid fa-lock"></i></span>
+        <input formControlName="password" type="password" class="form-control" placeholder="Nhập mật khẩu" aria-label="password"
+               aria-describedby="addon-wrapping"/>
+      </div>
+
+      <div class="term-check">
+        <div class="form-check ">
+          <input
+            mdbCheckbox
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="flexCheckChecked"
+            formControlName="rememberCheck"
+          />
+          <label class="form-check-label" for="flexCheckChecked">
+            Ghi nhớ đăng nhập
+          </label>
+
+        </div>
+        <div class="forgot-pass"><a href="recovery-password" >Quên mật khẩu?</a></div>
+      </div>
+      <div class="signin-btn-groups">
+        <button class="btn btn-primary btn-rounded"  type="submit" id="button-accept-signin" mdbRipple
+                rippleColor="danger">
+          Đăng nhập
+        </button>
+      </div>
+    </form>
     <div class="bottom-line-signin-form">Chưa có tài khoản? <a href="register">Đăng kí.</a></div>
   </div>
 </div>
