@@ -5,6 +5,7 @@ import { SigninRoutingModule } from './signin-routing.module';
 import { SigninFormComponent } from './signin-form/signin-form.component';
 import { RecoverPassFormComponent } from './recover-pass-form/recover-pass-form.component';
 import { ChangePassComponent } from './change-pass/change-pass.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -13,10 +14,11 @@ import { ChangePassComponent } from './change-pass/change-pass.component';
     RecoverPassFormComponent,
     ChangePassComponent
   ],
-  imports: [
-    CommonModule,
-    SigninRoutingModule
-  ],
+    imports: [
+        CommonModule,
+        SigninRoutingModule,
+        ReactiveFormsModule
+    ],
   exports:[
     SigninFormComponent
   ]
