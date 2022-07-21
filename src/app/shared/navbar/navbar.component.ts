@@ -8,14 +8,19 @@ declare var $: any;
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  keyword!: string;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  // showSearchModal() {
-  //   $(".search-modal > form").removeClass("d-none");
-  // }
+  openSearchBox() {
+    $("#search__overlay").fadeIn(500);
+    $("input[name='keyword']").val("");
+  }
 
+  closeSearchBox() {
+    $("#search__overlay").fadeOut(500);
+  }
 }
