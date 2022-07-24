@@ -113,7 +113,8 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
     RouterModule,
     AppRoutingModule,
     HttpClientModule,
-    HomeModule
+    HomeModule,
+    BrowserModule
   ],
   providers: [MdbCookiesManagementService, MdbStorageManagementService],
   bootstrap: [AppComponent],

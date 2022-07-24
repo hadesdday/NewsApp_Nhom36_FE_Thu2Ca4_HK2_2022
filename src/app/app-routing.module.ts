@@ -4,11 +4,13 @@ import { RouterModule, Routes } from '@angular/router';
 import {RegisterFormComponent} from "./register/register-form/register-form.component";
 import {SigninFormComponent} from "./signin/signin-form/signin-form.component";
 import {ChangePassComponent} from "./signin/change-pass/change-pass.component";
+import {ProfileComponent} from "./profile/profile/profile.component";
 
 const routes: Routes = [
   {path: 'register', component: RegisterFormComponent},
   {path:'signin',component:SigninFormComponent},
   {path:'change-password',component:ChangePassComponent},
+  {path:'profile',component:ProfileComponent},
   { path: '', pathMatch: 'full', redirectTo: '/home' },
   { path: '**', pathMatch: 'full', redirectTo: '/home' },
 ];

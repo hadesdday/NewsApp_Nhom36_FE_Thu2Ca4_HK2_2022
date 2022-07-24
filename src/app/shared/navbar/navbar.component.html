@@ -4,6 +4,20 @@
         <form class="d-flex" style="width: 60%;">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         </form>
+      <div class="justify-content-end" *ngIf="!currentUser.username ">
+        <ul class="navbar-nav me-auto my-2 my-lg-0" style="--bs-scroll-height: 100px;">
+          <li class="nav-item">
+            <a class="nav-link active" href="/signin"><button class="btn btn-rounded btn-subscribe">Đăng nhập</button></a>
+          </li>
+        </ul>
+      </div>
+      <div class="justify-content-end" *ngIf="currentUser.username">
+        <ul class="navbar-nav me-auto my-2 my-lg-0" style="--bs-scroll-height: 100px;">
+          <li class="nav-item">
+            <a class="nav-link active" href="/profile"><button class="btn btn-rounded btn-subscribe">Profile</button></a>
+          </li>
+        </ul>
+      </div>
         <div class="justify-content-end">
             <ul class="navbar-nav me-auto my-2 my-lg-0" style="--bs-scroll-height: 100px;">
                 <li class="nav-item">

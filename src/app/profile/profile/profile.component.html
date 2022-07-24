@@ -1,75 +1,96 @@
 <div class="container">
   <div class="left-panel ">
     <div class="img-group">
-    <img
-      src="https://mdbootstrap.com/img/new/standard/city/047.webp"
-      class="profile-img "
-      alt=""
-    />
+      <img
+        src="https://mdbootstrap.com/img/new/standard/city/047.webp"
+        class="profile-img "
+        alt=""
+      />
       <i class="fas fa-camera fa-lg"><a href=""></a></i>
     </div>
-    <div><strong>Họ và tên</strong></div>
+    <div><strong>họ và tên</strong></div>
     <div class="link-group">
-    <div><a href="/change-password">Thay đổi mật khẩu</a></div>
-    <div><a href="#">Tin đã lưu</a></div>
-    <div><a href="#">Tin đã đọc</a></div>
-    <div><a href="#" class="red">Xóa tài khoản</a></div>
+      <div><a href="/change-password">Thay đổi mật khẩu</a></div>
+      <div><a href="#">Tin đã lưu</a></div>
+      <div><a href="#">Tin đã đọc</a></div>
+      <div><a href="#" class="red">Xóa tài khoản</a></div>
     </div>
   </div>
   <div class="right-panel w-50 ">
     <div class="profile-title"><h1>Tài khoản</h1></div>
-    <div class="input-group flex-nowrap">
-      <span class="input-group-text border-0" id="input-email"><strong>Email</strong></span>
-      <input type="text" class="form-control" placeholder="Email" aria-label="email"
-             aria-describedby="addon-wrapping"/>
-    </div>
-    <div class="input-group flex-nowrap">
-      <span class="input-group-text border-0" id="input-phone"><strong>Điện thoại</strong></span>
-      <input type="text" class="form-control" placeholder="Điện thoại" aria-label="phone"
-             aria-describedby="addon-wrapping"/>
-    </div>
-    <div class="input-group flex-nowrap">
-      <span class="input-group-text border-0" id="input-name"><strong>Họ và tên</strong></span>
-      <input type="text" class="form-control" placeholder="Họ và tên" aria-label="name"
-             aria-describedby="addon-wrapping"/>
-    </div>
-    <div class="input-group flex-nowrap">
-      <span class="input-group-text border-0" id="input-address"><strong>Địa chỉ</strong></span>
-      <input type="text" class="form-control" placeholder="Địa chỉ" aria-label="address"
-             aria-describedby="addon-wrapping"/>
-    </div>
-    <div class="input-group flex-nowrap">
-      <span class="input-group-text border-0" id="input-birthdate"><strong>Ngày sinh</strong></span>
-      <input type="date" class="form-control " placeholder="Ngày sinh" aria-label="birthdate"
-             aria-describedby="addon-wrapping"/>
-    </div>
-    <div class="input-group flex-nowrap">
-      <span class="input-group-text border-0" id="input-gender"><strong>Giới tính</strong></span>
-      <div>
-        <div class="form-check form-check-inline">
-          <input
-            mdbRadio
-            class="form-check-input"
-            type="radio"
-            name="inlineRadioOptions"
-            id="inlineRadio1"
-            value="male"
-          />
-          <label class="form-check-label" for="inlineRadio1">Nam</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input
-            mdbRadio
-            class="form-check-input"
-            type="radio"
-            name="inlineRadioOptions"
-            id="inlineRadio2"
-            value="female"
-          />
-          <label class="form-check-label" for="inlineRadio2">Nữ</label>
+    <form [formGroup]="infoForm" (ngSubmit)="changeInfo()">
+      <div class="input-group flex-nowrap">
+        <span class="input-group-text border-0" id="input-email"><strong>Email</strong></span>
+        <input formControlName="email" type="text" class="form-control" placeholder="email" aria-label="email"
+               aria-describedby="addon-wrapping" />
+      </div>
+      <div class="input-group flex-nowrap">
+        <span class="input-group-text border-0" id="input-phone"><strong>Điện thoại</strong></span>
+        <input formControlName="phone" type="text" class="form-control" placeholder="Điện thoại" aria-label="phone"
+               aria-describedby="addon-wrapping" />
+      </div>
+      <div class="input-group flex-nowrap">
+        <span class="input-group-text border-0" id="input-name"><strong>Họ và tên</strong></span>
+        <input formControlName="name" type="text" class="form-control" placeholder="Họ và tên" aria-label="name"
+               aria-describedby="addon-wrapping"/>
+      </div>
+      <div class="input-group flex-nowrap">
+        <span class="input-group-text border-0" id="input-address"><strong>Địa chỉ</strong></span>
+        <input formControlName="address" type="text" class="form-control" placeholder="Địa chỉ" aria-label="address"
+               aria-describedby="addon-wrapping"/>
+      </div>
+      <div class="input-group flex-nowrap">
+        <span class="input-group-text border-0" id="input-birthdate"><strong>Ngày sinh</strong></span>
+        <input formControlName="dateBirth" type="date" class="form-control " placeholder="Ngày sinh" aria-label="birthdate"
+               aria-describedby="addon-wrapping" />
+      </div>
+      <div class="input-group flex-nowrap">
+        <span class="input-group-text border-0" id="input-gender"><strong>Giới tính</strong></span>
+        <div>
+          <div class="form-check form-check-inline">
+            <input
+              mdbRadio
+              class="form-check-input"
+              type="radio"
+              name="inlineRadioOptions"
+              id="inlineRadio1"
+              value="male"
+            />
+            <label class="form-check-label" for="inlineRadio1">Nam</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input
+              mdbRadio
+              class="form-check-input"
+              type="radio"
+              name="inlineRadioOptions"
+              id="inlineRadio2"
+              value="female"
+            />
+            <label class="form-check-label" for="inlineRadio2">Nữ</label>
+          </div>
         </div>
       </div>
-    </div>
-
+      <div class="profile-buttons">
+        <div class="justify-content-end">
+          <ul class="navbar-nav me-auto my-2 my-lg-0" style="--bs-scroll-height: 100px;">
+            <li class="nav-item">
+              <a class="nav-link active" href="#" (click)="signOut()">
+                <button class="btn btn-rounded btn-subscribe">Đăng xuất</button>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="justify-content-end">
+          <ul class="navbar-nav me-auto my-2 my-lg-0" style="--bs-scroll-height: 100px;">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">
+                <button class="btn btn-rounded btn-subscribe" type="submit">Lưu</button>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </form>
   </div>
 </div>

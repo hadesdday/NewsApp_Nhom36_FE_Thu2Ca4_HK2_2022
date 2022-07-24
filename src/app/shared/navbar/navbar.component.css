@@ -1,0 +1,25 @@
+#custom-brand:hover {
+  opacity: 0.5;
+}
+
+.custom-navbar {
+  border-bottom: 1px solid black;
+}
+
+.news-topic:hover {
+  opacity: 0.5;
+}
+
+.btn-subscribe {
+  background-color: #567b95;
+  color: white;
+  font-size: smaller;
+  padding: 4px 10px;
+  transition: ease 0.1s;
+}
+
+.custom-nav {
+  margin: -8px 100px;
+}
+
+/*# sourceMappingURL=navbar.component.css.map */

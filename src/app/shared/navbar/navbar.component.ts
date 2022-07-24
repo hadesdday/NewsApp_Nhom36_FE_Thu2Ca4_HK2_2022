@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {TokenStorageService} from "../../_service/token-storage.service";
 
 declare var $: any;
 
@@ -8,10 +9,13 @@ declare var $: any;
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  currentUser: any;
 
-  constructor() { }
+  constructor(private tokenStorage: TokenStorageService) { }
 
   ngOnInit(): void {
+    this.currentUser = this.tokenStorage.getUser();
+    alert(this.currentUser.username)
   }
 
   // showSearchModal() {
