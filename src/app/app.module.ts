@@ -56,6 +56,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from "./app-routing.module";
 import { SharedModule } from './shared/shared.module';
 import { SearchResultModule } from './pages/search-result/search-result.module';
+import {HomeModule} from "./pages/home/home.module";
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -112,8 +113,11 @@ import { SearchResultModule } from './pages/search-result/search-result.module';
     RouterModule,
     AppRoutingModule,
     HttpClientModule,
+    HomeModule,
+    BrowserModule,
     SharedModule,
     SearchResultModule
+
   ],
   providers: [MdbCookiesManagementService, MdbStorageManagementService],
   bootstrap: [AppComponent],

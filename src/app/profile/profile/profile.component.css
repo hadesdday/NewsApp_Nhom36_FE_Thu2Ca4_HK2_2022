@@ -46,5 +46,9 @@
 .container .right-panel .input-group .form-control {
   width: 700px;
 }
+.container .right-panel .profile-buttons {
+  display: flex;
+  justify-content: space-between;
+}
 
 /*# sourceMappingURL=profile.component.css.map */

@@ -29,29 +29,39 @@ export class SigninFormComponent implements OnInit {
   }
 
   sigin() {
-    // this.http.get<any>("http://localhost:3000/user").subscribe(res => {
-    //   const user = res.find((a: any) => {
-    //     return a.username === this.siginForm.value.username && a.password === this.siginForm.value.password
-    //   })
-    //   if (user) {
-    //     alert("login success")
-    //     this.siginForm.reset();
-    //   }
-    // })
-
-    this.authService.login(this.siginForm.value['username'],this.siginForm.value.password).subscribe(
-      data => {
-        this.tokenStorage.saveToken(data.accessToken);
-        this.tokenStorage.saveUser(this.siginForm.value['username'],this.siginForm.value.password);
-        this.isLoggedIn = true;
+    this.http.get<any>("http://localhost:3000/user").subscribe(res => {
+      const user = res.find((a: any) => {
+        return a.username === this.siginForm.value.username && a.password === this.siginForm.value.password
+      })
+      if (user) {
+        this.tokenStorage.saveUser(user);
+        console.log(user);
         alert("login success")
-        window.location.reload();
-      },
-      err => {
-        // this.errorMessage = err.error.message;
-        // this.isLoginFailed = true;
-        alert("login fail")
+        this.isLoggedIn = true;
+        this.siginForm.reset();
+        alert(this.tokenStorage.getUser().username)
+        this.router.navigate(['home'])
       }
-    );
+    })
+
+    // this.authService.login(this.siginForm.value['username'],this.siginForm.value.password).subscribe(
+    //   data => {
+    //     this.tokenStorage.saveToken(data.accessToken);
+    //     console.log(data.accessToken)
+    //     console.log(data)
+    //     this.tokenStorage.saveUser(data);
+    //     this.isLoggedIn = true;
+    //     alert("login success")
+    //     alert(this.tokenStorage.getUser().username)
+    //     this.router.navigate(['home'])
+    //
+    //   },
+    //   err => {
+    //     // this.errorMessage = err.error.message;
+    //     // this.isLoginFailed = true;
+    //     alert("login fail")
+    //     console.log(err.error.message)
+    //   }
+    // );
   }
 }

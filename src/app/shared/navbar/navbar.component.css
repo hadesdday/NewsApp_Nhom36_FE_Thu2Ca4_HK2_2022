@@ -1,0 +1,103 @@
+#custom-brand:hover {
+  opacity: 0.5;
+}
+
+.custom-navbar {
+  border-bottom: 1px solid black;
+}
+
+.news-topic:hover {
+  opacity: 0.5;
+}
+
+.btn-subscribe {
+  background-color: #567b95;
+  color: white;
+  font-size: smaller;
+  padding: 4px 10px;
+  transition: ease 0.1s;
+}
+
+.custom-nav {
+  margin: -8px 100px;
+}
+
+.mr-20 {
+  margin-right: 20px !important;
+}
+
+.button__search {
+  position: relative;
+  right: 30px;
+  height: 100%;
+}
+.button__search i {
+  margin-top: 10px;
+}
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  display: none;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.overlay-content {
+  position: relative;
+  top: 30%;
+  width: 80%;
+  text-align: center;
+  margin-top: 30px;
+  margin: auto;
+}
+
+.overlay .close {
+  display: flex;
+  justify-content: center;
+  font-size: 60px;
+  cursor: pointer;
+  color: white;
+}
+
+.overlay .close:hover {
+  color: #ccc;
+}
+
+.overlay input[type=text] {
+  padding: 15px;
+  font-size: 17px;
+  border: none;
+  float: left;
+  width: 80%;
+  background: white;
+}
+
+.overlay input[type=text]:hover {
+  background: #f1f1f1;
+}
+
+.overlay button {
+  float: left;
+  width: 20%;
+  padding: 15px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.overlay button:hover {
+  background: #bbb;
+}
+
+.main__navbar {
+  position: sticky;
+  top: 0;
+}
+
+/*# sourceMappingURL=navbar.component.css.map */

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {TokenStorageService} from "./_service/token-storage.service";
 
 declare var $: any;
 
@@ -9,10 +10,16 @@ declare var $: any;
 })
 export class AppComponent {
   title = 'News';
-  constructor() {
+  username?: string;
+  isLoggedIn = false;
+  constructor(private tokenStorageService: TokenStorageService) {
   }
   ngOnInit() {
-
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
+    if (this.isLoggedIn) {
+      const user = this.tokenStorageService.getUser();
+      this.username = user.username;
+    }
     window.addEventListener('scroll', () => {
       if ($(window).scrollTop() > 300) {
         $("#scrollToTop").addClass('show');
