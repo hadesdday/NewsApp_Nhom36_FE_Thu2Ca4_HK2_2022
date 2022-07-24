@@ -46,19 +46,19 @@ import { MdbTransferModule } from 'mdb-angular-transfer';
 import { MdbMentionModule } from 'mdb-angular-mention';
 import { MdbCookiesManagementService } from 'mdb-angular-cookies-management';
 import { MdbStorageManagementService } from 'mdb-angular-storage-management';
-import {RegisterModule} from "./register/register.module";
-import {SigninModule} from "./signin/signin.module";
-import {ProfileModule} from "./profile/profile.module";
-import {ContactModule} from "./contact/contact.module";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { RegisterModule } from "./register/register.module";
+import { SigninModule } from "./signin/signin.module";
+import { ProfileModule } from "./profile/profile.module";
+import { ContactModule } from "./contact/contact.module";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from "./app-routing.module";
-import { HomeModule } from './pages/home/home.module';
-import { FooterComponent } from './shared/footer/footer.component';
-import { NavbarComponent } from './shared/navbar/navbar.component';
+import { SharedModule } from './shared/shared.module';
+import { SearchResultModule } from './pages/search-result/search-result.module';
+import {HomeModule} from "./pages/home/home.module";
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, FooterComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -114,7 +114,10 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
     AppRoutingModule,
     HttpClientModule,
     HomeModule,
-    BrowserModule
+    BrowserModule,
+    SharedModule,
+    SearchResultModule
+
   ],
   providers: [MdbCookiesManagementService, MdbStorageManagementService],
   bootstrap: [AppComponent],

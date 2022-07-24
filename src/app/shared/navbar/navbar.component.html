@@ -1,3 +1,15 @@
+<div id="search__overlay" class="overlay">
+    <span class="close" (click)="closeSearchBox()" title="Close">×</span>
+    <div class="overlay-content d-flex justify-content-center">
+        <form class="w-100">
+            <input mdbInput type="text" class="form-control" placeholder="Tìm kiếm" aria-label="Search" name="keyword"
+                ngModel [(ngModel)]="keyword" [value]="keyword">
+            <a [routerLink]="['/search', keyword,'']" class="button__search btn bg-danger text-center" type="button"
+                (click)="closeSearchBox()"><i class="fas fa-search text-light"></i></a>
+        </form>
+    </div>
+</div>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <a class="navbar-brand fw-bold" routerLink="/home" title="Home"><span id="custom-brand">WORLDNOW</span></a>
@@ -18,18 +30,15 @@
           </li>
         </ul>
       </div>
+
+
         <div class="justify-content-end">
-            <ul class="navbar-nav me-auto my-2 my-lg-0" style="--bs-scroll-height: 100px;">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#"><button class="btn btn-rounded btn-subscribe">SUBSCRIBE
-                            NOW</button></a>
-                </li>
-            </ul>
+            <a class="mr-20" (click)="openSearchBox()"><i class="fas fa-search text-muted"></i></a>
         </div>
     </div>
 </nav>
-<nav class="navbar sticky-top navbar-expand-lg navbar-light custom-navbar bg-light">
-    <div class="container-fluid ">
+<nav class="navbar navbar-expand-lg navbar-light custom-navbar bg-light main__navbar">
+    <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
             aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"><i class="fa-solid fa-sliders"></i></span>

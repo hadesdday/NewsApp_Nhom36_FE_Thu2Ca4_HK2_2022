@@ -10,16 +10,20 @@ declare var $: any;
 })
 export class NavbarComponent implements OnInit {
   currentUser: any;
+  keyword!: string;
 
   constructor(private tokenStorage: TokenStorageService) { }
 
   ngOnInit(): void {
     this.currentUser = this.tokenStorage.getUser();
-    alert(this.currentUser.username)
   }
 
-  // showSearchModal() {
-  //   $(".search-modal > form").removeClass("d-none");
-  // }
+  openSearchBox() {
+    $("#search__overlay").fadeIn(500);
+    $("input[name='keyword']").val("");
+  }
 
+  closeSearchBox() {
+    $("#search__overlay").fadeOut(500);
+  }
 }
