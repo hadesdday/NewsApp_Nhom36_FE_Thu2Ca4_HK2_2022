@@ -8,7 +8,7 @@
       />
       <i class="fas fa-camera fa-lg"><a href=""></a></i>
     </div>
-    <div><strong>họ và tên</strong></div>
+    <div><strong>{{currentUser.name}}</strong></div>
     <div class="link-group">
       <div><a href="/change-password">Thay đổi mật khẩu</a></div>
       <div><a href="#">Tin đã lưu</a></div>
@@ -49,12 +49,16 @@
         <div>
           <div class="form-check form-check-inline">
             <input
+
               mdbRadio
               class="form-check-input"
               type="radio"
-              name="inlineRadioOptions"
+              name="gender"
               id="inlineRadio1"
               value="male"
+              formControlName="gender"
+              (change)="changeGender({e : $event})"
+
             />
             <label class="form-check-label" for="inlineRadio1">Nam</label>
           </div>
@@ -63,9 +67,12 @@
               mdbRadio
               class="form-check-input"
               type="radio"
-              name="inlineRadioOptions"
+              name="gender"
               id="inlineRadio2"
               value="female"
+              formControlName="gender"
+              (change)="changeGender({e : $event})"
+
             />
             <label class="form-check-label" for="inlineRadio2">Nữ</label>
           </div>

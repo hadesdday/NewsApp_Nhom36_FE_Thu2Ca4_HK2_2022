@@ -1,29 +1,42 @@
 <div class="container d-flex justify-content-center">
   <div class="change-pass-form justify-content-center ">
     <div class="change-pass-title"><h1>Thay đổi mật khẩu</h1></div>
-    <div class="input-group flex-nowrap ">
-      <span class="input-group-text" id="addon-wrapping1"><i class="fa-solid fa-lock"></i></span>
-      <input type="text" class="form-control" placeholder="Nhập mật khẩu cũ" aria-label="old-password"
-             aria-describedby="addon-wrapping"/>
-    </div>
-    <div class="input-group flex-nowrap ">
-      <span class="input-group-text" id="addon-wrapping2"><i class="fa-solid fa-lock"></i></span>
-      <input type="text" class="form-control" placeholder="Nhập mật khẩu mới" aria-label="new-password"
-             aria-describedby="addon-wrapping"/>
-    </div>
-    <div class="input-group flex-nowrap ">
-      <span class="input-group-text" id="addon-wrapping3"><i class="fa-solid fa-lock"></i></span>
-      <input type="text" class="form-control" placeholder="Xác nhận mật khẩu mới" aria-label="re-new-password"
-             aria-describedby="addon-wrapping"/>
-    </div>
-
-    <div class="change-pass-btn-groups">
-      <button class="btn btn-primary btn-rounded" type="button" id="button-accept-change-pass" mdbRipple rippleColor="danger">
-        Thay đổi
-      </button>
-      <button class="btn btn-rounded" type="button" id="button-cancel-change-pass" mdbRipple rippleColor="danger">
-        Hủy
-      </button>
-    </div>
+    <form [formGroup]="changePassForm" (ngSubmit)="changePassword()">
+      <div *ngIf="submitted && isWrongPass" >Sai mật khẩu cũ</div>
+      <div class="input-group flex-nowrap ">
+        <span class="input-group-text" id="addon-wrapping1"><i class="fa-solid fa-lock"></i></span>
+        <input formControlName="oldPass" type="password" class="form-control" placeholder="Nhập mật khẩu cũ"
+               aria-label="old-password"
+               aria-describedby="addon-wrapping"/>
+      </div>
+      <div formGroupName="new_pw">
+        <div class="input-group flex-nowrap ">
+          <span class="input-group-text" id="addon-wrapping2"><i class="fa-solid fa-lock"></i></span>
+          <input formControlName="newPass" type="password" class="form-control" placeholder="Nhập mật khẩu mới"
+                 aria-label="new-password"
+                 aria-describedby="addon-wrapping"/>
+        </div>
+        <div class="password-alert" role="alert"
+             *ngIf="changePassForm.hasError('passwordnotmatch', ['new_pw']) &&
+    changePassForm.get('new_pw')!.touched">
+          Password does not match!
+        </div>
+        <div class="input-group flex-nowrap ">
+          <span class="input-group-text" id="addon-wrapping3"><i class="fa-solid fa-lock"></i></span>
+          <input formControlName="re_newPass" type="password" class="form-control" placeholder="Xác nhận mật khẩu mới"
+                 aria-label="re-new-password"
+                 aria-describedby="addon-wrapping"/>
+        </div>
+      </div>
+      <div class="change-pass-btn-groups">
+        <button class="btn btn-primary btn-rounded" type="submit" id="button-accept-change-pass" mdbRipple
+                rippleColor="danger">
+          Thay đổi
+        </button>
+        <button class="btn btn-rounded" type="button" id="button-cancel-change-pass" mdbRipple rippleColor="danger">
+          Hủy
+        </button>
+      </div>
+    </form>
   </div>
 </div>
