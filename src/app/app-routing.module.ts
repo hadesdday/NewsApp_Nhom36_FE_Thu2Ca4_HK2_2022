@@ -1,22 +1,21 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-import {RegisterFormComponent} from "./register/register-form/register-form.component";
-import {SigninFormComponent} from "./signin/signin-form/signin-form.component";
-import {ChangePassComponent} from "./signin/change-pass/change-pass.component";
-import {ProfileComponent} from "./profile/profile/profile.component";
+import { ContactComponent } from './pages/contact/contact.component';
+import { HomeComponent } from './pages/home/home.component';
+import { NotfoundComponent } from './pages/notfound/notfound.component';
+import { ProfileComponent } from "./profile/profile/profile.component";
 
 const routes: Routes = [
-  {path: 'register', component: RegisterFormComponent},
-  {path:'signin',component:SigninFormComponent},
-  {path:'change-password',component:ChangePassComponent},
-  {path:'profile',component:ProfileComponent},
+  { path: 'profile', component: ProfileComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: '404', component: NotfoundComponent },
   { path: '', pathMatch: 'full', redirectTo: '/home' },
+  // { path: '**', redirectTo: '/404' },
 ];
 
 @NgModule({
-  imports: [CommonModule, RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

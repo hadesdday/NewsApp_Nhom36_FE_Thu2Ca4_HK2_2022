@@ -1,11 +1,8 @@
-<div class="container">
+<app-navbar></app-navbar>
+<div class="container mt-5">
   <div class="left-panel ">
     <div class="img-group">
-      <img
-        src="https://mdbootstrap.com/img/new/standard/city/047.webp"
-        class="profile-img "
-        alt=""
-      />
+      <img src="https://mdbootstrap.com/img/new/standard/city/047.webp" class="profile-img " alt="" />
       <i class="fas fa-camera fa-lg"><a href=""></a></i>
     </div>
     <div><strong>{{currentUser.name}}</strong></div>
@@ -17,63 +14,46 @@
     </div>
   </div>
   <div class="right-panel w-50 ">
-    <div class="profile-title"><h1>Tài khoản</h1></div>
+    <div class="profile-title">
+      <h1>Tài khoản</h1>
+    </div>
     <form [formGroup]="infoForm" (ngSubmit)="changeInfo()">
       <div class="input-group flex-nowrap">
         <span class="input-group-text border-0" id="input-email"><strong>Email</strong></span>
         <input formControlName="email" type="text" class="form-control" placeholder="email" aria-label="email"
-               aria-describedby="addon-wrapping" />
+          aria-describedby="addon-wrapping" />
       </div>
       <div class="input-group flex-nowrap">
         <span class="input-group-text border-0" id="input-phone"><strong>Điện thoại</strong></span>
         <input formControlName="phone" type="text" class="form-control" placeholder="Điện thoại" aria-label="phone"
-               aria-describedby="addon-wrapping" />
+          aria-describedby="addon-wrapping" />
       </div>
       <div class="input-group flex-nowrap">
         <span class="input-group-text border-0" id="input-name"><strong>Họ và tên</strong></span>
         <input formControlName="name" type="text" class="form-control" placeholder="Họ và tên" aria-label="name"
-               aria-describedby="addon-wrapping"/>
+          aria-describedby="addon-wrapping" />
       </div>
       <div class="input-group flex-nowrap">
         <span class="input-group-text border-0" id="input-address"><strong>Địa chỉ</strong></span>
         <input formControlName="address" type="text" class="form-control" placeholder="Địa chỉ" aria-label="address"
-               aria-describedby="addon-wrapping"/>
+          aria-describedby="addon-wrapping" />
       </div>
       <div class="input-group flex-nowrap">
         <span class="input-group-text border-0" id="input-birthdate"><strong>Ngày sinh</strong></span>
-        <input formControlName="dateBirth" type="date" class="form-control " placeholder="Ngày sinh" aria-label="birthdate"
-               aria-describedby="addon-wrapping" />
+        <input formControlName="dateBirth" type="date" class="form-control " placeholder="Ngày sinh"
+          aria-label="birthdate" aria-describedby="addon-wrapping" />
       </div>
       <div class="input-group flex-nowrap">
         <span class="input-group-text border-0" id="input-gender"><strong>Giới tính</strong></span>
         <div>
           <div class="form-check form-check-inline">
-            <input
-
-              mdbRadio
-              class="form-check-input"
-              type="radio"
-              name="gender"
-              id="inlineRadio1"
-              value="male"
-              formControlName="gender"
-              (change)="changeGender({e : $event})"
-
-            />
+            <input mdbRadio class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="male"
+              formControlName="gender" (change)="changeGender({e : $event})" />
             <label class="form-check-label" for="inlineRadio1">Nam</label>
           </div>
           <div class="form-check form-check-inline">
-            <input
-              mdbRadio
-              class="form-check-input"
-              type="radio"
-              name="gender"
-              id="inlineRadio2"
-              value="female"
-              formControlName="gender"
-              (change)="changeGender({e : $event})"
-
-            />
+            <input mdbRadio class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="female"
+              formControlName="gender" (change)="changeGender({e : $event})" />
             <label class="form-check-label" for="inlineRadio2">Nữ</label>
           </div>
         </div>
@@ -101,3 +81,4 @@
     </form>
   </div>
 </div>
+<app-footer></app-footer>

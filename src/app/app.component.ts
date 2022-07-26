@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {TokenStorageService} from "./_service/token-storage.service";
+import { TokenStorageService } from "./_service/token-storage.service";
 
 declare var $: any;
 
@@ -20,8 +20,12 @@ export class AppComponent {
       const user = this.tokenStorageService.getUser();
       this.username = user.username;
     }
+    this.onShowingScrollToTop();
+  }
+
+  onShowingScrollToTop() {
     window.addEventListener('scroll', () => {
-      if ($(window).scrollTop() > 300) {
+      if ($(window).scrollTop() > 100) {
         $("#scrollToTop").addClass('show');
       } else {
         $("#scrollToTop").removeClass('show');
@@ -32,5 +36,9 @@ export class AppComponent {
       e.preventDefault();
       $('html, body').animate({ scrollTop: 0 }, '300');
     });
+  }
+
+  routeChanged() {
+    console.log("route changed");
   }
 }
