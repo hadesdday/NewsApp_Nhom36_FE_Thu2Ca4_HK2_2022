@@ -22,10 +22,8 @@ export class SearchResultComponent implements OnInit {
 
   get_keyword() {
     this.activatedRoute.params.subscribe((params) => {
-      this.keyword = params['keyword'];
+      this.keyword = params['keyword'] !== 'undefined' ? params['keyword'] : '';
       this.tag = params['tag'];
     })
   }
-
-
 }

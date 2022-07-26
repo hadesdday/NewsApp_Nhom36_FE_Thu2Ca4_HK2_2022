@@ -50,16 +50,15 @@ import { MdbVectorMapModule } from 'mdb-angular-vector-maps';
 import { MdbWysiwygModule } from 'mdb-angular-wysiwyg';
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from './app.component';
+import { AuthModule } from './auth/auth.module';
+import { ContactComponent } from './pages/contact/contact.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { PostModule } from './post/post.module';
 import { ProfileModule } from "./profile/profile.module";
-import { RegisterModule } from "./register/register.module";
 import { SharedModule } from './shared/shared.module';
-import { SigninModule } from "./signin/signin.module";
-import { ContactComponent } from './pages/contact/contact.component';
 @NgModule({
-  declarations: [AppComponent, HomeComponent, NotfoundComponent,ContactComponent],
+  declarations: [AppComponent, HomeComponent, NotfoundComponent, ContactComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -105,8 +104,6 @@ import { ContactComponent } from './pages/contact/contact.component';
     MdbTransferModule,
     MdbMentionModule,
     AppRoutingModule,
-    RegisterModule,
-    SigninModule,
     ProfileModule,
     FormsModule,
     ReactiveFormsModule,
@@ -115,7 +112,8 @@ import { ContactComponent } from './pages/contact/contact.component';
     HttpClientModule,
     BrowserModule,
     SharedModule,
-    PostModule
+    PostModule,
+    AuthModule
   ],
   providers: [MdbCookiesManagementService, MdbStorageManagementService],
   bootstrap: [AppComponent],

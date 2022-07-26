@@ -1,16 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import { HttpClient } from "@angular/common/http";
+import { Component, OnInit } from '@angular/core';
 import {
-  FormGroup,
-  FormBuilder,
-  FormControl,
-  Validators,
-  ValidatorFn,
-  AbstractControl,
-  ValidationErrors
+  AbstractControl, FormBuilder,
+  FormControl, FormGroup, Validators
 } from "@angular/forms";
-import {HttpClient} from "@angular/common/http";
-import {Router} from "@angular/router";
-import {AuthService} from "../../_service/auth.service";
+import { Router } from "@angular/router";
+import { AuthService } from "../../../_service/auth.service";
 
 export function comparePassword(c: AbstractControl) {
   const v = c.value;
@@ -39,7 +34,7 @@ export class RegisterFormComponent implements OnInit {
       pw: this.formBuilder.group({
         password: new FormControl('', [Validators.required]),
         re_password: new FormControl('', [Validators.required])
-      }, {validators: comparePassword}),
+      }, { validators: comparePassword }),
       termCheck: new FormControl(false, Validators.requiredTrue)
     })
   }

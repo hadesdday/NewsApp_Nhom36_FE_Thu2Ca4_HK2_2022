@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {HttpClient} from "@angular/common/http";
-import {Router} from "@angular/router";
-import {AuthService} from "../../_service/auth.service";
-import {TokenStorageService} from "../../_service/token-storage.service";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import { HttpClient } from "@angular/common/http";
+import { Router } from "@angular/router";
+import { AuthService } from "../../../_service/auth.service";
+import { TokenStorageService } from "../../../_service/token-storage.service";
 
 @Component({
   selector: 'app-signin-form',
