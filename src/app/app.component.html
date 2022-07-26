@@ -1,4 +1,2 @@
-<app-navbar></app-navbar>
 <a id="scrollToTop"><i class="fas fa-angle-double-up"></i></a>
-<router-outlet></router-outlet>
-<app-footer></app-footer>
+<router-outlet (activate)="routeChanged()"></router-outlet>

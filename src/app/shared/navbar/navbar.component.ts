@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {TokenStorageService} from "../../_service/token-storage.service";
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { TokenStorageService } from "../../_service/token-storage.service";
 
 declare var $: any;
 
@@ -12,7 +13,8 @@ export class NavbarComponent implements OnInit {
   currentUser: any;
   keyword!: string;
 
-  constructor(private tokenStorage: TokenStorageService) { }
+  constructor(private tokenStorage: TokenStorageService) {
+  }
 
   ngOnInit(): void {
     this.currentUser = this.tokenStorage.getUser();
@@ -25,5 +27,9 @@ export class NavbarComponent implements OnInit {
 
   closeSearchBox() {
     $("#search__overlay").fadeOut(500);
+  }
+
+  signOut() {
+    this.tokenStorage.signOut();
   }
 }

@@ -1,8 +1,18 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
+import { HttpClientModule } from "@angular/common/http";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
+import { MdbCalendarModule } from 'mdb-angular-calendar';
+import { MdbCookiesManagementService } from 'mdb-angular-cookies-management';
+import { MdbDragAndDropModule } from 'mdb-angular-drag-and-drop';
+import { MdbFileUploadModule } from 'mdb-angular-file-upload';
+import { MdbMentionModule } from 'mdb-angular-mention';
+import { MdbStorageManagementService } from 'mdb-angular-storage-management';
+import { MdbTransferModule } from 'mdb-angular-transfer';
+import { MdbTreeviewModule } from 'mdb-angular-treeview';
 import { MdbAccordionModule } from 'mdb-angular-ui-kit/accordion';
 import { MdbAutocompleteModule } from 'mdb-angular-ui-kit/autocomplete';
 import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
@@ -36,29 +46,20 @@ import { MdbTabsModule } from 'mdb-angular-ui-kit/tabs';
 import { MdbTimepickerModule } from 'mdb-angular-ui-kit/timepicker';
 import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
-import { MdbCalendarModule } from 'mdb-angular-calendar';
-import { MdbWysiwygModule } from 'mdb-angular-wysiwyg';
-import { MdbDragAndDropModule } from 'mdb-angular-drag-and-drop';
 import { MdbVectorMapModule } from 'mdb-angular-vector-maps';
-import { MdbFileUploadModule } from 'mdb-angular-file-upload';
-import { MdbTreeviewModule } from 'mdb-angular-treeview';
-import { MdbTransferModule } from 'mdb-angular-transfer';
-import { MdbMentionModule } from 'mdb-angular-mention';
-import { MdbCookiesManagementService } from 'mdb-angular-cookies-management';
-import { MdbStorageManagementService } from 'mdb-angular-storage-management';
-import { RegisterModule } from "./register/register.module";
-import { SigninModule } from "./signin/signin.module";
-import { ProfileModule } from "./profile/profile.module";
-import { ContactModule } from "./contact/contact.module";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { RouterModule } from '@angular/router';
-import { HttpClientModule } from "@angular/common/http";
+import { MdbWysiwygModule } from 'mdb-angular-wysiwyg';
 import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from './app.component';
+import { HomeComponent } from './pages/home/home.component';
+import { NotfoundComponent } from './pages/notfound/notfound.component';
+import { PostModule } from './post/post.module';
+import { ProfileModule } from "./profile/profile.module";
+import { RegisterModule } from "./register/register.module";
 import { SharedModule } from './shared/shared.module';
-import { SearchResultModule } from './pages/search-result/search-result.module';
-import {HomeModule} from "./pages/home/home.module";
+import { SigninModule } from "./signin/signin.module";
+import { ContactComponent } from './pages/contact/contact.component';
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, HomeComponent, NotfoundComponent,ContactComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -107,17 +108,14 @@ import {HomeModule} from "./pages/home/home.module";
     RegisterModule,
     SigninModule,
     ProfileModule,
-    ContactModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
     AppRoutingModule,
     HttpClientModule,
-    HomeModule,
     BrowserModule,
     SharedModule,
-    SearchResultModule
-
+    PostModule
   ],
   providers: [MdbCookiesManagementService, MdbStorageManagementService],
   bootstrap: [AppComponent],
