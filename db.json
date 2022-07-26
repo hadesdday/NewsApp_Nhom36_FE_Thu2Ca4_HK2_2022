@@ -143,12 +143,13 @@
     {
       "id": 28,
       "username": "hoang@gmail.com",
-      "password": "hoang",
       "email": "hoang@gmail.com",
       "phone": "01111111111",
       "name": "Trần Hoang Huy",
       "address": "Nông Lâm",
-      "dateBirth": "2001-07-12"
+      "dateBirth": "2001-07-12",
+      "gender": "female",
+      "password": "hoang"
     },
     {
       "username": "hoang@gmail.com",
@@ -184,6 +185,16 @@
       "username": "adad",
       "password": "adad",
       "id": 35
+    },
+    {
+      "username": "hoang",
+      "email": null,
+      "password": "hoang",
+      "phone": null,
+      "address": null,
+      "dateBirth": null,
+      "gender": null,
+      "id": 36
     }
   ],
   "login": [

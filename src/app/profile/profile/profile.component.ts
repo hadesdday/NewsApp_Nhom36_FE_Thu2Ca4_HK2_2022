@@ -13,6 +13,7 @@ export class ProfileComponent implements OnInit {
   currentUser: any;
   public infoForm !: FormGroup;
 
+
   constructor(private formBuilder: FormBuilder, private router: Router, private tokenStorage: TokenStorageService, private http: HttpClient) {
   }
 
@@ -25,7 +26,8 @@ export class ProfileComponent implements OnInit {
       phone: new FormControl(this.currentUser.phone, []),
       name: new FormControl(this.currentUser.name, []),
       address: new FormControl(this.currentUser.address, []),
-      dateBirth: new FormControl(this.currentUser.dateBirth, [])
+      dateBirth: new FormControl(this.currentUser.dateBirth, []),
+      gender: new FormControl(this.currentUser.gender, [])
     })
   }
 
@@ -44,14 +46,20 @@ export class ProfileComponent implements OnInit {
       "phone": this.infoForm.value.phone,
       "name": this.infoForm.value.name,
       "address": this.infoForm.value.address,
-      "dateBirth": this.infoForm.value.dateBirth
+      "dateBirth": this.infoForm.value.dateBirth,
+      "gender":this.currentUser.gender
     }
     this.http.put("http://localhost:3000/user/" + this.currentUser.id, user).subscribe(res => {
       alert("change success")
       this.tokenStorage.saveUser(user);
       this.currentUser=this.tokenStorage.getUser();
+      console.log(this.currentUser)
       window.location.reload();
     })
 
+  }
+  changeGender({e}: { e: any }) {
+    this.currentUser.gender=e.target.value;
+    console.log(e.target.value);
   }
 }

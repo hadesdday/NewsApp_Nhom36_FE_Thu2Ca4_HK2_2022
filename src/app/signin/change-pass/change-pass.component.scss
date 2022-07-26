@@ -28,7 +28,12 @@
       border-left: 0px;
     }
   }
-
+  .password-alert {
+    text-align: center;
+    border-radius: 0%;
+    background: #fed6dd;
+    color: white;
+  }
   .change-pass-btn-groups {
     width: 100%;
     display: flex;
