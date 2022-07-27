@@ -37,6 +37,7 @@ export class SigninFormComponent implements OnInit {
         this.tokenStorage.saveUser(user);
         console.log(user);
         alert("login success")
+        localStorage.setItem("isSignin","true");
         this.isLoggedIn = true;
         this.siginForm.reset();
         alert(this.tokenStorage.getUser().username)
