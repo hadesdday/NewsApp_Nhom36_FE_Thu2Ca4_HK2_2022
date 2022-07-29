@@ -19,11 +19,11 @@
                     <div class="dropdown">
                         <i class="fas fa-user-alt text-muted"></i>
                         <div class="dropdown-content">
-                            <a class="nav-link" *ngIf="!currentUser.username" href="/signin"><button
+                            <a class="nav-link" *ngIf="!currentUser.email" href="/signin"><button
                                     class="btn btn-rounded btn__login">Đăng
                                     nhập</button></a>
-                            <div *ngIf="currentUser.username">
-                                <p class="border-bottom w-100 cursor-df"><b>Xin chào {{currentUser.username}}</b></p>
+                            <div *ngIf="currentUser.email">
+                                <p class="border-bottom w-100 cursor-df"><b>Xin chào {{currentUser.email}}</b></p>
                                 <a class="nav-link text-dark hover-half__opacity" href="/profile">Thông tin tài
                                     khoản</a>
                                 <a class="nav-link cursor-pointer text-dark hover-half__opacity"

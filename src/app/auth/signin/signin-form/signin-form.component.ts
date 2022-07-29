@@ -14,12 +14,13 @@ export class SigninFormComponent implements OnInit {
   public siginForm !: FormGroup;
   isLoggedIn = false;
 
+
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private authService: AuthService, private tokenStorage: TokenStorageService) {
   }
 
   ngOnInit(): void {
     this.siginForm = this.formBuilder.group({
-      username: new FormControl("", [Validators.required]),
+        email: new FormControl("", [Validators.required,Validators.email]),
       password: new FormControl("", [Validators.required]),
       rememberCheck: new FormControl("")
     })
@@ -31,16 +32,18 @@ export class SigninFormComponent implements OnInit {
   sigin() {
     this.http.get<any>("http://localhost:3000/user").subscribe(res => {
       const user = res.find((a: any) => {
-        return a.username === this.siginForm.value.username && a.password === this.siginForm.value.password
+        return a.email === this.siginForm.value.email && a.password === this.siginForm.value.password
       })
       if (user) {
         this.tokenStorage.saveUser(user);
         console.log(user);
         alert("login success")
+        localStorage.setItem("isSignin","true");
         this.isLoggedIn = true;
         this.siginForm.reset();
-        alert(this.tokenStorage.getUser().username)
         this.router.navigate(['home'])
+      }else{
+        alert("login false")
       }
     })
 

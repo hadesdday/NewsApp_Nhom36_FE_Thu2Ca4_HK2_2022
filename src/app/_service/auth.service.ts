@@ -16,22 +16,21 @@ export class AuthService {
   constructor(private http: HttpClient) {
   }
 
-  login(username: any, password: any): Observable<any> {
+  login(email: any, password: any): Observable<any> {
     return this.http.post("http://localhost:3000/login", {
-      username,
+      email,
       password
     }, httpOptions);
   }
 
-  register(username: any, password: any): Observable<any> {
-    var email = null;
-    const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (re.test(username)) {
-      email = username;
-    }
+  register(email: any, password: any): Observable<any> {
+    // var email = null;
+    // const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    // if (re.test(username)) {
+    //   email = username;
+    // }
 
     return this.http.post<any>('http://localhost:3000/user', {
-      "username": username,
       "email": email,
       "password": password,
       "phone": null,

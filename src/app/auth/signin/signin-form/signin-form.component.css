@@ -31,6 +31,15 @@
 .signin-form .input-group .form-control {
   border-left: 0px;
 }
+.signin-form .alert {
+  text-align: center;
+  border-radius: 0%;
+  background: #fed6dd;
+  color: white;
+  height: 30px;
+  margin: 5px;
+  padding: 5px;
+}
 .signin-form .signin-btn-groups {
   width: 100%;
   display: flex;
