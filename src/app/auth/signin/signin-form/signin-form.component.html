@@ -3,9 +3,13 @@
   <div class="signin-form justify-content-center ">
     <div class="signin-title"><h1>Đăng nhập</h1></div>
     <form [formGroup]="siginForm" (ngSubmit)="sigin()">
+      <div class="alert" role="alert" *ngIf="siginForm.get('email')!.hasError('email') &&
+    siginForm.get('email')!.touched">
+        this is not an email
+      </div>
       <div class="input-group flex-nowrap ">
         <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-user"></i></span>
-        <input formControlName="username" type="text" class="form-control" placeholder="Nhập email/Tài khoản" aria-label="Username"
+        <input formControlName="email" type="text" class="form-control" placeholder="Nhập email" aria-label="email"
                aria-describedby="addon-wrapping"/>
       </div>
       <div class="input-group flex-nowrap ">

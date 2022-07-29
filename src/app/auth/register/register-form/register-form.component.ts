@@ -30,7 +30,7 @@ export class RegisterFormComponent implements OnInit {
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
       username: new FormControl('', [Validators.required]),
-      email: new FormControl(),
+      email: new FormControl('',[Validators.email,Validators.required]),
       pw: this.formBuilder.group({
         password: new FormControl('', [Validators.required]),
         re_password: new FormControl('', [Validators.required])
@@ -41,9 +41,7 @@ export class RegisterFormComponent implements OnInit {
 
   register() {
     let neededValue = {}
-    alert(this.submitted)
     this.submitted = true;
-    alert(this.registerForm.value['termCheck'])
 
     // this.http.post<any>("http://localhost:3000/user", neededValue).subscribe(res => {
     //
@@ -58,9 +56,7 @@ export class RegisterFormComponent implements OnInit {
     //   alert("register false"+err.value);
     // })
     if (!this.registerForm.hasError('passwordnotmatch', ['pw']) && this.registerForm.value['termCheck'] == true) {
-      this.authService.register(this.registerForm.value['username'], this.registerForm.controls['pw'].value.password).subscribe(res => {
-        alert(this.registerForm.value['username']);
-        alert(this.registerForm.value['password']);
+      this.authService.register(this.registerForm.value['email'], this.registerForm.controls['pw'].value.password).subscribe(res => {
         alert("register success");
         this.router.navigate(['signin']);
       }, error => {

@@ -4,11 +4,13 @@ import { RegisterFormComponent } from './register/register-form/register-form.co
 import { ChangePassComponent } from './signin/change-pass/change-pass.component';
 import { RecoverPassFormComponent } from './signin/recover-pass-form/recover-pass-form.component';
 import { SigninFormComponent } from './signin/signin-form/signin-form.component';
+import {AuthGuard} from "../_help/auth.guard";
+import {LoginGuard} from "../_help/login.guard";
 
 const routes: Routes = [
-  { path: 'register', component: RegisterFormComponent },
-  { path: 'signin', component: SigninFormComponent },
-  { path: 'recovery-password', component: RecoverPassFormComponent },
+  { path: 'register', component: RegisterFormComponent,canActivate:[LoginGuard] },
+  { path: 'signin', component: SigninFormComponent,canActivate:[LoginGuard] },
+  { path: 'recovery-password', component: RecoverPassFormComponent ,canActivate:[LoginGuard]},
   { path: 'change-password', component: ChangePassComponent },
 ];
 
