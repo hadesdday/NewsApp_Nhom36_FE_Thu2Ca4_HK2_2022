@@ -1,18 +1,24 @@
-export interface PostModel {
+export interface Post {
+    author: string;
+    categories: Array<string>;
+    content: string;
+    description: string;
+    enclosure: Enclosure;
     guid: string;
     link: string;
     pubDate: string;
-    category: string;
+    thumbnail: string;
     title: string;
-    description: string;
-    content: string;
-    image_url: string;
+}
+
+export interface Enclosure {
+    link: string;
 }
 
 export interface PostListResponse {
-    posts: PostModel[];
+    posts: Post[];
 }
 
 export interface PostResponse {
-    post: PostModel;
+    post: Post;
 }
