@@ -4,6 +4,7 @@ import { PostRoutingModule } from './post-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { MdbLazyLoadingModule } from 'code/mdb-angular-ui-kit/lazy-loading';
+import { PostService } from './post.service';
 
 @NgModule({
   declarations: [SearchResultComponent],
@@ -12,6 +13,9 @@ import { MdbLazyLoadingModule } from 'code/mdb-angular-ui-kit/lazy-loading';
     PostRoutingModule,
     MdbLazyLoadingModule,
     SharedModule
+  ],
+  providers: [
+    PostService
   ]
 })
 export class PostModule { }

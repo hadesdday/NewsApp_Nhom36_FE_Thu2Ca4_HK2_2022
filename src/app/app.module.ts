@@ -57,8 +57,11 @@ import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { PostModule } from './post/post.module';
 import { ProfileModule } from "./profile/profile.module";
 import { SharedModule } from './shared/shared.module';
+import { SafeHtmlPipe } from './_pipes/safe-html.pipe';
+import { ToastNoAnimationModule } from 'ngx-toastr';
+
 @NgModule({
-  declarations: [AppComponent, HomeComponent, NotfoundComponent, ContactComponent],
+  declarations: [AppComponent, HomeComponent, NotfoundComponent, ContactComponent, SafeHtmlPipe],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -113,7 +116,12 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     SharedModule,
     PostModule,
-    AuthModule
+    AuthModule,
+      ToastNoAnimationModule.forRoot({
+      timeOut: 1500,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+    }),
   ],
   providers: [MdbCookiesManagementService, MdbStorageManagementService],
   bootstrap: [AppComponent],
