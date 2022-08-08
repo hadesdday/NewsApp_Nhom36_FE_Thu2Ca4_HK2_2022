@@ -5,9 +5,10 @@ import { SharedModule } from '../shared/shared.module';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { MdbLazyLoadingModule } from 'code/mdb-angular-ui-kit/lazy-loading';
 import { PostService } from './post.service';
+import { PostListComponent } from './post-list/post-list.component';
 
 @NgModule({
-  declarations: [SearchResultComponent],
+  declarations: [SearchResultComponent, PostListComponent],
   imports: [
     CommonModule,
     PostRoutingModule,

@@ -1,0 +1,146 @@
+<app-navbar></app-navbar>
+<div class="container mt-5">
+    <h1 class="fw-bold">{{title}}</h1>
+    <div class="hr__line mt-4"></div>
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <div class="row">
+                <img [src]="posts_list?.[0]?.enclosure?.link" alt="'../../../assets/images/skeleton-loading.gif'"
+                    class="w-100" alt="">
+            </div>
+            <div class="row">
+                <div class="col d-flex flex-row-reverse fw-light fs-11">Theo Vietnamnet
+                </div>
+            </div>
+            <div class="row">
+                <div class="d-flex justify-content-start">
+                    <a href="{{posts_list?.[0]?.link}}" class="hot-title" target="_blank">
+                        <h6 class="hot-post">{{posts_list?.[0]?.title}}</h6>
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="d-flex justify-content-start">
+                    <p class="text-start hot-content">{{posts_list?.[0]?.description}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="d-flex justify-content-start">
+                    <p class="fw-light fs-11">{{get_duration(posts_list?.[0]?.pubDate||"")}}
+                        <span class="p-1"></span>
+                        Nguồn : Vietnamnet
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 ">
+            <div class="row">
+                <img [src]="posts_list?.[1]?.enclosure?.link" alt="'../../../assets/images/skeleton-loading.gif'"
+                    class="w-100" alt="">
+            </div>
+            <div class="row">
+                <div class="col d-flex flex-row-reverse fw-light fs-11">Theo Vietnamnet
+                </div>
+            </div>
+            <div class="row">
+                <div class="d-flex justify-content-start">
+                    <a href="{{posts_list?.[1]?.link}}" class="hot-title" target="_blank">
+                        <h6 class="hot-post">{{posts_list?.[1]?.title}}</h6>
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="d-flex justify-content-start">
+                    <p class="text-start hot-content">{{posts_list?.[1]?.description}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="d-flex justify-content-start">
+                    <p class="fw-light fs-11">{{get_duration(posts_list?.[1]?.pubDate||"")}}
+                        <span class="p-1"></span>
+                        Nguồn : Vietnamnet
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div *ngFor="let item of get_posts_with_amount(2,4) ;index as ind">
+                <div class="row">
+                    <div class="d-flex justify-content-start">
+                        <a href="{{item?.link}}" class="hot-title" target="_blank">
+                            <h6 class="hot-post">{{item?.title}}</h6>
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="d-flex justify-content-start">
+                            <p class="text-start hot-content">{{item?.description}}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <img [src]="item?.enclosure?.link" alt="'../../../assets/images/skeleton-loading.gif'"
+                            class="w-100" alt="">
+                    </div>
+                </div>
+                <div class="row mb-3" [ngClass]="ind <1 ? 'border-bottom':''">
+                    <div class="d-flex justify-content-start">
+                        <p class="fw-light fs-11">{{get_duration(item?.pubDate||"")}}
+                            <span class="p-1"></span>
+                            Nguồn : Vietnamnet
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row border-top">
+        <div class="col-md-3 p-3" *ngFor="let item of get_posts_with_amount(5,9)">
+            <div class="row">
+                <img [src]="item?.enclosure?.link" alt="'../../../assets/images/skeleton-loading.gif'" class="img__sub"
+                    alt="">
+            </div>
+            <div class="row mt-3 w-90">
+                <div class="d-flex justify-content-start">
+                    <a href="{{item?.link}}" class="hot-title" target="_blank">
+                        <h6 class="new__post">{{item?.title}}</h6>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hr__line mt-3"></div>
+    <div class="row mt-3 border-bottom">
+        <h1>Mới nhất</h1>
+    </div>
+    <div class="mb-4"></div>
+    <div class="row" *ngFor="let item of get_posts_with_amount(9,posts_list.length)">
+        <div class="col-md-2">
+            <div class="d-flex justify-content-start">
+                <p class="fw-light fs-11">{{get_time_in_words(item?.pubDate||"")}}
+                </p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="d-flex justify-content-start">
+                    <a href="{{item?.link}}" class="hot-title" target="_blank">
+                        <h6 class="hot-post">{{item?.title}}</h6>
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="d-flex justify-content-start">
+                    <p class="text-start hot-content">{{item?.description}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="row">
+                <img [src]="item?.enclosure?.link" alt="'../../../assets/images/skeleton-loading.gif'" class="img__sub"
+                    alt="">
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

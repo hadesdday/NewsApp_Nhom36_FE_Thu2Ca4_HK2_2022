@@ -53,31 +53,10 @@
                                 class="fas fa-home fs-4"></i></a>
                     </li>
                     <li class="nav-item news-topic fw-bold">
-                        <a class="nav-link  text-dark" aria-current="page" href="#">Tin nóng</a>
+                        <a class="nav-link  text-dark" aria-current="page" href="vietnamnet">Tin nóng</a>
                     </li>
-                    <li class="nav-item news-topic fw-bold">
-                        <a class="nav-link  text-dark" aria-current="page" href="#">Cuộc sống số</a>
-                    </li>
-                    <li class="nav-item news-topic fw-bold">
-                        <a class="nav-link  text-dark" aria-current="page" href="#">Viễn thông</a>
-                    </li>
-                    <li class="nav-item news-topic fw-bold">
-                        <a class="nav-link  text-dark" aria-current="page" href="#">Sản phẩm số</a>
-                    </li>
-                    <li class="nav-item news-topic fw-bold">
-                        <a class="nav-link  text-dark" aria-current="page" href="#">Game</a>
-                    </li>
-                    <li class="nav-item news-topic fw-bold">
-                        <a class="nav-link  text-dark" aria-current="page" href="#">Khởi nghiệp</a>
-                    </li>
-                    <li class="nav-item news-topic fw-bold">
-                        <a class="nav-link  text-dark" aria-current="page" href="#">Multimedia</a>
-                    </li>
-                    <li class="nav-item news-topic fw-bold">
-                        <a class="nav-link  text-dark" aria-current="page" href="#">Khám phá</a>
-                    </li>
-                    <li class="nav-item news-topic fw-bold">
-                        <a class="nav-link  text-dark" aria-current="page" href="#">Bảo mật</a>
+                    <li class="nav-item news-topic fw-bold" *ngFor="let item of feeds_list">
+                        <a class="nav-link  text-dark" aria-current="page" href="{{item?.slug}}">{{item.title}}</a>
                     </li>
                 </ul>
             </div>
