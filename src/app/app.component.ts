@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import slugify from 'slugify';
+import { API_SUB } from './_api/apiURL';
 import { TokenStorageService } from "./_service/token-storage.service";
 
 declare var $: any;
@@ -41,4 +43,5 @@ export class AppComponent {
   routeChanged() {
     console.log("route changed");
   }
+
 }

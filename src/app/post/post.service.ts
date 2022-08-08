@@ -25,4 +25,9 @@ export class PostService {
     return this.http.get<FeedResponse>("https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fvietnamnet.vn%2Fcong-nghe.rss")
       .pipe(catchError(err => this.commonService.handleError(err, "Lỗi khi lấy bài viết công nghệ")));
   }
+
+  get_news_list_by_slug(slug: string) {
+    return this.http.get<FeedResponse>("https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fvietnamnet.vn%2F" + slug + ".rss")
+      .pipe(catchError(err => this.commonService.handleError(err, "Lỗi khi lấy bài viết " + slug)));
+  }
 }

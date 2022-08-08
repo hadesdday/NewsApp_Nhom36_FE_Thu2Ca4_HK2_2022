@@ -14,3 +14,8 @@ export interface FeedResponse {
     items: Post[];
     status: string;
 }
+
+export interface FeedModel {
+    title: String,
+    slug:String
+}
