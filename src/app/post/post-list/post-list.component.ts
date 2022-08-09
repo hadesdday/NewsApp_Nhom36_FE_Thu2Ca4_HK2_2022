@@ -3,8 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import slugify from 'slugify';
 import { API_SUB } from 'src/app/_api/apiURL';
-import { Feed, FeedResponse } from 'src/app/_model/feed.model';
-import { Post } from 'src/app/_model/post.model';
+import { Article, ArticleResponse } from 'src/app/_model/post.model';
 import { PostService } from '../post.service';
 
 @Component({
@@ -16,8 +15,7 @@ import { PostService } from '../post.service';
 export class PostListComponent implements OnInit {
   title!: string;
   slug!: string;
-  posts_list!: Post[];
-  feed!: Feed;
+  posts_list!: Article[];
 
   constructor(private activatedRoute: ActivatedRoute, private titleService: Title, private postService: PostService) {
     this.posts_list = [];
@@ -43,24 +41,41 @@ export class PostListComponent implements OnInit {
   }
 
   get_post_list() {
-    this.postService.get_news_list_by_slug(this.slug).subscribe((res: FeedResponse) => {
-      this.posts_list = res.items;
-      this.posts_list.forEach(elm => {
-        var title = elm['title'];
-        var second =title.split("&amp;amp;apos;").join("'");
-        elm['title'] = second;
-      });
+    this.postService.get_list("vietnamnet").subscribe((res: ArticleResponse) => {
+      var items = res.item;
 
-      console.log(this.slug, res);
+      Object.entries(items).map(([key, value]) => {
+        var curr: any = value;
 
-      Object.entries(res).map(([key, value]) => {
-        if (key === 'items') {
-          this.posts_list = value;
-        }
-        if (key === 'feed') {
-          this.feed = value;
-        }
+        var singleQuote = curr.title[0].trim().split("&amp;apos;").join("'");
+        var andSymbol = singleQuote.split("&amp;amp;").join("&");
+        var finalTitle = andSymbol;
+
+        let currentItem: Article = {
+          category: curr.category[0].trim(),
+          description: curr.description[0].trim(),
+          guid: curr.guid[0].trim(),
+          link: curr.link[0].trim(),
+          media: "",
+          pubDate: curr.pubDate[0].trim(),
+          title: finalTitle
+        };
+
+        Object.keys(curr).forEach(function (key, index) {
+          var article = curr[key];
+          if (index === 6) {
+            var url = article[0]?.$;
+            Object.keys(url).forEach(function (key, index) {
+              if (index === 2) {
+                currentItem.media = url[key];
+                return;
+              }
+            });
+          }
+        });
+        this.posts_list.push(currentItem);
       });
+      console.log(this.posts_list);
     });
   }
 
