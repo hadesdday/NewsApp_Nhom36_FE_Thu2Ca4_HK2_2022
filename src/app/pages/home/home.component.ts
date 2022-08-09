@@ -98,8 +98,7 @@ export class HomeComponent implements OnInit {
       this.tech_list = res.items;
       this.tech_list.forEach(elm => {
         var title = elm['title'];
-        var first = title.replace("&amp;amp;apos;", "'");
-        var second = first.replace("&amp;amp;apos;", "'");
+        var second = title.split("&amp;amp;apos;").join("'");
         elm['title'] = second;
       });
       console.log("tech", res);

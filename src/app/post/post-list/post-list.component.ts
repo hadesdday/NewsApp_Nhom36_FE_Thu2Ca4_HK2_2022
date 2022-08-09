@@ -47,8 +47,7 @@ export class PostListComponent implements OnInit {
       this.posts_list = res.items;
       this.posts_list.forEach(elm => {
         var title = elm['title'];
-        var first = title.replace("&amp;amp;apos;", "'");
-        var second = first.replace("&amp;amp;apos;", "'");
+        var second =title.split("&amp;amp;apos;").join("'");
         elm['title'] = second;
       });
 

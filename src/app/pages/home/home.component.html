@@ -13,7 +13,7 @@
                 </div>
                 <div class="row">
                     <div class="d-flex justify-content-center">
-                        <a href="chinh-tri">
+                        <a [href]="get_slug(posts_list?.[0]?.categories?.[0]||'')">
                             <p class="fs-11 text-muted">{{posts_list[0]?.categories}}</p>
                         </a>
                     </div>
