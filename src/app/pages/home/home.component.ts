@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import slugify from 'slugify';
 import { PostService } from 'src/app/post/post.service';
-import { API_SUB } from 'src/app/_api/apiURL';
-import { Feed, FeedResponse } from 'src/app/_model/feed.model';
-import { Post } from 'src/app/_model/post.model';
+import { Article, ArticleResponse } from 'src/app/_model/post.model';
 
 @Component({
   selector: 'app-home',
@@ -13,16 +11,16 @@ import { Post } from 'src/app/_model/post.model';
 export class HomeComponent implements OnInit {
   title = 'Trang chủ';
 
-  posts_list!: Post[];
-  feed!: Feed;
-  sports_news_list!: Post[];
-  tech_list!: Post[];
-  first_post_slug!: string;
+  article_list!: Article[];
+  ts_news!: Article[];
+  tech_news!: Article[];
+  business_news!: Article[];
 
   constructor(private postService: PostService) {
-    this.posts_list = [];
-    this.sports_news_list = [];
-    this.tech_list = [];
+    this.article_list = [];
+    this.ts_news = [];
+    this.tech_news = [];
+    this.business_news = [];
   }
 
   ngOnInit(): void {
@@ -30,78 +28,162 @@ export class HomeComponent implements OnInit {
   }
 
   load_data() {
-    // this.load_politics_news();
     this.load_hot_news();
-    this.load_sports_news();
+    this.load_ts_news();
     this.load_tech_news();
+    this.load_business_news();
   }
 
   load_hot_news() {
-    this.postService.get_news_list_by_slug('vietnamnet').subscribe((res: FeedResponse) => {
-      this.posts_list = res.items;
-      this.posts_list.forEach(elm => {
-        var title = elm['title'];
-        var first = title.replace("&amp;amp;apos;", "'");
-        var second = first.replace("&amp;amp;apos;", "'");
-        elm['title'] = second;
-      });
-      console.log("politics", res);
+    this.postService.get_list("vietnamnet").subscribe((res: ArticleResponse) => {
+      var items = res.item;
 
-      Object.entries(res).map(([key, value]) => {
-        if (key === 'items') {
-          this.posts_list = value;
-        }
-        if (key === 'feed') {
-          this.feed = value;
-        }
+      Object.entries(items).map(([key, value]) => {
+        var curr: any = value;
+
+        var singleQuote = curr.title[0].trim().split("&amp;apos;").join("'");
+        var andSymbol = singleQuote.split("&amp;amp;").join("&");
+        var finalTitle = andSymbol;
+
+        let currentItem: Article = {
+          category: curr.category[0].trim(),
+          description: curr.description[0].trim(),
+          guid: curr.guid[0].trim(),
+          link: curr.link[0].trim(),
+          media: "",
+          pubDate: curr.pubDate[0].trim(),
+          title: finalTitle
+        };
+
+        Object.keys(curr).forEach(function (key, index) {
+          var article = curr[key];
+          if (index === 6) {
+            var url = article[0]?.$;
+            Object.keys(url).forEach(function (key, index) {
+              if (index === 2) {
+                currentItem.media = url[key];
+                return;
+              }
+            });
+          }
+        });
+        this.article_list.push(currentItem);
       });
+      console.log(this.article_list);
     });
   }
 
-  load_politics_news() {
-    this.postService.get_politics_news().subscribe((res: FeedResponse) => {
-      this.posts_list = res.items;
-      this.posts_list.forEach(elm => {
-        var title = elm['title'];
-        var first = title.replace("&amp;amp;apos;", "'");
-        var second = first.replace("&amp;amp;apos;", "'");
-        elm['title'] = second;
-      });
-      console.log("politics", res);
+  load_ts_news() {
+    this.postService.get_list("thoi-su").subscribe((res: ArticleResponse) => {
+      var items = res.item;
 
-      Object.entries(res).map(([key, value]) => {
-        if (key === 'items') {
-          this.posts_list = value;
-        }
-        if (key === 'feed') {
-          this.feed = value;
-        }
-      });
-    });
-  }
+      Object.entries(items).map(([key, value]) => {
+        var curr: any = value;
 
-  load_sports_news() {
-    this.postService.get_sports_news().subscribe((res: FeedResponse) => {
-      this.sports_news_list = res.items;
-      this.sports_news_list.forEach(elm => {
-        var title = elm['title'];
-        var first = title.replace("&amp;amp;apos;", "'");
-        var second = first.replace("&amp;amp;apos;", "'");
-        elm['title'] = second;
+        var singleQuote = curr.title[0].trim().split("&amp;apos;").join("'");
+        var andSymbol = singleQuote.split("&amp;amp;").join("&");
+        var finalTitle = andSymbol;
+
+        let currentItem: Article = {
+          category: curr.category[0].trim(),
+          description: curr.description[0].trim(),
+          guid: curr.guid[0].trim(),
+          link: curr.link[0].trim(),
+          media: "",
+          pubDate: curr.pubDate[0].trim(),
+          title: finalTitle
+        };
+
+        Object.keys(curr).forEach(function (key, index) {
+          var article = curr[key];
+          if (index === 6) {
+            var url = article[0]?.$;
+            Object.keys(url).forEach(function (key, index) {
+              if (index === 2) {
+                currentItem.media = url[key];
+                return;
+              }
+            });
+          }
+        });
+        this.ts_news.push(currentItem);
       });
-      console.log("sport", res);
     });
   }
 
   load_tech_news() {
-    this.postService.get_technology_news().subscribe((res: FeedResponse) => {
-      this.tech_list = res.items;
-      this.tech_list.forEach(elm => {
-        var title = elm['title'];
-        var second = title.split("&amp;amp;apos;").join("'");
-        elm['title'] = second;
+    this.postService.get_list("cong-nghe").subscribe((res: ArticleResponse) => {
+      var items = res.item;
+
+      Object.entries(items).map(([key, value]) => {
+        var curr: any = value;
+
+        var singleQuote = curr.title[0].trim().split("&amp;apos;").join("'");
+        var andSymbol = singleQuote.split("&amp;amp;").join("&");
+        var finalTitle = andSymbol;
+
+        let currentItem: Article = {
+          category: curr.category[0].trim(),
+          description: curr.description[0].trim(),
+          guid: curr.guid[0].trim(),
+          link: curr.link[0].trim(),
+          media: "",
+          pubDate: curr.pubDate[0].trim(),
+          title: finalTitle
+        };
+
+        Object.keys(curr).forEach(function (key, index) {
+          var article = curr[key];
+          if (index === 6) {
+            var url = article[0]?.$;
+            Object.keys(url).forEach(function (key, index) {
+              if (index === 2) {
+                currentItem.media = url[key];
+                return;
+              }
+            });
+          }
+        });
+        this.tech_news.push(currentItem);
       });
-      console.log("tech", res);
+    });
+  }
+
+  load_business_news() {
+    this.postService.get_list("kinh-doanh").subscribe((res: ArticleResponse) => {
+      var items = res.item;
+
+      Object.entries(items).map(([key, value]) => {
+        var curr: any = value;
+
+        var singleQuote = curr.title[0].trim().split("&amp;apos;").join("'");
+        var andSymbol = singleQuote.split("&amp;amp;").join("&");
+        var finalTitle = andSymbol;
+
+        let currentItem: Article = {
+          category: curr.category[0].trim(),
+          description: curr.description[0].trim(),
+          guid: curr.guid[0].trim(),
+          link: curr.link[0].trim(),
+          media: "",
+          pubDate: curr.pubDate[0].trim(),
+          title: finalTitle
+        };
+
+        Object.keys(curr).forEach(function (key, index) {
+          var article = curr[key];
+          if (index === 6) {
+            var url = article[0]?.$;
+            Object.keys(url).forEach(function (key, index) {
+              if (index === 2) {
+                currentItem.media = url[key];
+                return;
+              }
+            });
+          }
+        });
+        this.business_news.push(currentItem);
+      });
     });
   }
 
@@ -120,16 +202,12 @@ export class HomeComponent implements OnInit {
     return differenceHour + ' giờ trước';
   }
 
-  get_politics_list_with_amount(startIndex: number, amount: number) {
-    return this.posts_list.slice(startIndex, amount);
+  get_home_list_with_amount(startIndex: number, amount: number) {
+    return this.article_list.slice(startIndex, amount);
   }
 
-  get_sports_list_with_amount(startIndex: number, amount: number) {
-    return this.sports_news_list.slice(startIndex, amount);
-  }
-
-  get_tech_list_with_amount(startIndex: number, amount: number) {
-    return this.tech_list.slice(startIndex, amount);
+  get_list_with_amount(startIndex: number, amount: number, list: Article[]) {
+    return list.slice(startIndex, amount);
   }
 
   get_slug(titleName: string) {

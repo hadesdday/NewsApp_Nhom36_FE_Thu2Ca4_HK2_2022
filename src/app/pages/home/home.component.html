@@ -4,7 +4,7 @@
         <div class="col-md-8">
             <div class="row">
                 <div class="row">
-                    <img [src]="posts_list[0]?.enclosure?.link" alt="'../../../assets/images/skeleton-loading.gif'"
+                    <img [src]="article_list[0]?.media" alt="'../../../assets/images/skeleton-loading.gif'"
                         class="w-100">
                 </div>
                 <div class="row">
@@ -13,26 +13,26 @@
                 </div>
                 <div class="row">
                     <div class="d-flex justify-content-center">
-                        <a [href]="get_slug(posts_list?.[0]?.categories?.[0]||'')">
-                            <p class="fs-11 text-muted">{{posts_list[0]?.categories}}</p>
+                        <a [href]="'chu-de/'+get_slug(article_list[0]?.category||'')">
+                            <p class="fs-11 text-muted">{{article_list[0]?.category}}</p>
                         </a>
                     </div>
                 </div>
                 <div class="row">
                     <div class="d-flex justify-content-center">
-                        <a href="{{posts_list[0]?.link}}" class="hot-title" target="_blank">
-                            <h6 id="hot-post">{{posts_list[0]?.title}}</h6>
+                        <a href="{{article_list[0]?.link}}" class="hot-title" target="_blank">
+                            <h6 id="hot-post">{{article_list[0]?.title}}</h6>
                         </a>
                     </div>
                 </div>
                 <div class="row">
                     <div class="d-flex justify-content-center">
-                        <p class="text-center hot-content">{{posts_list[0]?.description}}</p>
+                        <p class="text-center hot-content">{{article_list[0]?.description}}</p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="d-flex justify-content-center">
-                        <p class="fw-light fs-11">{{get_duration(posts_list[0]?.pubDate||"")}}
+                        <p class="fw-light fs-11">{{get_duration(article_list[0]?.pubDate||"")}}
                             <span class="p-1"></span>
                             Nguồn : Vietnamnet
                         </p>
@@ -45,13 +45,13 @@
             <h6>TIN NÓNG</h6>
             <div class="p-1"></div>
 
-            <div class="row" *ngFor="let item of get_politics_list_with_amount(1,4);">
+            <div class="row" *ngFor="let item of get_home_list_with_amount(1,4);">
                 <div class="col-md-6">
                     <a href="{{item.link}}" class="news-title" target="_blank">
                         <h6 class="fs-20 news-title">{{item.title}}</h6>
                     </a>
                 </div>
-                <div class="col-md-4"><img class="post__image" src="{{item.enclosure.link}}" alt></div>
+                <div class="col-md-4"><img class="post__image" src="{{item.media}}" alt></div>
                 <div class="col-md-9">
                     <p class="news-content">{{item.description}}
                     </p>
@@ -64,10 +64,10 @@
         </div>
     </div>
     <div class="row sub__posts mt-5 lazy d-flex justify-content-between lazy">
-        <div class="col-md-2 p-3" *ngFor="let item of get_politics_list_with_amount(4,9)">
+        <div class="col-md-2 p-3" *ngFor="let item of get_home_list_with_amount(4,9)">
             <div class="row">
                 <img mdbLazyLoading [loadingPlaceholder]="'../../../assets/images/skeleton-loading.gif'"
-                    [attr.data-src]="item.enclosure.link" alt="'../../../assets/images/skeleton-loading.gif'"
+                    [attr.data-src]="item.media" alt="'../../../assets/images/skeleton-loading.gif'"
                     class="img-fluid my-3" />
             </div>
             <div class="row">
@@ -81,66 +81,106 @@
                 <div class="col">
                     <img class="w-100" mdbLazyLoading
                         [loadingPlaceholder]="'../../../assets/images/skeleton-loading.gif'"
-                        [attr.data-src]="posts_list[posts_list.length-1]?.enclosure?.link"
-                        alt="'../../../assets/images/skeleton-loading.gif'">
+                        [attr.data-src]="article_list[10]?.media" alt="'../../../assets/images/skeleton-loading.gif'">
                 </div>
                 <div class="col">
-                    <a href="{{posts_list[posts_list.length-1]?.link}}" class="text-break news-title"
-                        target="_blank">{{posts_list[posts_list.length-1]?.title}}</a>
+                    <a href="{{article_list[10]?.link}}" class="text-break news-title"
+                        target="_blank">{{article_list[10]?.title}}</a>
                 </div>
             </div>
-            <div class="row pt-4" *ngFor="let item of get_sports_list_with_amount(0,2)">
+            <div class="row pt-4" *ngFor="let item of get_home_list_with_amount(11,25)">
                 <div class="col">
                     <img class="w-100" mdbLazyLoading
                         [loadingPlaceholder]="'../../../assets/images/skeleton-loading.gif'"
-                        [attr.data-src]="item.enclosure.link" alt="'../../../assets/images/skeleton-loading.gif'">
+                        [attr.data-src]="item.media" alt="'../../../assets/images/skeleton-loading.gif'">
                 </div>
                 <div class="col">
                     <a href="{{item.link}}" class="text-break news-title" target="_blank">{{item.title}}</a>
                 </div>
             </div>
         </div>
+        <!-- middle column -->
         <div class="col-md-6 middle__column">
-            <div class="row border-bottom">
-                <h3><a href="" class="text-body">Thể thao</a></h3>
+            <!-- start new article -->
+            <div class="row border-bottom middle__title">
+                <h3><a href="chu-de/thoi-su" class="text-body">Thời sự</a></h3>
             </div>
+
             <div class="row p-4">
                 <div class="col-md-3">
                     <img class="w-100" mdbLazyLoading
                         [loadingPlaceholder]="'../../../assets/images/skeleton-loading.gif'"
-                        [attr.data-src]="sports_news_list[2]?.enclosure?.link"
-                        alt="'../../../assets/images/skeleton-loading.gif'" />
+                        [attr.data-src]="ts_news[0]?.media" alt="'../../../assets/images/skeleton-loading.gif'" />
                 </div>
                 <div class="col-md-9">
-                    <a href="{{sports_news_list[2]?.link}}" class="news-title"
-                        target="_blank">{{sports_news_list[2]?.title}}</a>
+                    <a href="{{ts_news[0]?.link}}" class="news-title" target="_blank">{{ts_news[0]?.title}}</a>
                 </div>
             </div>
-            <!-- 5 -->
             <div class="row p-4 pt-0">
-                <a href="{{item.link}}" class="news-title mt-3"
-                    *ngFor="let item of get_sports_list_with_amount(3,sports_news_list.length-1)"
+                <a href="{{item.link}}" class="news-title mt-3" *ngFor="let item of get_list_with_amount(1,11,ts_news)"
                     target="_blank">{{item.title}}</a>
             </div>
+            <!-- end new article -->
+            <!-- start new article -->
+            <div class="row border-bottom middle__title">
+                <h3><a href="chu-de/cong-nghe" class="text-body">Công nghệ</a></h3>
+            </div>
+
+            <div class="row p-4">
+                <div class="col-md-3">
+                    <img class="w-100" mdbLazyLoading
+                        [loadingPlaceholder]="'../../../assets/images/skeleton-loading.gif'"
+                        [attr.data-src]="tech_news[0]?.media" alt="'../../../assets/images/skeleton-loading.gif'" />
+                </div>
+                <div class="col-md-9">
+                    <a href="{{tech_news[0]?.link}}" class="news-title" target="_blank">{{tech_news[0]?.title}}</a>
+                </div>
+            </div>
+            <div class="row p-4 pt-0">
+                <a href="{{item.link}}" class="news-title mt-3" *ngFor="let item of get_list_with_amount(1,11,tech_news)"
+                    target="_blank">{{item.title}}</a>
+            </div>
+            <!-- end new article -->
+            <!-- start new article -->
+            <div class="row border-bottom middle__title">
+                <h3><a href="chu-de/kinh-doanh" class="text-body">Kinh doanh</a></h3>
+            </div>
+
+            <div class="row p-4">
+                <div class="col-md-3">
+                    <img class="w-100" mdbLazyLoading
+                        [loadingPlaceholder]="'../../../assets/images/skeleton-loading.gif'"
+                        [attr.data-src]="business_news[0]?.media" alt="'../../../assets/images/skeleton-loading.gif'" />
+                </div>
+                <div class="col-md-9">
+                    <a href="{{business_news[0]?.link}}" class="news-title" target="_blank">{{business_news[0]?.title}}</a>
+                </div>
+            </div>
+            <div class="row p-4 pt-0">
+                <a href="{{item.link}}" class="news-title mt-3" *ngFor="let item of get_list_with_amount(1,11,business_news)"
+                    target="_blank">{{item.title}}</a>
+            </div>
+            <!-- end new article -->
+
+
         </div>
+        <!-- last column -->
         <div class="col-md-3 last__column border-start">
             <div class="row">
                 <div class="col">
                     <img class="w-100" mdbLazyLoading
                         [loadingPlaceholder]="'../../../assets/images/skeleton-loading.gif'"
-                        [attr.data-src]="sports_news_list[sports_news_list.length-1]?.enclosure?.link"
-                        alt="'../../../assets/images/skeleton-loading.gif'">
+                        [attr.data-src]="article_list[26]?.media" alt="'../../../assets/images/skeleton-loading.gif'">
                 </div>
                 <div class="col">
-                    <a href="{{sports_news_list[sports_news_list.length-1]?.link}}"
-                        class="text-break news-title">{{sports_news_list[sports_news_list.length-1]?.title}}</a>
+                    <a href="{{article_list[26]?.link}}" class="text-break news-title">{{article_list[26]?.title}}</a>
                 </div>
             </div>
-            <div class="row pt-4" *ngFor="let item of get_tech_list_with_amount(0,2)">
+            <div class="row pt-4" *ngFor="let item of get_list_with_amount(27,42,article_list)">
                 <div class="col">
                     <img class="w-100" mdbLazyLoading
                         [loadingPlaceholder]="'../../../assets/images/skeleton-loading.gif'"
-                        [attr.data-src]="item.enclosure.link" alt="'../../../assets/images/skeleton-loading.gif'">
+                        [attr.data-src]="item.media" alt="'../../../assets/images/skeleton-loading.gif'">
                 </div>
                 <div class="col">
                     <a href="{{item.link}}" class="text-break news-title">{{item.title}}</a>
