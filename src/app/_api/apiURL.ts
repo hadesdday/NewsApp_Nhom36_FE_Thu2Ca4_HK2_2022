@@ -12,7 +12,7 @@ export const API_SUB = [
     "Xe",
     "Công nghệ",
     "Bất động sản",
+    "Du lịch",
     // "Tuần Việt Nam",
-    // "Du lịch",
     // "Bạn đọc"
 ];

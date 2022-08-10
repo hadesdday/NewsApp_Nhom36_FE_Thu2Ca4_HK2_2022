@@ -16,6 +16,10 @@ export class HomeComponent implements OnInit {
   ts_news!: Article[];
   tech_news!: Article[];
   business_news!: Article[];
+  world_news!: Article[];
+  sport_news!: Article[];
+  education_news!: Article[];
+
   isLoading = true;
 
   constructor(private postService: PostService, private titleService: Title) {
@@ -23,18 +27,23 @@ export class HomeComponent implements OnInit {
     this.ts_news = [];
     this.tech_news = [];
     this.business_news = [];
+    this.world_news = [];
+    this.sport_news = [];
+    this.education_news = [];
   }
 
   ngOnInit(): void {
     this.titleService.setTitle("Trang chủ | News");
     this.load_data();
   }
-
   load_data() {
     this.load_hot_news();
     this.load_ts_news();
     this.load_tech_news();
     this.load_business_news();
+    this.load_world_news();
+    this.load_sport_news();
+    this.load_education_news();
   }
 
   load_hot_news() {
@@ -73,7 +82,6 @@ export class HomeComponent implements OnInit {
         this.article_list.push(currentItem);
       });
       console.log(this.article_list);
-      this.isLoading = false;
     });
   }
 
@@ -188,6 +196,121 @@ export class HomeComponent implements OnInit {
         });
         this.business_news.push(currentItem);
       });
+    });
+  }
+
+  load_world_news() {
+    this.postService.get_list("the-gioi").subscribe((res: ArticleResponse) => {
+      var items = res.item;
+
+      Object.entries(items).map(([key, value]) => {
+        var curr: any = value;
+
+        var singleQuote = curr.title[0].trim().split("&amp;apos;").join("'");
+        var andSymbol = singleQuote.split("&amp;amp;").join("&");
+        var finalTitle = andSymbol;
+
+        let currentItem: Article = {
+          category: curr.category[0].trim(),
+          description: curr.description[0].trim(),
+          guid: curr.guid[0].trim(),
+          link: curr.link[0].trim(),
+          media: "",
+          pubDate: curr.pubDate[0].trim(),
+          title: finalTitle
+        };
+
+        Object.keys(curr).forEach(function (key, index) {
+          var article = curr[key];
+          if (index === 6) {
+            var url = article[0]?.$;
+            Object.keys(url).forEach(function (key, index) {
+              if (index === 2) {
+                currentItem.media = url[key];
+                return;
+              }
+            });
+          }
+        });
+        this.world_news.push(currentItem);
+      });
+    });
+  }
+
+  load_sport_news() {
+    this.postService.get_list("the-thao").subscribe((res: ArticleResponse) => {
+      var items = res.item;
+
+      Object.entries(items).map(([key, value]) => {
+        var curr: any = value;
+
+        var singleQuote = curr.title[0].trim().split("&amp;apos;").join("'");
+        var andSymbol = singleQuote.split("&amp;amp;").join("&");
+        var finalTitle = andSymbol;
+
+        let currentItem: Article = {
+          category: curr.category[0].trim(),
+          description: curr.description[0].trim(),
+          guid: curr.guid[0].trim(),
+          link: curr.link[0].trim(),
+          media: "",
+          pubDate: curr.pubDate[0].trim(),
+          title: finalTitle
+        };
+
+        Object.keys(curr).forEach(function (key, index) {
+          var article = curr[key];
+          if (index === 6) {
+            var url = article[0]?.$;
+            Object.keys(url).forEach(function (key, index) {
+              if (index === 2) {
+                currentItem.media = url[key];
+                return;
+              }
+            });
+          }
+        });
+        this.sport_news.push(currentItem);
+      });
+    });
+  }
+
+  load_education_news() {
+    this.postService.get_list("giao-duc").subscribe((res: ArticleResponse) => {
+      var items = res.item;
+
+      Object.entries(items).map(([key, value]) => {
+        var curr: any = value;
+
+        var singleQuote = curr.title[0].trim().split("&amp;apos;").join("'");
+        var andSymbol = singleQuote.split("&amp;amp;").join("&");
+        var finalTitle = andSymbol;
+
+        let currentItem: Article = {
+          category: curr.category[0].trim(),
+          description: curr.description[0].trim(),
+          guid: curr.guid[0].trim(),
+          link: curr.link[0].trim(),
+          media: "",
+          pubDate: curr.pubDate[0].trim(),
+          title: finalTitle
+        };
+
+        Object.keys(curr).forEach(function (key, index) {
+          var article = curr[key];
+          if (index === 6) {
+            var url = article[0]?.$;
+            Object.keys(url).forEach(function (key, index) {
+              if (index === 2) {
+                currentItem.media = url[key];
+                return;
+              }
+            });
+          }
+        });
+        this.education_news.push(currentItem);
+      });
+      this.isLoading = false;
     });
   }
 

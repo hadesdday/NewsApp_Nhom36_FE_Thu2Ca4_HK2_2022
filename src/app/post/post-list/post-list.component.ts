@@ -45,7 +45,6 @@ export class PostListComponent implements OnInit {
       final = "Tin nóng";
       this.title = "Tin nóng";
     }
-    console.log(this.title);
     this.title = final;
     this.titleService.setTitle(final + " | News");
   }
@@ -148,7 +147,7 @@ export class PostListComponent implements OnInit {
       "Tháng Bảy", "Tháng Tám", "Tháng Chín", "Tháng Mười", "Tháng Mười", "Tháng Mười Hai"
     ];
     var d = new Date(date);
-    var day = d.getDay();
+    var day = d.getDate();
     var month = monthNames[d.getMonth()];
     var year = d.getFullYear();
 
