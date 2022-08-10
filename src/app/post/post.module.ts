@@ -13,7 +13,7 @@ import { PostListComponent } from './post-list/post-list.component';
     CommonModule,
     PostRoutingModule,
     MdbLazyLoadingModule,
-    SharedModule
+    SharedModule,
   ],
   providers: [
     PostService

@@ -1,5 +1,3 @@
-import { Post } from "./post.model";
-
 export interface Feed {
     author: string;
     description: string;
@@ -8,14 +6,7 @@ export interface Feed {
     title: string;
     url: string;
 }
-
-export interface FeedResponse {
-    feed: Feed;
-    items: Post[];
-    status: string;
-}
-
 export interface FeedModel {
     title: String,
-    slug:String
+    slug: String
 }

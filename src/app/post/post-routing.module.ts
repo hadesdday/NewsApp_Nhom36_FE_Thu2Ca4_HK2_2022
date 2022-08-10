@@ -6,7 +6,9 @@ import { SearchResultComponent } from './search-result/search-result.component';
 
 const routes: Routes = [
   { path: 'search/:keyword/:tag', component: SearchResultComponent },
-  { path: 'chu-de/:title', component: PostListComponent }
+  {
+    path: 'chu-de/:title', component: PostListComponent
+  }
 ];
 
 @NgModule({

@@ -1,5 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import slugify from 'slugify';
 import { API_SUB } from 'src/app/_api/apiURL';
 import { FeedModel } from 'src/app/_model/feed.model';
