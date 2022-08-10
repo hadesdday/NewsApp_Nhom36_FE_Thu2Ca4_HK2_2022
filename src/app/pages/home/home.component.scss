@@ -66,7 +66,17 @@
   }
 }
 
+.img__sub {
+  width: 200px;
+  height: 134px;
+  object-fit: cover;
+}
+
 @media only screen and (max-width: 768px) {
+  .img__sub {
+    width: 100%;
+    height: auto;
+  }
   .post__image {
     width: 100%;
     height: auto;
@@ -91,7 +101,6 @@
     }
   }
 }
-
 
 #overlay {
   position: fixed;

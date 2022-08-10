@@ -21,7 +21,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.currentUser = this.tokenStorage.getUser();
     this.feeds_list = [];
-    Object.entries(API_SUB).map(([key,value]) => {
+    Object.entries(API_SUB).map(([key, value]) => {
       var item = {
         title: value,
         slug: slugify(value.toLowerCase()).replace("dj", "d")
