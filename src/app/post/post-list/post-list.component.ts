@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+import { map, Observable } from 'rxjs';
 import slugify from 'slugify';
 import { API_SUB } from 'src/app/_api/apiURL';
 import { Article, ArticleResponse } from 'src/app/_model/post.model';
 import { PostService } from '../post.service';
+
 
 @Component({
   selector: 'app-post-list',
@@ -16,19 +18,25 @@ export class PostListComponent implements OnInit {
   title!: string;
   slug!: string;
   posts_list!: Article[];
+  article_response!: Observable<ArticleResponse>;
+
+  isLoading = true;
 
   constructor(private activatedRoute: ActivatedRoute, private titleService: Title, private postService: PostService) {
     this.posts_list = [];
   }
 
   ngOnInit(): void {
-    this.load_data();
+    this.activatedRoute.params.subscribe((param) => {
+      this.isLoading = true;
+      this.article_response = this.activatedRoute.data.pipe(map((data) => data?.list));
+      this.load_data();
+    });
   }
 
   load_data() {
-    this.get_title();
+    this.posts_list = [];
     this.get_post_list();
-    this.set_title();
   }
 
   set_title() {
@@ -37,11 +45,16 @@ export class PostListComponent implements OnInit {
       final = "Tin nóng";
       this.title = "Tin nóng";
     }
+    console.log(this.title);
+    this.title = final;
     this.titleService.setTitle(final + " | News");
   }
 
   get_post_list() {
-    this.postService.get_list("vietnamnet").subscribe((res: ArticleResponse) => {
+    this.get_title();
+    this.set_title();
+    this.postService.get_list(this.slug).subscribe((res: ArticleResponse) => {
+
       var items = res.item;
 
       Object.entries(items).map(([key, value]) => {
@@ -75,8 +88,23 @@ export class PostListComponent implements OnInit {
         });
         this.posts_list.push(currentItem);
       });
+      this.isLoading = false;
       console.log(this.posts_list);
     });
+  }
+
+  get_title_by_slug(slug: string) {
+    var re = slug;
+    Object.entries(API_SUB).map(([key, value]) => {
+      var item = {
+        title: value,
+        slug: slugify(value.toLowerCase()).replace("dj", "d")
+      };
+      if (item.slug === slug && slug !== item.title) {
+        re = item.title;
+      }
+    });
+    return re;
   }
 
   get_title() {
@@ -124,7 +152,7 @@ export class PostListComponent implements OnInit {
     var month = monthNames[d.getMonth()];
     var year = d.getFullYear();
 
-    var fullDatetime = 'Ngày '+day+', '+month+' , '+year;
+    var fullDatetime = 'Ngày ' + day + ', ' + month + ' , ' + year;
     return fullDatetime;
   }
 }

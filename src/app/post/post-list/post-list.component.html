@@ -1,12 +1,15 @@
 <app-navbar></app-navbar>
+<div id="overlay" *ngIf="isLoading">
+    <div class="circle-loading"></div>
+</div>
 <div class="container mt-5">
-    <h1 class="fw-bold">{{title}}</h1>
+    <h1 class="fw-bold">{{get_title_by_slug(title)}}</h1>
     <div class="hr__line mt-4"></div>
     <div class="row mt-5">
         <div class="col-md-6">
             <div class="row">
-                <img [src]="posts_list?.[0]?.media" alt="'../../../assets/images/skeleton-loading.gif'"
-                    class="w-100" alt="">
+                <img [src]="posts_list?.[0]?.media" alt="'../../../assets/images/skeleton-loading.gif'" class="w-100"
+                    alt="">
             </div>
             <div class="row">
                 <div class="col d-flex flex-row-reverse fw-light fs-11">Theo Vietnamnet
@@ -35,8 +38,8 @@
         </div>
         <div class="col-md-3 ">
             <div class="row">
-                <img [src]="posts_list?.[1]?.media" alt="'../../../assets/images/skeleton-loading.gif'"
-                    class="w-100" alt="">
+                <img [src]="posts_list?.[1]?.media" alt="'../../../assets/images/skeleton-loading.gif'" class="w-100"
+                    alt="">
             </div>
             <div class="row">
                 <div class="col d-flex flex-row-reverse fw-light fs-11">Theo Vietnamnet
@@ -79,8 +82,8 @@
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-12">
-                        <img [src]="item?.media" alt="'../../../assets/images/skeleton-loading.gif'"
-                            class="w-100" alt="">
+                        <img [src]="item?.media" alt="'../../../assets/images/skeleton-loading.gif'" class="w-100"
+                            alt="">
                     </div>
                 </div>
                 <div class="row mb-3" [ngClass]="ind <1 ? 'border-bottom':''">
@@ -94,11 +97,11 @@
             </div>
         </div>
     </div>
-    <div class="row border-top">
+    <div class="row border-top lazy">
         <div class="col-md-3 p-3" *ngFor="let item of get_posts_with_amount(5,9)">
             <div class="row">
-                <img [src]="item?.media" alt="'../../../assets/images/skeleton-loading.gif'" class="img__sub"
-                    alt="">
+                <img [attr.data-src]="item?.media" mdbLazyLoading
+                    [loadingPlaceholder]="'../../../assets/images/skeleton-loading.gif'" class="img__sub" alt="">
             </div>
             <div class="row mt-3 w-90">
                 <div class="d-flex justify-content-start">
@@ -114,7 +117,7 @@
         <h1>Mới nhất</h1>
     </div>
     <div class="mb-4"></div>
-    <div class="row mt-5" *ngFor="let item of get_posts_with_amount(9,posts_list.length)">
+    <div class="row mt-5 lazy" *ngFor="let item of get_posts_with_amount(9,posts_list.length)">
         <div class="col-md-2">
             <div class="d-flex justify-content-start">
                 <p class="fw-light fs-11">{{get_time_in_words(item?.pubDate||"")}}
@@ -137,8 +140,8 @@
         </div>
         <div class="col-md-3">
             <div class="row">
-                <img [src]="item?.media" alt="'../../../assets/images/skeleton-loading.gif'" class="img__sub"
-                    alt="">
+                <img [attr.data-src]="item?.media" mdbLazyLoading
+                    [loadingPlaceholder]="'../../../assets/images/skeleton-loading.gif'" class="img__sub" alt="">
             </div>
         </div>
     </div>

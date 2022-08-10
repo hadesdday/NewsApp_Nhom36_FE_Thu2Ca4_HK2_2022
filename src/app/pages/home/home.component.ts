@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import slugify from 'slugify';
 import { PostService } from 'src/app/post/post.service';
 import { Article, ArticleResponse } from 'src/app/_model/post.model';
@@ -15,8 +16,9 @@ export class HomeComponent implements OnInit {
   ts_news!: Article[];
   tech_news!: Article[];
   business_news!: Article[];
+  isLoading = true;
 
-  constructor(private postService: PostService) {
+  constructor(private postService: PostService, private titleService: Title) {
     this.article_list = [];
     this.ts_news = [];
     this.tech_news = [];
@@ -24,6 +26,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.titleService.setTitle("Trang chủ | News");
     this.load_data();
   }
 
@@ -70,6 +73,7 @@ export class HomeComponent implements OnInit {
         this.article_list.push(currentItem);
       });
       console.log(this.article_list);
+      this.isLoading = false;
     });
   }
 

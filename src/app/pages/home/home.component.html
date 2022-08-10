@@ -1,4 +1,7 @@
 <app-navbar></app-navbar>
+<div id="overlay" *ngIf="isLoading">
+    <div class="circle-loading"></div>
+</div>
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-8">
@@ -137,8 +140,8 @@
                 </div>
             </div>
             <div class="row p-4 pt-0">
-                <a href="{{item.link}}" class="news-title mt-3" *ngFor="let item of get_list_with_amount(1,11,tech_news)"
-                    target="_blank">{{item.title}}</a>
+                <a href="{{item.link}}" class="news-title mt-3"
+                    *ngFor="let item of get_list_with_amount(1,11,tech_news)" target="_blank">{{item.title}}</a>
             </div>
             <!-- end new article -->
             <!-- start new article -->
@@ -153,12 +156,13 @@
                         [attr.data-src]="business_news[0]?.media" alt="'../../../assets/images/skeleton-loading.gif'" />
                 </div>
                 <div class="col-md-9">
-                    <a href="{{business_news[0]?.link}}" class="news-title" target="_blank">{{business_news[0]?.title}}</a>
+                    <a href="{{business_news[0]?.link}}" class="news-title"
+                        target="_blank">{{business_news[0]?.title}}</a>
                 </div>
             </div>
             <div class="row p-4 pt-0">
-                <a href="{{item.link}}" class="news-title mt-3" *ngFor="let item of get_list_with_amount(1,11,business_news)"
-                    target="_blank">{{item.title}}</a>
+                <a href="{{item.link}}" class="news-title mt-3"
+                    *ngFor="let item of get_list_with_amount(1,11,business_news)" target="_blank">{{item.title}}</a>
             </div>
             <!-- end new article -->
 
