@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-center mt-4">
-    <input type="text" name="keyword1" value="" class="w-50" placeholder="Tìm kiếm" [(ngModel)]="keyword"/>
-    <a [routerLink]="['/search', keyword,'']" type="button" class="btn text-primary bg-danger ml-20"><i
-            class="fas fa-search text-light"></i></a>
+    <input type="text" name="keyword1" value="" class="w-50" placeholder="Tìm kiếm" [(ngModel)]="keyword" />
+    <a [routerLink]="['/search', keyword,get_selected_option()]" type="button"
+        class="btn text-primary bg-danger ml-20"><i class="fas fa-search text-light"></i></a>
 </div>
 <div class="row d-flex justify-content-center mt-4">
     <div class="col-md-2 col-sm-12 search__q">
@@ -10,8 +10,8 @@
                 <p class="mt-2 w-100p">Sắp xếp theo</p>
             </div>
             <div class="col-3">
-                <select class="sort__by" (change)="updateOption">
-                    <option value="">Liên quan</option>
+                <select class="sort__by_relevant" (change)="updateOption()">
+                    <option value="0">Liên quan</option>
                     <option value="1">Tăng dần</option>
                     <option value="2">Giảm dần</option>
                 </select>
@@ -24,8 +24,8 @@
                 <p class="mt-2 w-100p">Thời gian</p>
             </div>
             <div class="col-3">
-                <select class="sort__by" (change)="updateOption">
-                    <option value="all">Tất cả</option>
+                <select class="sort__by_date" (change)="updateOption()">
+                    <option value="0">Tất cả</option>
                     <option value="1">Theo Ngày</option>
                     <option value="2">Theo Tuần</option>
                     <option value="3">Theo Tháng</option>
@@ -40,15 +40,7 @@
                 <p class="mt-2 w-100p">Chuyên mục</p>
             </div>
             <div class="col-3">
-                <select class="sort__by" (change)="updateOption">
-                    <option value="all">Tất cả</option>
-                    <option value="1">Cuộc sống số</option>
-                    <option value="2">Viễn thông</option>
-                    <option value="3">Sản phẩm số</option>
-                    <option value="4">Game</option>
-                    <option value="5">Khởi nghiệp</option>
-                    <option value="6">Multimedia</option>
-                    <option value="7">Khám phá</option>
+                <select class="sort__by_title" (change)="updateOption()">
                 </select>
             </div>
         </div>

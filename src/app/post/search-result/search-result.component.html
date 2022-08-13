@@ -3,130 +3,35 @@
     <h1 class="text-center text-break">Kết quả tìm kiếm với từ khóa {{keyword}}</h1>
     <app-search></app-search>
 
-    <div class="row result__area mt-4 container">
+    <div class="row result__area mt-4 container" *ngIf="isLoaded">
         <div class="row d-flex justify-content-center">
             <div class="col-md-2 col-sm-12">
                 <img _ngcontent-gid-c168="" mdblazyloading="" alt="404"
                     ng-reflect-loading-placeholder="../../../assets/images/skeleton-loading.gif"
-                    src="../../../assets/images/sub-img.jpg" class="w-100">
+                    src="{{response_list?.[0]?.media}}" class="w-100">
             </div>
             <div class="col-md-5">
                 <div class="row">
-                    <p><a href="">Lorem ipsum dolor sit, amet consectetur adipisicing
-                            elit. Consectetur, sit</a></p>
+                    <p><a href="{{response_list?.[0]?.link}}">{{response_list?.[0]?.title}}</a></p>
                 </div>
                 <div class="row">
-                    <p class="text-break">Post description here Lorem ipsum dolor sit, amet consectetur adipisicing
-                        elit. Consectetur, sit
-                        modi!</p>
+                    <p class="text-break">{{response_list?.[0]?.description}}</p>
                 </div>
             </div>
         </div>
-        <div class="row d-flex justify-content-center mt-5">
-            <div class="col-md-2 col-sm-12">
+        <div class="row d-flex justify-content-center mt-5"
+            *ngFor="let item of get_list_with_amount(1,response_list.length)">
+            <div class=" col-md-2 col-sm-12">
                 <img _ngcontent-gid-c168="" mdblazyloading="" alt="404"
-                    ng-reflect-loading-placeholder="../../../assets/images/skeleton-loading.gif"
-                    src="../../../assets/images/sub-img.jpg" class="w-100">
+                    ng-reflect-loading-placeholder="../../../assets/images/skeleton-loading.gif" src="{{item?.media}}"
+                    class="w-100">
             </div>
             <div class="col-md-5">
                 <div class="row">
-                    <p><a href="">Lorem ipsum dolor sit, amet consectetur adipisicing
-                            elit. Consectetur, sit</a></p>
+                    <p><a href="{{item?.link}}">{{item?.title}}</a></p>
                 </div>
                 <div class="row">
-                    <p class="text-break">Post description here Lorem ipsum dolor sit, amet consectetur adipisicing
-                        elit. Consectetur, sit
-                        modi!</p>
-                </div>
-            </div>
-        </div>
-        <div class="row d-flex justify-content-center mt-5">
-            <div class="col-md-2 col-sm-12">
-                <img _ngcontent-gid-c168="" mdblazyloading="" alt="404"
-                    ng-reflect-loading-placeholder="../../../assets/images/skeleton-loading.gif"
-                    src="../../../assets/images/sub-img.jpg" class="w-100">
-            </div>
-            <div class="col-md-5">
-                <div class="row">
-                    <p><a href="">Lorem ipsum dolor sit, amet consectetur adipisicing
-                            elit. Consectetur, sit</a></p>
-                </div>
-                <div class="row">
-                    <p class="text-break">Post description here Lorem ipsum dolor sit, amet consectetur adipisicing
-                        elit. Consectetur, sit
-                        modi!</p>
-                </div>
-            </div>
-        </div>
-        <div class="row d-flex justify-content-center mt-5">
-            <div class="col-md-2 col-sm-12">
-                <img _ngcontent-gid-c168="" mdblazyloading="" alt="404"
-                    ng-reflect-loading-placeholder="../../../assets/images/skeleton-loading.gif"
-                    src="../../../assets/images/sub-img.jpg" class="w-100">
-            </div>
-            <div class="col-md-5">
-                <div class="row">
-                    <p><a href="">Lorem ipsum dolor sit, amet consectetur adipisicing
-                            elit. Consectetur, sit</a></p>
-                </div>
-                <div class="row">
-                    <p class="text-break">Post description here Lorem ipsum dolor sit, amet consectetur adipisicing
-                        elit. Consectetur, sit
-                        modi!</p>
-                </div>
-            </div>
-        </div>
-        <div class="row d-flex justify-content-center mt-5">
-            <div class="col-md-2 col-sm-12">
-                <img _ngcontent-gid-c168="" mdblazyloading="" alt="404"
-                    ng-reflect-loading-placeholder="../../../assets/images/skeleton-loading.gif"
-                    src="../../../assets/images/sub-img.jpg" class="w-100">
-            </div>
-            <div class="col-md-5">
-                <div class="row">
-                    <p><a href="">Lorem ipsum dolor sit, amet consectetur adipisicing
-                            elit. Consectetur, sit</a></p>
-                </div>
-                <div class="row">
-                    <p class="text-break">Post description here Lorem ipsum dolor sit, amet consectetur adipisicing
-                        elit. Consectetur, sit
-                        modi!</p>
-                </div>
-            </div>
-        </div>
-        <div class="row d-flex justify-content-center mt-5">
-            <div class="col-md-2 col-sm-12">
-                <img _ngcontent-gid-c168="" mdblazyloading="" alt="404"
-                    ng-reflect-loading-placeholder="../../../assets/images/skeleton-loading.gif"
-                    src="../../../assets/images/sub-img.jpg" class="w-100">
-            </div>
-            <div class="col-md-5">
-                <div class="row">
-                    <p><a href="">Lorem ipsum dolor sit, amet consectetur adipisicing
-                            elit. Consectetur, sit</a></p>
-                </div>
-                <div class="row">
-                    <p class="text-break">Post description here Lorem ipsum dolor sit, amet consectetur adipisicing
-                        elit. Consectetur, sit
-                        modi!</p>
-                </div>
-            </div>
-        </div>
-        <div class="row d-flex justify-content-center mt-5">
-            <div class="col-md-2 col-sm-12">
-                <img _ngcontent-gid-c168="" mdblazyloading="" alt="404"
-                    ng-reflect-loading-placeholder="../../../assets/images/skeleton-loading.gif"
-                    src="../../../assets/images/sub-img.jpg" class="w-100">
-            </div>
-            <div class="col-md-5">
-                <div class="row">
-                    <p><a href="">Lorem ipsum dolor sit, amet consectetur adipisicing
-                            elit. Consectetur, sit</a></p>
-                </div>
-                <div class="row">
-                    <p class="text-break">Post description here Lorem ipsum dolor sit, amet consectetur adipisicing
-                        elit. Consectetur, sit
-                        modi!</p>
+                    <p class="text-break">{{item.description}}</p>
                 </div>
             </div>
         </div>
