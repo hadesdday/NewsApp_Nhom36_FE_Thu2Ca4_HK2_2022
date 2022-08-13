@@ -1,10 +1,11 @@
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {BehaviorSubject, Observable} from "rxjs";
-import {User} from "../_model/user";
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { BehaviorSubject, Observable } from "rxjs";
+import { User } from "../_model/user";
+import { API_AUTH } from '../_api/apiURL';
 
 const httpOptions = {
-  headers: new HttpHeaders({'Content-Type': 'application/json'})
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
 @Injectable({
@@ -17,7 +18,7 @@ export class AuthService {
   }
 
   login(email: any, password: any): Observable<any> {
-    return this.http.post("http://localhost:3000/login", {
+    return this.http.post(API_AUTH.LOGIN, {
       email,
       password
     }, httpOptions);
@@ -30,7 +31,7 @@ export class AuthService {
     //   email = username;
     // }
 
-    return this.http.post<any>('http://localhost:3000/user', {
+    return this.http.post<any>(API_AUTH.USER, {
       "email": email,
       "password": password,
       "phone": null,

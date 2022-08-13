@@ -16,3 +16,9 @@ export const API_SUB = [
     // "Tuần Việt Nam",
     // "Bạn đọc"
 ];
+
+export const API_AUTH = {
+    LOGIN: "http://localhost:3000/login/",
+    USER: "http://localhost:3000/user/",
+    RECOVER: "http://localhost:4200/change-password"
+}

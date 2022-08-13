@@ -3,6 +3,7 @@ import {Router} from "@angular/router";
 import {TokenStorageService} from "../../_service/token-storage.service";
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
+import { API_AUTH } from 'src/app/_api/apiURL';
 
 @Component({
   selector: 'app-profile',
@@ -49,7 +50,7 @@ export class ProfileComponent implements OnInit {
       "dateBirth": this.infoForm.value.dateBirth,
       "gender":this.currentUser.gender
     }
-    this.http.put("http://localhost:3000/user/" + this.currentUser.id, user).subscribe(res => {
+    this.http.put(API_AUTH.USER + this.currentUser.id, user).subscribe(res => {
       alert("change success")
       this.tokenStorage.saveUser(user);
       this.currentUser=this.tokenStorage.getUser();
