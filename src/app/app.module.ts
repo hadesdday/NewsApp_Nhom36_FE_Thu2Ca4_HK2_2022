@@ -48,6 +48,7 @@ import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 import { MdbVectorMapModule } from 'mdb-angular-vector-maps';
 import { MdbWysiwygModule } from 'mdb-angular-wysiwyg';
+import { ToastNoAnimationModule } from 'ngx-toastr';
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
@@ -58,7 +59,6 @@ import { PostModule } from './post/post.module';
 import { ProfileModule } from "./profile/profile.module";
 import { SharedModule } from './shared/shared.module';
 import { SafeHtmlPipe } from './_pipes/safe-html.pipe';
-import { ToastNoAnimationModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, NotfoundComponent, ContactComponent, SafeHtmlPipe],
@@ -121,7 +121,7 @@ import { ToastNoAnimationModule } from 'ngx-toastr';
       timeOut: 1500,
       positionClass: 'toast-top-right',
       preventDuplicates: true,
-    }),
+      }),
   ],
   providers: [MdbCookiesManagementService, MdbStorageManagementService],
   bootstrap: [AppComponent],

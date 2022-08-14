@@ -3,7 +3,60 @@
     <h1 class="text-center text-break">Kết quả tìm kiếm với từ khóa {{keyword}}</h1>
     <app-search></app-search>
 
-    <div class="row result__area mt-4 container" *ngIf="isLoaded">
+    <div class="row mt-4 container w-75 loading" *ngIf="!isLoaded">
+        <div class="row d-flex justify-content-center">
+            <div class="first-section-wrapper">
+                <div class="gravatar-title">
+                    <div>
+                        <ngx-skeleton-loader [theme]="{
+                  width: '25%',
+                  'border-radius': '0',
+                  height: '15px',
+                  'margin-bottom': '10px'
+                }"></ngx-skeleton-loader>
+                    </div>
+                    <div>
+                        <ngx-skeleton-loader [theme]="{ width: '170px', 'border-radius': '0', height: '15px' }">
+                        </ngx-skeleton-loader>
+                    </div>
+                </div>
+            </div>
+            <div class="second-section-wrapper">
+                <div class="wrapper">
+                    <ngx-skeleton-loader [theme]="{
+                width: '80%',
+                'border-radius': '0',
+                height: '15px',
+                'margin-bottom': '10px'
+              }"></ngx-skeleton-loader>
+                </div>
+                <div class="wrapper">
+                    <ngx-skeleton-loader [theme]="{
+                width: '90%',
+                'border-radius': '0',
+                height: '15px',
+                'margin-bottom': '10px'
+              }"></ngx-skeleton-loader>
+                </div>
+                <div class="wrapper">
+                    <ngx-skeleton-loader [theme]="{
+                width: '60%',
+                'border-radius': '0',
+                height: '15px',
+                'margin-bottom': '10px'
+              }"></ngx-skeleton-loader>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row result__area mt-4 container" *ngIf="isLoaded && response_list.length === 0">
+        <div class="row text-center">
+            <h2>Không tìm thấy bài viết phù hợp</h2>
+        </div>
+    </div>
+
+    <div class="row result__area mt-4 container" *ngIf="isLoaded && response_list.length > 0">
         <div class="row d-flex justify-content-center">
             <div class="col-md-2 col-sm-12">
                 <img _ngcontent-gid-c168="" mdblazyloading="" alt="404"
