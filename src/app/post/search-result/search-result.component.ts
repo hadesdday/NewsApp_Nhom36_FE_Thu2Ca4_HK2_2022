@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { ActivatedRoute, Router } from '@angular/router';
-import slugify from 'slugify';
+import { ActivatedRoute } from '@angular/router';
 import { Article, ArticleResponse } from 'src/app/_model/post.model';
 import { PostService } from '../post.service';
 
@@ -16,7 +15,12 @@ export class SearchResultComponent implements OnInit {
   keyword!: string;
   tag!: string;
   response_list!: Article[];
-  isLoaded = true;
+  isLoaded = false;
+
+  animation = 'pulse';
+  count = 5;
+  widthHeightSizeInPixels = 50;
+  intervalId: number | null = null;
 
   constructor(private activatedRoute: ActivatedRoute, private titleService: Title, private postService: PostService) {
     this.response_list = [];
@@ -24,6 +28,10 @@ export class SearchResultComponent implements OnInit {
 
   ngOnInit(): void {
     this.titleService.setTitle("Kết quả tìm kiếm | News");
+    this.animation = this.animation === 'pulse' ? 'progress-dark' : 'pulse';
+    this.count = 5;
+    this.widthHeightSizeInPixels = this.widthHeightSizeInPixels === 50 ? 100 : 50;
+
     this.load_data();
   }
 
@@ -33,6 +41,7 @@ export class SearchResultComponent implements OnInit {
 
   get_post_list() {
     this.activatedRoute.params.subscribe((params) => {
+      this.isLoaded = false;
       this.response_list = [];
       this.keyword = params['keyword'] !== 'undefined' ? params['keyword'] : '';
       this.tag = params['tag'];
@@ -45,8 +54,6 @@ export class SearchResultComponent implements OnInit {
       var date = tags[1].split("=")[1];
       var title = tags[2].split("=")[1];
 
-
-      console.log(this.keyword, this.tag, "from result");
       this.postService.get_list(title).subscribe((res: ArticleResponse) => {
         var items = res.item;
 
@@ -81,13 +88,45 @@ export class SearchResultComponent implements OnInit {
           });
           this.response_list.push(currentItem);
         });
-        // this.isLoading = false;
-        console.log(this.response_list);
-        if (key !== "")
+        if (key !== "") {
           this.filter_list_by_title(key);
-        console.log(this.response_list);
+          this.sort_by_option(od_alphabet);
+          this.sort_by_date(date);
+        }
+        this.isLoaded = true;
       });
     });
+  }
+
+  sort_by_date(by: string) {
+    if (by === "1") {
+      this.response_list = this.response_list.sort((a, b) => {
+        const firstDate = new Date(a.pubDate);
+        const secondDate = new Date(b.pubDate);
+
+        if (firstDate < secondDate) {
+          return -1;
+        }
+        if (firstDate > secondDate) {
+          return 1;
+        }
+        return 0;
+      });
+    }
+    if (by === "2") {
+      this.response_list = this.response_list.sort((a, b) => {
+        const firstDate = new Date(a.pubDate);
+        const secondDate = new Date(b.pubDate);
+
+        if (firstDate > secondDate) {
+          return -1;
+        }
+        if (firstDate < secondDate) {
+          return 1;
+        }
+        return 0;
+      });
+    }
   }
 
   get_list_with_amount(startIndex: number, endIndex: number) {
@@ -100,6 +139,35 @@ export class SearchResultComponent implements OnInit {
       var inputRemovedTones = this.removeVietnameseTones(title);
       return titleRemovedTones.toLowerCase().indexOf(inputRemovedTones) !== -1;
     });
+  }
+
+  sort_by_option(by: string) {
+    if (by === "1") {
+      this.response_list = this.response_list.sort((a, b) => {
+        const firstTitle = this.removeVietnameseTones(a.title.toUpperCase());
+        const secondTitle = this.removeVietnameseTones(b.title.toUpperCase());
+        if (firstTitle < secondTitle) {
+          return -1;
+        }
+        if (firstTitle > secondTitle) {
+          return 1;
+        }
+        return 0;
+      });
+    }
+    if (by === "2") {
+      this.response_list = this.response_list.sort((a, b) => {
+        const firstTitle = this.removeVietnameseTones(a.title.toUpperCase());
+        const secondTitle = this.removeVietnameseTones(b.title.toUpperCase());
+        if (firstTitle > secondTitle) {
+          return -1;
+        }
+        if (firstTitle < secondTitle) {
+          return 1;
+        }
+        return 0;
+      });
+    }
   }
 
   removeVietnameseTones(str: string) {
@@ -117,12 +185,12 @@ export class SearchResultComponent implements OnInit {
     str = str.replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g, "U");
     str = str.replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "Y");
     str = str.replace(/Đ/g, "D");
-    str = str.replace(/\u0300|\u0301|\u0303|\u0309|\u0323/g, "");  
-    str = str.replace(/\u02C6|\u0306|\u031B/g, ""); 
- 
+    str = str.replace(/\u0300|\u0301|\u0303|\u0309|\u0323/g, "");
+    str = str.replace(/\u02C6|\u0306|\u031B/g, "");
+
     str = str.replace(/ + /g, " ");
     str = str.trim();
- 
+
     str = str.replace(/!|@|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\;|\'|\"|\&|\#|\[|\]|~|\$|_|`|-|{|}|\||\\/g, " ");
     return str;
   }

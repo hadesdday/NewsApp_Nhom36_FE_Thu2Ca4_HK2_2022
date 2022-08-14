@@ -26,6 +26,7 @@ export class SearchComponent implements OnInit {
     $("select").niceSelect();
     this.load_data();
     this.titleService.setTitle("Kết quả tìm kiếm | News");
+    this.updateOption();
   }
 
   load_data() {
@@ -57,6 +58,15 @@ export class SearchComponent implements OnInit {
   }
 
   updateOption() {
+    var tags = this.tag.split("&");
+    var od_alphabet = tags[0].split("=")[1];
+    var date = tags[1].split("=")[1];
+    var title = tags[2].split("=")[1];
+
+    $("select[class='sort__by_relevant']").val(od_alphabet);
+    $("select[class='sort__by_date']").val(date);
+    $("select[class='sort__by_title']").val(title);
+
     $("select").niceSelect("update");
   }
 

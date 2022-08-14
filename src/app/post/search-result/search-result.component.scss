@@ -20,4 +20,17 @@
   .search__q {
     margin-right: 5%;
   }
+  .loading {
+    padding-left: 8%;
+  }
 }
+@media only screen and (max-width: 768px) {
+  .loading {
+    width: 100% !important;
+  }
+}
+
+.loading {
+  margin: 0 auto;
+}
+

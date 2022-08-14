@@ -6,6 +6,7 @@ import { SearchResultComponent } from './search-result/search-result.component';
 import { MdbLazyLoadingModule } from 'code/mdb-angular-ui-kit/lazy-loading';
 import { PostService } from './post.service';
 import { PostListComponent } from './post-list/post-list.component';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 @NgModule({
   declarations: [SearchResultComponent, PostListComponent],
@@ -14,6 +15,7 @@ import { PostListComponent } from './post-list/post-list.component';
     PostRoutingModule,
     MdbLazyLoadingModule,
     SharedModule,
+    NgxSkeletonLoaderModule.forRoot()
   ],
   providers: [
     PostService
