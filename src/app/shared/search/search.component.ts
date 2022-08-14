@@ -29,6 +29,13 @@ export class SearchComponent implements OnInit {
     this.updateOption();
   }
 
+  search(event: KeyboardEvent) {
+    if (event.code === "Enter") {
+      const url = $(".search__action").attr("href");
+      this.router.navigateByUrl(url);
+    }
+  }
+
   load_data() {
     this.activatedRoute.params.subscribe((params) => {
       this.keyword = params['keyword'];
