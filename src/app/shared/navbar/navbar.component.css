@@ -148,4 +148,16 @@
   opacity: 0.5;
 }
 
+.app__logo {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+@media only screen and (min-width: 768px) {
+  .app__logo {
+    margin-left: 30px;
+  }
+}
+
 /*# sourceMappingURL=navbar.component.css.map */

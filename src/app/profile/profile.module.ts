@@ -5,11 +5,13 @@ import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileComponent } from './profile/profile.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { SharedModule } from '../shared/shared.module';
+import { PopupConfirmComponent } from './popup-confirm/popup-confirm.component';
 
 
 @NgModule({
   declarations: [
-    ProfileComponent
+    ProfileComponent,
+    PopupConfirmComponent
   ],
     imports: [
         CommonModule,

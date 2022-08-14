@@ -3,6 +3,8 @@ import {Router} from "@angular/router";
 import {TokenStorageService} from "../../_service/token-storage.service";
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
+import {MdbPopconfirmRef, MdbPopconfirmService} from "mdb-angular-ui-kit/popconfirm";
+import {PopupConfirmComponent} from "../popup-confirm/popup-confirm.component";
 
 @Component({
   selector: 'app-profile',
@@ -13,8 +15,9 @@ export class ProfileComponent implements OnInit {
   currentUser: any;
   public infoForm !: FormGroup;
 
+  popconfirmRef: MdbPopconfirmRef<PopupConfirmComponent> | null = null;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private tokenStorage: TokenStorageService, private http: HttpClient) {
+  constructor(private formBuilder: FormBuilder, private router: Router, private tokenStorage: TokenStorageService, private http: HttpClient, private popconfirmService: MdbPopconfirmService) {
   }
 
   ngOnInit(): void {
@@ -39,7 +42,7 @@ export class ProfileComponent implements OnInit {
 
   changeInfo() {
     const user = {
-      "id":this.currentUser.id,
+      "id": this.currentUser.id,
       "username": this.currentUser.username,
       "password": this.currentUser.password,
       "email": this.infoForm.value.email,
@@ -47,19 +50,36 @@ export class ProfileComponent implements OnInit {
       "name": this.infoForm.value.name,
       "address": this.infoForm.value.address,
       "dateBirth": this.infoForm.value.dateBirth,
-      "gender":this.currentUser.gender
+      "gender": this.currentUser.gender
     }
     this.http.put("http://localhost:3000/user/" + this.currentUser.id, user).subscribe(res => {
       alert("change success")
       this.tokenStorage.saveUser(user);
-      this.currentUser=this.tokenStorage.getUser();
+      this.currentUser = this.tokenStorage.getUser();
       console.log(this.currentUser)
       window.location.reload();
     })
 
   }
+
   changeGender({e}: { e: any }) {
-    this.currentUser.gender=e.target.value;
+    this.currentUser.gender = e.target.value;
     console.log(e.target.value);
+  }
+
+  openPopconfirm(event: Event) {
+    const target = event.target as HTMLElement;
+
+    this.popconfirmRef = this.popconfirmService.open(PopupConfirmComponent, target)
+    this.popconfirmRef.onConfirm.subscribe(()=>{
+        this.http.delete<any>("http://localhost:3000/user/"
+        +this.tokenStorage.getUser()['id']
+      ).subscribe(()=>{
+          alert("http://localhost:3000/user/"
+            +this.tokenStorage.getUser()['id'])
+          this.tokenStorage.signOut();
+          this.router.navigate(['home'])
+        })
+    })
   }
 }

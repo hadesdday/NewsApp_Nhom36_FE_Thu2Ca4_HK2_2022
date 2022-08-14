@@ -47,24 +47,6 @@ export class SigninFormComponent implements OnInit {
       }
     })
 
-    // this.authService.login(this.siginForm.value['username'],this.siginForm.value.password).subscribe(
-    //   data => {
-    //     this.tokenStorage.saveToken(data.accessToken);
-    //     console.log(data.accessToken)
-    //     console.log(data)
-    //     this.tokenStorage.saveUser(data);
-    //     this.isLoggedIn = true;
-    //     alert("login success")
-    //     alert(this.tokenStorage.getUser().username)
-    //     this.router.navigate(['home'])
-    //
-    //   },
-    //   err => {
-    //     // this.errorMessage = err.error.message;
-    //     // this.isLoginFailed = true;
-    //     alert("login fail")
-    //     console.log(err.error.message)
-    //   }
-    // );
+
   }
 }

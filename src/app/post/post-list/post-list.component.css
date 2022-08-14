@@ -1,3 +1,11 @@
+.hr__line {
+  border-top: 1px solid black;
+}
+
+.w-90 {
+  width: 90% !important;
+}
+
 .fs-20 {
   font-size: 20px !important;
 }
@@ -6,8 +14,13 @@
   font-size: 11px !important;
 }
 
-#hot-post {
+.hot-post {
   font-size: 23px;
+  font-weight: bold;
+}
+
+.new__post {
+  font-size: 18px;
   font-weight: bold;
 }
 
@@ -20,11 +33,6 @@
 .hot-title:hover {
   color: black;
   text-decoration: underline;
-}
-
-.hot-content {
-  padding-left: 100px;
-  padding-right: 100px;
 }
 
 .line-part {
@@ -51,46 +59,16 @@
   padding-bottom: 20px;
 }
 
-.post__image {
-  width: 75px;
-  height: 75px;
-}
-
-.sub__posts {
-  background-color: #eeeeee;
-}
-.sub__posts .col-md-3 .row img {
-  height: 140px;
-}
-
-.new__posts .middle__column .middle__title {
-  margin: auto 20px;
-}
-
 .img__sub {
-  width: 200px;
-  height: 134px;
+  width: 230px;
+  height: 136px;
   object-fit: cover;
 }
 
 @media only screen and (max-width: 768px) {
   .img__sub {
     width: 100%;
-    height: auto;
-  }
-  .post__image {
-    width: 100%;
-    height: auto;
-  }
-  .hot-content {
-    padding: 0;
-    text-align: start !important;
-  }
-  .sub__posts .col-md-3 .row img {
-    width: 100% !important;
-  }
-  .new__posts .middle__column {
-    margin-top: 20px;
+    height: 100%;
   }
 }
 #overlay {
@@ -136,4 +114,4 @@
   }
 }
 
-/*# sourceMappingURL=home.component.css.map */
+/*# sourceMappingURL=post-list.component.css.map */

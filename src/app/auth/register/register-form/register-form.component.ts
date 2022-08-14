@@ -1,11 +1,11 @@
-import { HttpClient } from "@angular/common/http";
-import { Component, OnInit } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {Component, OnInit} from '@angular/core';
 import {
   AbstractControl, FormBuilder,
   FormControl, FormGroup, Validators
 } from "@angular/forms";
-import { Router } from "@angular/router";
-import { AuthService } from "../../../_service/auth.service";
+import {Router} from "@angular/router";
+import {AuthService} from "../../../_service/auth.service";
 
 export function comparePassword(c: AbstractControl) {
   const v = c.value;
@@ -30,38 +30,36 @@ export class RegisterFormComponent implements OnInit {
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
       username: new FormControl('', [Validators.required]),
-      email: new FormControl('',[Validators.email,Validators.required]),
+      email: new FormControl('', [Validators.email, Validators.required]),
       pw: this.formBuilder.group({
         password: new FormControl('', [Validators.required]),
         re_password: new FormControl('', [Validators.required])
-      }, { validators: comparePassword }),
+      }, {validators: comparePassword}),
       termCheck: new FormControl(false, Validators.requiredTrue)
     })
   }
 
   register() {
-    let neededValue = {}
+    let registered = false;
     this.submitted = true;
-
-    // this.http.post<any>("http://localhost:3000/user", neededValue).subscribe(res => {
-    //
-    //   if (!this.registerForm.hasError('passwordnotmatch', ['pw']) && this.registerForm.value['termCheck'] == true) {
-    //     alert("register success");
-    //     this.registerForm.reset();
-    //     this.router.navigate(['signin']);
-    //   } else {
-    //     alert("register false 2")
-    //   }
-    // }, err => {
-    //   alert("register false"+err.value);
-    // })
-    if (!this.registerForm.hasError('passwordnotmatch', ['pw']) && this.registerForm.value['termCheck'] == true) {
-      this.authService.register(this.registerForm.value['email'], this.registerForm.controls['pw'].value.password).subscribe(res => {
-        alert("register success");
-        this.router.navigate(['signin']);
-      }, error => {
-        alert("register false ")
+    this.http.get<any>("http://localhost:3000/user").subscribe(res => {
+      const user = res.find((a: any) => {
+        return a.email === this.registerForm.value['email']
       })
-    }
+      if (user) {
+        registered = true;
+      }
+      if (registered) {
+        alert("email đã đăng kí tài khoản. xin sử dụng email khác !")
+      } else if (!this.registerForm.hasError('passwordnotmatch', ['pw']) && this.registerForm.value['termCheck'] == true) {
+        this.authService.register(this.registerForm.value['email'], this.registerForm.controls['pw'].value.password).subscribe(res => {
+          alert("register success");
+
+          this.router.navigate(['signin']);
+        }, error => {
+          alert("register false ")
+        })
+      }
+    })
   }
 }
