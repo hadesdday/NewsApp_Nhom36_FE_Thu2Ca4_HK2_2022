@@ -34,7 +34,7 @@ export class SigninFormComponent implements OnInit {
       const user = res.find((a: any) => {
         return a.email === this.siginForm.value.email && a.password === this.siginForm.value.password
       })
-      if (user) {
+      if (user && user.comfirmToken==="ok") {
         this.tokenStorage.saveUser(user);
         console.log(user);
         alert("login success")

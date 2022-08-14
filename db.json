@@ -2,23 +2,23 @@
   "user": [
     {
       "email": "lele9h0st@gmail.com",
-      "password": "abc",
+      "password": "hoang",
       "phone": null,
       "address": null,
       "dateBirth": null,
       "gender": null,
-      "id": 2,
-      "recoveryToken": ""
+      "comfirmToken": "ok",
+      "id": 1
     },
     {
-      "email": "lele9h0st@gmail.com",
-      "password": "abc",
+      "email": "hoang@gmail.com",
+      "password": "hoang",
       "phone": null,
       "address": null,
       "dateBirth": null,
       "gender": null,
-      "id": 3,
-      "recoveryToken": ""
+      "comfirmToken": "sE8woG2vVk",
+      "id": 2
     }
   ]
 }
