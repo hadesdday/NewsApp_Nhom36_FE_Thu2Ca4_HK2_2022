@@ -35,7 +35,7 @@ export class SigninFormComponent implements OnInit {
       const user = res.find((a: any) => {
         return a.email === this.siginForm.value.email && a.password === this.siginForm.value.password
       })
-      if (user) {
+      if (user && user.comfirmToken==="ok") {
         this.tokenStorage.saveUser(user);
         console.log(user);
         alert("login success")
@@ -48,24 +48,6 @@ export class SigninFormComponent implements OnInit {
       }
     })
 
-    // this.authService.login(this.siginForm.value['username'],this.siginForm.value.password).subscribe(
-    //   data => {
-    //     this.tokenStorage.saveToken(data.accessToken);
-    //     console.log(data.accessToken)
-    //     console.log(data)
-    //     this.tokenStorage.saveUser(data);
-    //     this.isLoggedIn = true;
-    //     alert("login success")
-    //     alert(this.tokenStorage.getUser().username)
-    //     this.router.navigate(['home'])
-    //
-    //   },
-    //   err => {
-    //     // this.errorMessage = err.error.message;
-    //     // this.isLoginFailed = true;
-    //     alert("login fail")
-    //     console.log(err.error.message)
-    //   }
-    // );
+
   }
 }
