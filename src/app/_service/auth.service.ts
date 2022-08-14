@@ -4,6 +4,7 @@ import {BehaviorSubject, Observable} from "rxjs";
 import {User} from "../_model/user";
 import {generateToken} from "../auth/signin/recover-pass-form/recover-pass-form.component";
 import emailjs, {EmailJSResponseStatus} from '@emailjs/browser';
+import {API_AUTH} from "../_api/apiURL";
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
@@ -18,7 +19,7 @@ export class AuthService {
   }
 
   login(email: any, password: any): Observable<any> {
-    return this.http.post("http://localhost:3000/login", {
+    return this.http.post(API_AUTH.LOGIN, {
       email,
       password
     }, httpOptions);

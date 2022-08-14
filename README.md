@@ -6,7 +6,15 @@
 <p>19130031 - Nguyễn Hoàng Đạt</p>
 
 ## Thư viên được sử dụng trong project :
-<p>Updating...</p>
+<p>RxJs</p>
+<p>Mdbootstrap for angular</p>
+<p>emailjs</p>
+<p>json-server</p>
+<p>slugify</p>
+<p>ngx-toastr</p>
+<p>ngx-skeleton-loader</p>
+
+## Framework : Angular
 
 # NewsApp
 

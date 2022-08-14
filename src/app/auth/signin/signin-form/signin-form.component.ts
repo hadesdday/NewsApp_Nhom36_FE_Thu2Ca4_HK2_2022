@@ -4,6 +4,7 @@ import { HttpClient } from "@angular/common/http";
 import { Router } from "@angular/router";
 import { AuthService } from "../../../_service/auth.service";
 import { TokenStorageService } from "../../../_service/token-storage.service";
+import { API_AUTH } from 'src/app/_api/apiURL';
 
 @Component({
   selector: 'app-signin-form',
@@ -20,7 +21,7 @@ export class SigninFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.siginForm = this.formBuilder.group({
-        email: new FormControl("", [Validators.required,Validators.email]),
+      email: new FormControl("", [Validators.required, Validators.email]),
       password: new FormControl("", [Validators.required]),
       rememberCheck: new FormControl("")
     })
@@ -30,7 +31,7 @@ export class SigninFormComponent implements OnInit {
   }
 
   sigin() {
-    this.http.get<any>("http://localhost:3000/user").subscribe(res => {
+    this.http.get<any>(API_AUTH.USER).subscribe(res => {
       const user = res.find((a: any) => {
         return a.email === this.siginForm.value.email && a.password === this.siginForm.value.password
       })
@@ -38,11 +39,11 @@ export class SigninFormComponent implements OnInit {
         this.tokenStorage.saveUser(user);
         console.log(user);
         alert("login success")
-        localStorage.setItem("isSignin","true");
+        localStorage.setItem("isSignin", "true");
         this.isLoggedIn = true;
         this.siginForm.reset();
         this.router.navigate(['home'])
-      }else{
+      } else {
         alert("login false")
       }
     })

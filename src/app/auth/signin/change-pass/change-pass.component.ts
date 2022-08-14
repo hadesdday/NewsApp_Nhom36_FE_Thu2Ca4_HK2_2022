@@ -3,6 +3,7 @@ import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from "
 import {HttpClient} from "@angular/common/http";
 import {ActivatedRoute, Router} from "@angular/router";
 import {TokenStorageService} from "../../../_service/token-storage.service";
+import { API_AUTH } from 'src/app/_api/apiURL';
 
 export function comparePassword(c: AbstractControl) {
   const v = c.value;
@@ -49,7 +50,7 @@ changePasswordFunc(){
   if (!this.changePassForm.hasError('passwordnotmatch', ['new_pw'])) {
     this.currentUser.password = this.changePassForm.controls['new_pw'].value.newPass;
     this.currentUser.recoveryToken="";
-    this.http.put("http://localhost:3000/user/" + this.currentUser.id, this.currentUser).subscribe(res => {
+    this.http.put(API_AUTH.USER + this.currentUser.id, this.currentUser).subscribe(res => {
       alert("change success")
       this.tokenStorage.saveUser(this.currentUser);
       this.currentUser = this.tokenStorage.getUser();
@@ -63,7 +64,7 @@ changePasswordFunc(){
     this.submitted = true;
     console.log(this.currentUser)
     if (this.emailParam != null) {
-      this.http.get<any>("http://localhost:3000/user").subscribe(res => {
+      this.http.get<any>(API_AUTH.USER).subscribe(res => {
         const user = res.find((a: any) => {
           return a.email === this.emailParam && a.recoveryToken === this.tokenParam;
         })

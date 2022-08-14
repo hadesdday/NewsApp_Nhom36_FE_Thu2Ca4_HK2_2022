@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {HttpClient} from "@angular/common/http";
-import {Router} from "@angular/router";
-import emailjs, {EmailJSResponseStatus} from '@emailjs/browser';
+import { Component, OnInit } from '@angular/core';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import { HttpClient } from "@angular/common/http";
+import { Router } from "@angular/router";
+import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
+import { API_AUTH } from 'src/app/_api/apiURL';
 
 export function generateToken() {
   var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -35,17 +36,17 @@ export class RecoverPassFormComponent implements OnInit {
 
   recover() {
     emailjs.init("aguJ3ZJ1XwxnQhJBl");
-    this.http.get<any>("http://localhost:3000/user").subscribe(res => {
+    this.http.get<any>(API_AUTH.USER).subscribe(res => {
       const user = res.find((a: any) => {
         return a.email === this.recoverForm.value.recovery_email
       })
-      var token=generateToken();
-      user['recoveryToken']=token;
-      this.http.put("http://localhost:3000/user/" + user.id, user).subscribe(res => {
+      var token = generateToken();
+      user['recoveryToken'] = token;
+      this.http.put(API_AUTH.USER + user.id, user).subscribe(res => {
         alert("add token")
       })
 
-      const recoveryURL = "http://localhost:4200/change-password?email=" + user.email + "&token=" + token;
+      const recoveryURL = `${API_AUTH.RECOVER}?email=` + user.email + "&token=" + token;
       const templateParams = {
         to_name: user.name,
         from_name: 'hoang',
