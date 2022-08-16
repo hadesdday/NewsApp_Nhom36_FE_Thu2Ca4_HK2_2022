@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MdbLazyLoadingModule } from 'mdb-angular-ui-kit/lazy-loading';
-import { AuthGuard } from '../_help/auth.guard';
+import { AuthGuard } from '../_guard/auth.guard';
 import { PostListComponent } from './post-list/post-list.component';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { TestPostCommentComponent } from './test-post-comment/test-post-comment.component';
