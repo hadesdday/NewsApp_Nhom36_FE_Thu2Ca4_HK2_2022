@@ -30,5 +30,70 @@
       "comfirmToken": "ok",
       "id": 3
     }
+  ],
+  "comments": [
+    {
+      "article_id": 1,
+      "id": 1,
+      "email": "vanhieunguyen.edu@gmail.com",
+      "fullname": "Hoang",
+      "content": "Đây là bình luận của người dùng"
+    },
+    {
+      "article_id": 1,
+      "id": 2,
+      "email": "vanhieunguyen1.edu@gmail.com",
+      "fullname": "Hoang1",
+      "content": "Đây là bình luận của người dùng1"
+    },
+    {
+      "article_id": 1,
+      "id": 3,
+      "email": "vanhieunguyen2.edu@gmail.com",
+      "fullname": "Hoang2",
+      "content": "Đây là bình luận của người dùng2"
+    },
+    {
+      "article_id": 1,
+      "id": 4,
+      "email": "vanhieunguyen3.edu@gmail.com",
+      "fullname": "Hoang3",
+      "content": "Đây là bình luận của người dùng3"
+    },
+    {
+      "article_id": 1,
+      "email": "vanhieunguyen.edu@gmail.com",
+      "fullname": "Hoansg",
+      "content": "Đây là bình luận của người dùng",
+      "id": 6
+    },
+    {
+      "article_id": 1,
+      "email": "vanhieunguyen.edu@gmail.com",
+      "fullname": "Hoansg",
+      "content": "Đây là bình luận của người dùng",
+      "id": 7
+    },
+    {
+      "article_id": 1,
+      "email": "a",
+      "fullname": "nguyen van hieu",
+      "content": "a",
+      "id": 8
+    },
+    {
+      "article_id": 1,
+      "email": "2",
+      "fullname": "3",
+      "content": "4",
+      "id": 9
+    },
+    {
+      "article_id": 2,
+      "email": "vanhieunguyen.edu@gmail.com",
+      "fullname": "hieu van nguyen",
+      "content": "day la comment trong article 2",
+      "id": 10
+    }
   ]
 }

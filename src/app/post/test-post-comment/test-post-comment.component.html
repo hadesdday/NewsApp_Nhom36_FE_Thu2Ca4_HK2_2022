@@ -1,0 +1,36 @@
+<form [formGroup]="testForm" (ngSubmit)="postComment()">
+    <div class="input-group flex-nowrap ">
+        <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-user"></i></span>
+        <input formControlName="article_id" required type="number" class="form-control" placeholder="Nhập ma article"
+            aria-describedby="addon-wrapping" />
+    </div>
+
+    <div class="input-group flex-nowrap ">
+        <span class="input-group-text" id="addon-wrapping2"><i class="far fa-comment"></i></span>
+        <input formControlName="email" required type="email" class="form-control" placeholder="Nhập email"
+            aria-describedby="addon-wrapping" />
+    </div>
+    <div class="input-group flex-nowrap">
+        <span class="input-group-text" id="addon-wrapping3"><i class="far fa-comment"></i></span>
+        <input formControlName="fullname" required type="text" class="form-control" placeholder="ten"
+            aria-describedby="addon-wrapping" name="fullname" />
+    </div>
+    <div class="input-group flex-nowrap">
+        <span class="input-group-text" id="addon-wrapping3"><i class="far fa-comment"></i></span>
+        <input formControlName="content" required type="text" class="form-control" placeholder="content"
+            aria-describedby="addon-wrapping" name="content" />
+    </div>
+
+    <div class="register-btn-groups">
+        <button type="submit" class="btn btn-primary btn-rounded" id="button-accept-register" mdbRipple
+            rippleColor="danger">
+            post comment
+        </button>
+    </div>
+</form>
+
+<button (click)="get_cmt()">get comments</button>
+<input type="text" name="aid">
+<div class="comments" *ngFor="let item of comments_list">
+    <p>{{item?.content}}</p>
+</div>
