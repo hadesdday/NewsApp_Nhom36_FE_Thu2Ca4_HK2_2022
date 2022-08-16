@@ -4,7 +4,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { ProfileComponent } from "./profile/profile/profile.component";
-import { AuthGuard } from "./_help/auth.guard";
+import { AuthGuard } from "./_guard/auth.guard";
 
 const routes: Routes = [
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },

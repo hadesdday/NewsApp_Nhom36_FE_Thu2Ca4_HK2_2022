@@ -8,9 +8,10 @@ import { RecoverPassFormComponent } from './signin/recover-pass-form/recover-pas
 import { ChangePassComponent } from './signin/change-pass/change-pass.component';
 import { SharedModule } from '../shared/shared.module';
 import { ConfirmAccountComponent } from './register/confirm-account/confirm-account.component';
+import { NonActivatedAccountComponent } from './register/non-activated-account/non-activated-account.component';
 
 @NgModule({
-  declarations: [RegisterFormComponent, SigninFormComponent, RecoverPassFormComponent, ChangePassComponent, ConfirmAccountComponent],
+  declarations: [RegisterFormComponent, SigninFormComponent, RecoverPassFormComponent, ChangePassComponent, ConfirmAccountComponent, NonActivatedAccountComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,

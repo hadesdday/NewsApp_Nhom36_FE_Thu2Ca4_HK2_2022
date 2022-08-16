@@ -32,6 +32,20 @@ export class AuthService {
     //   email = username;
     // }
     let token=generateToken()
+    this.sendActivatedKey(email,token)
+    return this.http.post<any>('http://localhost:3000/user', {
+      "email": email,
+      "password": password,
+      "phone": null,
+      "address": null,
+      "dateBirth": null,
+      "gender": null,
+      "comfirmToken":token,
+    }, httpOptions);
+
+  }
+  sendActivatedKey(email: any,token:any){
+
 
     alert(email)
     const confirmURL = "http://localhost:4200/confirm-register?email=" +email + "&token=" + token;
@@ -52,15 +66,5 @@ export class AuthService {
       }, function (error) {
         console.log('FAILED...', error);
       });
-    return this.http.post<any>('http://localhost:3000/user', {
-      "email": email,
-      "password": password,
-      "phone": null,
-      "address": null,
-      "dateBirth": null,
-      "gender": null,
-      "comfirmToken":token,
-    }, httpOptions);
-
   }
 }

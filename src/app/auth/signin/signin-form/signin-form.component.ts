@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
-import { HttpClient } from "@angular/common/http";
-import { Router } from "@angular/router";
-import { AuthService } from "../../../_service/auth.service";
-import { TokenStorageService } from "../../../_service/token-storage.service";
-import { API_AUTH } from 'src/app/_api/apiURL';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {HttpClient} from "@angular/common/http";
+import {Router} from "@angular/router";
+import {AuthService} from "../../../_service/auth.service";
+import {TokenStorageService} from "../../../_service/token-storage.service";
+import {API_AUTH} from 'src/app/_api/apiURL';
 
 @Component({
   selector: 'app-signin-form',
@@ -35,14 +35,18 @@ export class SigninFormComponent implements OnInit {
       const user = res.find((a: any) => {
         return a.email === this.siginForm.value.email && a.password === this.siginForm.value.password
       })
-      if (user && user.comfirmToken==="ok") {
-        this.tokenStorage.saveUser(user);
-        console.log(user);
-        alert("login success")
-        localStorage.setItem("isSignin", "true");
-        this.isLoggedIn = true;
-        this.siginForm.reset();
-        this.router.navigate(['home'])
+      if (user) {
+        if (user.comfirmToken === "ok") {
+          this.tokenStorage.saveUser(user);
+          console.log(user);
+          alert("login success")
+          localStorage.setItem("isSignin", "true");
+          this.isLoggedIn = true;
+          this.siginForm.reset();
+          this.router.navigate(['home'])
+        }else {
+          this.router.navigate(['non-active',this.siginForm.value.email])
+        }
       } else {
         alert("login false")
       }

@@ -1,3 +1,11 @@
-
+.confirm-component {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.confirm-component img {
+  width: 100px;
+  height: 100px;
+}
 
 /*# sourceMappingURL=confirm-account.component.css.map */
