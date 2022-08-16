@@ -19,6 +19,16 @@
       "gender": null,
       "comfirmToken": "sE8woG2vVk",
       "id": 2
+    },
+    {
+      "email": "hoangtranhuy2001@gmail.com",
+      "password": "hoang",
+      "phone": null,
+      "address": null,
+      "dateBirth": null,
+      "gender": null,
+      "comfirmToken": "ok",
+      "id": 3
     }
   ]
 }

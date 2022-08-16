@@ -1,0 +1,11 @@
+.non-active-component {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.non-active-component img {
+  width: 100px;
+  height: 100px;
+}
+
+/*# sourceMappingURL=non-activated-account.component.css.map */
