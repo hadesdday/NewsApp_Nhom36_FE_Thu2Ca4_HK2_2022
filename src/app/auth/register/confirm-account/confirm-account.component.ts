@@ -17,7 +17,8 @@ export class ConfirmAccountComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       this.emailParam = params['email'];
       this.tokenParam = params['token'];
-
+      if(this.emailParam==null||this.tokenParam==null)
+        this.router.navigate(['home'])
       this.http.get<any>("http://localhost:3000/user").subscribe(res => {
         const user = res.find((a: any) => {
           return a.email ===this.emailParam
@@ -32,7 +33,8 @@ export class ConfirmAccountComponent implements OnInit {
             })
           }
         }else{
-          alert("login false")
+          alert("something is wrong")
+          this.router.navigate(['signin'])
         }
       })
     });
