@@ -34,3 +34,11 @@
 <div class="comments" *ngFor="let item of comments_list">
     <p>{{item?.content}}</p>
 </div>
+
+<div>
+    <button (click)="get_data()">get data</button>
+    <p>data news</p>
+    <div class="post_details">
+        <div [innerHtml]="post_details"></div>
+    </div>
+</div>
