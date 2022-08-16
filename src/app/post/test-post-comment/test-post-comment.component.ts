@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { PostService } from '../post.service';
 import { Comment } from "../../_model/comment.model";
+import { Cheerio, load } from 'cheerio'
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 declare var $: any;
 
@@ -14,8 +16,9 @@ export class TestPostCommentComponent implements OnInit {
 
   public testForm!: FormGroup;
   comments_list!: Comment[];
+  post_details!: any;
 
-  constructor(private formBuilder: FormBuilder, private service: PostService) {
+  constructor(private formBuilder: FormBuilder, private service: PostService, private domSanitizer: DomSanitizer) {
     this.comments_list = [];
   }
 
@@ -25,6 +28,22 @@ export class TestPostCommentComponent implements OnInit {
       email: new FormControl('', [Validators.email, Validators.required]),
       fullname: new FormControl('', [Validators.required]),
       content: new FormControl('', [Validators.required]),
+    });
+    this.get_data();
+  }
+
+
+  sanitize(html: any): SafeHtml {
+    return this.domSanitizer.bypassSecurityTrustHtml(html);
+  }
+
+  get_data() {
+    this.service.get_news_details("cuu-thu-tuong-ehud-barak-israel-tim-moi-cach-de-phat-hien-cham-soc-tung-nhan-tai-2049939.html").subscribe(res => {
+      const $dom = load(res);
+      $dom(".newsFeature__header-title").addClass("green");
+      $dom("head").append('<link rel="stylesheet" href="/assets/css/style.css">');
+      this.post_details = this.sanitize($dom.html());
+      console.log($dom.html())
     });
   }
 

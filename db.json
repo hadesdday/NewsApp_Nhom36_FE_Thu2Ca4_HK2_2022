@@ -1,14 +1,14 @@
 {
   "user": [
     {
-      "email": "lele9h0st@gmail.com",
+      "id": 1,
       "password": "hoang",
-      "phone": null,
-      "address": null,
-      "dateBirth": null,
-      "gender": null,
-      "comfirmToken": "ok",
-      "id": 1
+      "email": "lele9h0st@gmail.com",
+      "phone": "0987654321",
+      "name": "ho va ten",
+      "address": "dia chi",
+      "dateBirth": "2001-08-27",
+      "gender": "male"
     },
     {
       "email": "hoang@gmail.com",
