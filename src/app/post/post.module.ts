@@ -7,15 +7,18 @@ import { MdbLazyLoadingModule } from 'code/mdb-angular-ui-kit/lazy-loading';
 import { PostService } from './post.service';
 import { PostListComponent } from './post-list/post-list.component';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { TestPostCommentComponent } from './test-post-comment/test-post-comment.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [SearchResultComponent, PostListComponent],
+  declarations: [SearchResultComponent, PostListComponent, TestPostCommentComponent],
   imports: [
     CommonModule,
     PostRoutingModule,
     MdbLazyLoadingModule,
     SharedModule,
-    NgxSkeletonLoaderModule.forRoot()
+    NgxSkeletonLoaderModule.forRoot(),
+    ReactiveFormsModule
   ],
   providers: [
     PostService
