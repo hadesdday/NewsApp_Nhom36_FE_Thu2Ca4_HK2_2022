@@ -1,3 +1,7 @@
-.green{
-    color: green;
+.green {
+  color: green;
+}
+
+.newsFeature__main img {
+  width: 100%;
 }

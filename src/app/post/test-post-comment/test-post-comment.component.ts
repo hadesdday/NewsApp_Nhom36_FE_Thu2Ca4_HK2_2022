@@ -41,6 +41,10 @@ export class TestPostCommentComponent implements OnInit {
     this.service.get_news_details("cuu-thu-tuong-ehud-barak-israel-tim-moi-cach-de-phat-hien-cham-soc-tung-nhan-tai-2049939.html").subscribe(res => {
       const $dom = load(res);
       $dom(".newsFeature__header-title").addClass("green");
+      $dom(".newsFeature__boxAuthor").remove();
+      $dom(".controll__box").remove();
+      $dom(".vnn-template-noneditable").remove();
+      $dom("table").remove();
       $dom("head").append('<link rel="stylesheet" href="/assets/css/style.css">');
       this.post_details = this.sanitize($dom.html());
       console.log($dom.html())
