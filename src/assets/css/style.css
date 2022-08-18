@@ -1,7 +1,15 @@
-.green {
-  color: green;
+.newsFeature__header-title {
+  font-weight: bold;
 }
 
 .newsFeature__main img {
   width: 100%;
+}
+
+.newFeature__main-textBold {
+  font-weight: bold;
+}
+
+#maincontent {
+  margin-top: 1.5rem;
 }

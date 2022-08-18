@@ -10,8 +10,9 @@ import { PostService } from './post.service';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { TestPostCommentComponent } from './test-post-comment/test-post-comment.component';
 import { AdvertisementComponent } from './advertisement/advertisement.component';
+import { PostDetailsComponent } from './post-details/post-details.component';
 @NgModule({
-  declarations: [SearchResultComponent, PostListComponent, TestPostCommentComponent, AdvertisementComponent],
+  declarations: [SearchResultComponent, PostListComponent, TestPostCommentComponent, AdvertisementComponent, PostDetailsComponent],
   imports: [
     CommonModule,
     PostRoutingModule,

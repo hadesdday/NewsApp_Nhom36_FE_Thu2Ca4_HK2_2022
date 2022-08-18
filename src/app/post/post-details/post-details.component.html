@@ -1,0 +1,115 @@
+<app-navbar></app-navbar>
+<div class="container w-90 mt-5 post__details">
+    <div class="row">
+        <div class="col-md-8 border-end">
+            <div class="post__content">
+                <div [innerHtml]="post_details"></div>
+            </div>
+            <div class=" post__comments mt-5 mb-5">
+                <div class="row mt-5">
+                    <h2>Bình luận</h2>
+                </div>
+                <form [formGroup]="postCommentForm">
+                    <input type="hidden" name="article_id" formControlName="article_id">
+                    <div class="row mt-4">
+                        <textarea name="" id="" cols="30" rows="10" placeholder="Nội dung" formControlName="content"
+                            class="form-control" placeholder="Nhập ma article"
+                            aria-describedby="addon-wrapping"></textarea>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col">
+                            <input type="email" name="email" placeholder="Email" formControlName="email"
+                                class="form-control" placeholder="Nhập ma article" aria-describedby="addon-wrapping">
+                        </div>
+                        <div class="col">
+                            <input type="text" name="fullname" placeholder="Họ và tên" formControlName="fullname"
+                                class="form-control" placeholder="Nhập ma article" aria-describedby="addon-wrapping">
+                        </div>
+                        <div class="col">
+                            <button type="submit" class="btn btn-primary btn-rounded" id="button-accept-register"
+                                mdbRipple rippleColor="danger">
+                                Gửi
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <hr>
+            <div class="comments mt-1">
+                <div class="comment">
+                    <div class="col-md-1">
+                        <div class="row">
+                            <div class="col-7 user__avatar">
+                                <div class="rounded-circle bg-dark text-center">
+                                    <p class="text-light">a</p>
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <p>abc@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col cmt__content">
+                            <p>Đây là bình luận bài biết</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment mt-2">
+                    <div class="col-md-1">
+                        <div class="row">
+                            <div class="col-7 user__avatar">
+                                <div class="rounded-circle bg-dark text-center">
+                                    <p class="text-light">a</p>
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <p>abc@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col cmt__content">
+                            <p>Đây là bình luận bài biết</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="related__posts mt-3">
+                <div class="border-bottom">
+                    <h2>Tin liên quan</h2>
+                </div>
+                <div class="post row mt-3" *ngFor="let item of get_posts_with_amount(0,5)">
+                    <div class="col-md-3 col-sm-12">
+                        <img src="{{item?.media}}" alt="" srcset="" height="168px" class="w-100">
+                    </div>
+                    <div class="col-md-8 col-sm-12">
+                        <div class="row">
+                            <a href="bai-viet/{{item?.link}}">
+                                <h6>{{item?.title}}</h6>
+                            </a>
+                        </div>
+                        <div class="row">
+                            <p>{{item?.description}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <button>Lưu bài viết</button>
+            <div class="p-4 ads__banner">
+                <div class="mt-5">
+                    <app-advertisement [url]="'../../../assets/images/ads7.jpeg'"></app-advertisement>
+                </div>
+                <div class="mt-5">
+                    <app-advertisement [url]="'../../../assets/images/ads8.jpg'"></app-advertisement>
+                </div>
+                <div class="mt-5">
+                    <app-advertisement [url]="'../../../assets/images/ads9.jpg'"></app-advertisement>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

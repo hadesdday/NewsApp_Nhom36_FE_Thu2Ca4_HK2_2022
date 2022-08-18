@@ -51,6 +51,11 @@ export class TestPostCommentComponent implements OnInit {
     });
   }
 
+
+  testlog() {
+    alert("awda");
+  }
+
   postComment() {
     console.log(this.testForm.value)
     this.service.post_comment(this.testForm.value).subscribe(res => {
