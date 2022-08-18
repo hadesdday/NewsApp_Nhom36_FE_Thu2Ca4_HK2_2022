@@ -35,6 +35,14 @@
                     </p>
                 </div>
             </div>
+            <div class="row">
+                <div class="d-flex justify-content-center">
+                    <app-advertisement [url]="'../../../assets/images/ads1.png'"></app-advertisement>
+                </div>
+                <div class="d-flex justify-content-center mt-3">
+                    <app-advertisement [url]="'../../../assets/images/ads6.png'"></app-advertisement>
+                </div>
+            </div>
         </div>
         <div class="col-md-3 ">
             <div class="row">
@@ -63,6 +71,11 @@
                         <span class="p-1"></span>
                         Nguồn : Vietnamnet
                     </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="d-flex justify-content-center mt-3">
+                    <app-advertisement [url]="'../../../assets/images/ads7.jpeg'"></app-advertisement>
                 </div>
             </div>
         </div>
@@ -117,7 +130,7 @@
         <h1>Mới nhất</h1>
     </div>
     <div class="mb-4"></div>
-    <div class="row mt-5 lazy" *ngFor="let item of get_posts_with_amount(9,posts_list.length)">
+    <div class="row mt-5 lazy" *ngFor="let item of get_posts_with_amount(9,posts_list.length);index as i">
         <div class="col-md-2">
             <div class="d-flex justify-content-start">
                 <p class="fw-light fs-11">{{get_time_in_words(item?.pubDate||"")}}

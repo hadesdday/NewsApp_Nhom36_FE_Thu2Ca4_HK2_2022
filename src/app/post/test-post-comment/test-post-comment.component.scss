@@ -1,0 +1,8 @@
+.green {
+  color: green;
+}
+@media only screen and (max-width: 768px) {
+  .post_details {
+    width: 100% !important;
+  }
+}

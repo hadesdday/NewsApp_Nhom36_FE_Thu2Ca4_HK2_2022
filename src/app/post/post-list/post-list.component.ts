@@ -7,7 +7,6 @@ import { API_SUB } from 'src/app/_api/apiURL';
 import { Article, ArticleResponse } from 'src/app/_model/post.model';
 import { PostService } from '../post.service';
 
-
 @Component({
   selector: 'app-post-list',
   templateUrl: './post-list.component.html',
@@ -63,9 +62,12 @@ export class PostListComponent implements OnInit {
         var andSymbol = singleQuote.split("&amp;amp;").join("&");
         var finalTitle = andSymbol;
 
+        var finalDescription = curr.description[0].trim().split("&amp;apos;").join("'");
+        finalDescription = finalDescription.split("&amp;amp;").join("&");
+
         let currentItem: Article = {
           category: curr.category[0].trim(),
-          description: curr.description[0].trim(),
+          description: finalDescription,
           guid: curr.guid[0].trim(),
           link: curr.link[0].trim(),
           media: "",

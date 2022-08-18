@@ -34,4 +34,11 @@ export class PostService {
     return this.http.get<Comment[]>(`${API_URL.COMMENT}?article_id=${post_id}`)
       .pipe(catchError(err => this.commonService.handleError(err, "Lỗi khi lấy bình luận")));
   }
+
+  get_news_details(url: string) {
+    const headers = new HttpHeaders().set('Content-Type', 'text/plain; charset=utf-8');
+    return this.http.get(`https://api-news-vietnamnet.herokuapp.com/article/${url}`, { headers, responseType: 'text' })
+      .pipe(catchError(err => this.commonService.handleError(err, "Lỗi khi lay du lieu bai viet ")));
+  }
+  
 }
