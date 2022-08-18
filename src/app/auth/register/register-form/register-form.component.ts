@@ -40,8 +40,8 @@ export class RegisterFormComponent implements OnInit {
   }
 
   register() {
-    let registered = false;
     this.submitted = true;
+    let registered = false;
     this.http.get<any>("http://localhost:3000/user").subscribe(res => {
       const user = res.find((a: any) => {
         return a.email === this.registerForm.value['email']

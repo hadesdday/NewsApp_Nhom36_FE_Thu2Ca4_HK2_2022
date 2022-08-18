@@ -31,6 +31,8 @@ export class ConfirmAccountComponent implements OnInit {
             this.http.put("http://localhost:3000/user/" +user.id, user).subscribe(res => {
               alert("success")
             })
+          }else{
+            this.router.navigate(['signin'])
           }
         }else{
           alert("something is wrong")

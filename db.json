@@ -4,11 +4,12 @@
       "id": 1,
       "password": "hoang",
       "email": "lele9h0st@gmail.com",
-      "phone": "0987654321",
-      "name": "ho va ten",
-      "address": "dia chi",
-      "dateBirth": "2001-08-27",
-      "gender": "male"
+      "phone": "0971280168",
+      "name": "Trần Huy Hoàng",
+      "address": "123/4 Thủ Đức Thành phố Hồ Chí Minh",
+      "dateBirth": "2001-07-12",
+      "gender": "male",
+      "comfirmToken": "ok"
     },
     {
       "email": "hoang@gmail.com",

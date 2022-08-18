@@ -17,14 +17,14 @@ export class TokenStorageService {
     this.router.navigate(['/signin']);
   }
 
-  public saveToken(token: string): void {
-    localStorage.removeItem(TOKEN_KEY);
-    localStorage.setItem(TOKEN_KEY, token);
-  }
-
-  public getToken(): string | null {
-    return localStorage.getItem(TOKEN_KEY);
-  }
+  // public saveToken(token: string): void {
+  //   localStorage.removeItem(TOKEN_KEY);
+  //   localStorage.setItem(TOKEN_KEY, token);
+  // }
+  //
+  // public getToken(): string | null {
+  //   return localStorage.getItem(TOKEN_KEY);
+  // }
 
   public saveUser(user: any): void {
     localStorage.removeItem(USER_KEY);
@@ -37,5 +37,8 @@ export class TokenStorageService {
       return JSON.parse(user)
     }
     return {}
+  }
+  public isSignin():any{
+   return localStorage.getItem("isSignin") == "true"
   }
 }

@@ -15,8 +15,8 @@ const routes: Routes = [
   {path: 'signin', component: SigninFormComponent, canActivate: [LoginGuard]},
   {path: 'recovery-password', component: RecoverPassFormComponent, canActivate: [LoginGuard]},
   {path: 'change-password', component: ChangePassComponent},
-  {path: 'confirm-register', component: ConfirmAccountComponent},
-  {path: 'non-active/:email', component: NonActivatedAccountComponent},
+  {path: 'confirm-register', component: ConfirmAccountComponent, canActivate: [LoginGuard]},
+  {path: 'non-active/:email', component: NonActivatedAccountComponent, canActivate: [LoginGuard]},
   {path: 'non-active', component: HomeComponent}
 ];
 

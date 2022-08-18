@@ -6,6 +6,7 @@ import {HttpClient} from "@angular/common/http";
 import { API_AUTH } from 'src/app/_api/apiURL';
 import {MdbPopconfirmRef, MdbPopconfirmService} from "mdb-angular-ui-kit/popconfirm";
 import {PopupConfirmComponent} from "../popup-confirm/popup-confirm.component";
+import {CommonService} from "../../_service/common.service";
 
 @Component({
   selector: 'app-profile',
@@ -18,7 +19,7 @@ export class ProfileComponent implements OnInit {
 
   popconfirmRef: MdbPopconfirmRef<PopupConfirmComponent> | null = null;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private tokenStorage: TokenStorageService, private http: HttpClient, private popconfirmService: MdbPopconfirmService) {
+  constructor(private formBuilder: FormBuilder,private commonService: CommonService, private router: Router, private tokenStorage: TokenStorageService, private http: HttpClient, private popconfirmService: MdbPopconfirmService) {
   }
 
   ngOnInit(): void {
@@ -51,10 +52,11 @@ export class ProfileComponent implements OnInit {
       "name": this.infoForm.value.name,
       "address": this.infoForm.value.address,
       "dateBirth": this.infoForm.value.dateBirth,
-      "gender": this.currentUser.gender
+      "gender": this.currentUser.gender,
+      "comfirmToken": this.currentUser.comfirmToken
     }
     this.http.put("http://localhost:3000/user/" + this.currentUser.id, user).subscribe(res => {
-      alert("change success")
+      this.commonService.toastSuccess("Thay đổi thông tin thành công thành công!")
       this.tokenStorage.saveUser(user);
       this.currentUser = this.tokenStorage.getUser();
       console.log(this.currentUser)

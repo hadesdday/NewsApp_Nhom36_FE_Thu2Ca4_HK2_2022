@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
     this.titleService.setTitle("Trang chủ | News");
     this.load_data();
   }
-  
+
   load_data() {
     this.load_hot_news();
     this.load_ts_news();
