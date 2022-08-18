@@ -1,0 +1,21 @@
+.post__details {
+  font-size: 120%;
+}
+
+.w-90 {
+  width: 90% !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .post__details {
+    width: 100% !important;
+  }
+  .user__avatar {
+    width: 60px ;
+  }
+}
+
+.cmt__content {
+  margin-left: 3rem;
+}
+
