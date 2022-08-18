@@ -1,14 +1,15 @@
 {
   "user": [
     {
-      "email": "lele9h0st@gmail.com",
+      "id": 1,
       "password": "hoang",
-      "phone": null,
-      "address": null,
-      "dateBirth": null,
-      "gender": null,
-      "comfirmToken": "ok",
-      "id": 1
+      "email": "lele9h0st@gmail.com",
+      "phone": "0971280168",
+      "name": "Trần Huy Hoàng",
+      "address": "123/4 Thủ Đức Thành phố Hồ Chí Minh",
+      "dateBirth": "2001-07-12",
+      "gender": "male",
+      "comfirmToken": "ok"
     },
     {
       "email": "hoang@gmail.com",

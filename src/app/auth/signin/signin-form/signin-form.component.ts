@@ -13,7 +13,6 @@ import {API_AUTH} from 'src/app/_api/apiURL';
 })
 export class SigninFormComponent implements OnInit {
   public siginForm !: FormGroup;
-  isLoggedIn = false;
 
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private authService: AuthService, private tokenStorage: TokenStorageService) {
@@ -25,33 +24,9 @@ export class SigninFormComponent implements OnInit {
       password: new FormControl("", [Validators.required]),
       rememberCheck: new FormControl("")
     })
-    if (this.tokenStorage.getToken()) {
-      this.isLoggedIn = true;
-    }
   }
 
   sigin() {
-    this.http.get<any>(API_AUTH.USER).subscribe(res => {
-      const user = res.find((a: any) => {
-        return a.email === this.siginForm.value.email && a.password === this.siginForm.value.password
-      })
-      if (user) {
-        if (user.comfirmToken === "ok") {
-          this.tokenStorage.saveUser(user);
-          console.log(user);
-          alert("login success")
-          localStorage.setItem("isSignin", "true");
-          this.isLoggedIn = true;
-          this.siginForm.reset();
-          this.router.navigate(['home'])
-        }else {
-          this.router.navigate(['non-active',this.siginForm.value.email])
-        }
-      } else {
-        alert("login false")
-      }
-    })
-
-
+    this.authService.login(this.siginForm);
   }
 }

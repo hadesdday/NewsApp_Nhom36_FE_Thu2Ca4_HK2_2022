@@ -24,7 +24,7 @@ export class NonActivatedAccountComponent implements OnInit {
   resendKey() {
     this.route.queryParams.subscribe(params => {
       this.emailParam = params['email'];
-      if(this.emailParam==null)
+      if (this.emailParam == null)
         this.router.navigate(['home'])
       this.http.get<any>("http://localhost:3000/user").subscribe(res => {
         const user = res.find((a: any) => {
@@ -33,7 +33,7 @@ export class NonActivatedAccountComponent implements OnInit {
         if (user) {
           this.authService.sendActivatedKey(this.emailParam, user.comfirmToken);
         } else {
-
+          this.router.navigate(['home'])
         }
       })
 
