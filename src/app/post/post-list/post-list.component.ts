@@ -68,8 +68,8 @@ export class PostListComponent implements OnInit {
         let currentItem: Article = {
           category: curr.category[0].trim(),
           description: finalDescription,
-          guid: curr.guid[0].trim(),
-          link: curr.link[0].trim(),
+          guid: curr.guid[0].trim().replace("https://vietnamnet.vn/", "bai-viet/"),
+          link: curr.link[0].trim().replace("https://vietnamnet.vn/",  "bai-viet/"),
           media: "",
           pubDate: curr.pubDate[0].trim(),
           title: finalTitle

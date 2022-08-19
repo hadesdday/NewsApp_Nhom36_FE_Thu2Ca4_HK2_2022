@@ -34,45 +34,45 @@
   ],
   "comments": [
     {
-      "article_id": 1,
-      "id": 1,
+      "article_id": 2051307,
       "email": "vanhieunguyen.edu@gmail.com",
-      "fullname": "Hoang",
-      "content": "Đây là bình luận của người dùng"
+      "fullname": "Nguyễn Văn Hiếu",
+      "content": "Trường mình mãi đỉnh 🔥",
+      "id": 1
     },
     {
-      "article_id": 1,
-      "id": 2,
-      "email": "vanhieunguyen1.edu@gmail.com",
-      "fullname": "Hoang1",
-      "content": "Đây là bình luận của người dùng1"
+      "article_id": 2051307,
+      "email": "devwebchichoo@gmail.com",
+      "fullname": "Developer",
+      "content": "Chúc các cháu học giỏi",
+      "id": 2
     },
     {
-      "article_id": 1,
-      "id": 3,
-      "email": "vanhieunguyen2.edu@gmail.com",
-      "fullname": "Hoang2",
-      "content": "Đây là bình luận của người dùng2"
+      "article_id": 2051307,
+      "email": "lele9h0st@gmail.com",
+      "fullname": "Trần Huy Hoàng",
+      "content": "Ngôi trường mơ ước của bao thế hệ sinh viên là đây chứ đâu",
+      "id": 3
     },
     {
-      "article_id": 1,
-      "id": 4,
-      "email": "vanhieunguyen3.edu@gmail.com",
-      "fullname": "Hoang3",
-      "content": "Đây là bình luận của người dùng3"
+      "article_id": 2051307,
+      "email": "19130073@st.hcmuaf.edu.vn",
+      "fullname": "Nguyễn Văn Hiếu",
+      "content": "Môi trường quốc tế rất tốt để các con phát triển , hội nhập",
+      "id": 4
     },
     {
-      "article_id": 1,
-      "email": "vanhieunguyen.edu@gmail.com",
-      "fullname": "Hoansg",
-      "content": "Đây là bình luận của người dùng",
+      "article_id": 2051307,
+      "email": "19130078@st.hcmuaf.edu.vn",
+      "fullname": "Trần Huy Hoàng",
+      "content": "Chất lượng dạy của trường rất tốt",
       "id": 6
     },
     {
-      "article_id": 1,
-      "email": "vanhieunguyen.edu@gmail.com",
-      "fullname": "Hoansg",
-      "content": "Đây là bình luận của người dùng",
+      "article_id": 2051307,
+      "email": "19130031@st.hcmuaf.edu.vn",
+      "fullname": "Nguyễn Hoàng Đạt",
+      "content": "Học phí rất phù hợp",
       "id": 7
     },
     {
@@ -95,6 +95,20 @@
       "fullname": "hieu van nguyen",
       "content": "day la comment trong article 2",
       "id": 10
+    },
+    {
+      "article_id": 2051307,
+      "email": "nguyenvanhieu@gmail.com",
+      "fullname": "nguyen van hieu",
+      "content": "hay",
+      "id": 11
+    },
+    {
+      "article_id": 2051408,
+      "email": "nhocproaoe@gmail.com",
+      "fullname": "Nguyễn Văn Hiếu",
+      "content": "cau mong chau doan tu voi gia dinh 🤷‍♀️",
+      "id": 12
     }
   ]
 }
