@@ -23,6 +23,16 @@
   font-size: 40px;
 }
 
-.w-95{
+.w-95 {
   width: 95% !important;
+}
+.rel__link {
+  color: black;
+  h6 {
+    font-size: 110%;
+    font-weight: 600;
+  }
+  &:hover {
+    text-decoration: underline;
+  }
 }

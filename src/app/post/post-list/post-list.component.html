@@ -37,10 +37,13 @@
             </div>
             <div class="row">
                 <div class="d-flex justify-content-center">
-                    <app-advertisement [url]="'../../../assets/images/ads1.png'"></app-advertisement>
+                    <app-advertisement [url]="'../../../assets/images/ads1.png'"
+                        [ref]="'https://hangchinhhieu.vn/collections/laptop-asus-vivobook-pro-1'"></app-advertisement>
                 </div>
                 <div class="d-flex justify-content-center mt-3">
-                    <app-advertisement [url]="'../../../assets/images/ads6.png'"></app-advertisement>
+                    <app-advertisement [url]="'../../../assets/images/ads6.png'"
+                        [ref]="'https://hangchinhhieu.vn/blogs/tin-khuyen-mai/sam-laptop-chuan-amd-hoc-het-suc-choi-het-minh'">
+                    </app-advertisement>
                 </div>
             </div>
         </div>
@@ -75,7 +78,7 @@
             </div>
             <div class="row">
                 <div class="d-flex justify-content-center mt-3">
-                    <app-advertisement [url]="'../../../assets/images/ads7.jpeg'"></app-advertisement>
+                    <app-advertisement [url]="'../../../assets/images/ads7.jpeg'" [ref]="'https://websosanh.vn/s/tivi+smart+samsung+43+inch.htm'"></app-advertisement>
                 </div>
             </div>
         </div>
@@ -125,38 +128,11 @@
             </div>
         </div>
     </div>
-    <div class="hr__line mt-3"></div>
-    <div class="row mt-3 border-bottom">
+    <div class="hr__line mt-2"></div>
+    <div class="row mt-3">
         <h1>Mới nhất</h1>
     </div>
-    <div class="mb-4"></div>
-    <div class="row mt-5 lazy" *ngFor="let item of get_posts_with_amount(9,posts_list.length);index as i">
-        <div class="col-md-2">
-            <div class="d-flex justify-content-start">
-                <p class="fw-light fs-11">{{get_time_in_words(item?.pubDate||"")}}
-                </p>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="row">
-                <div class="d-flex justify-content-start">
-                    <a href="{{item?.link}}" class="hot-title" target="_blank">
-                        <h6 class="hot-post">{{item?.title}}</h6>
-                    </a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="d-flex justify-content-start">
-                    <p class="text-start hot-content">{{item?.description}}</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="row">
-                <img [attr.data-src]="item?.media" mdbLazyLoading
-                    [loadingPlaceholder]="'../../../assets/images/skeleton-loading.gif'" class="img__sub" alt="">
-            </div>
-        </div>
-    </div>
+    <div class="hr__line mt-2"></div>
+    <newest-post [articles]="get_posts_with_amount(9,posts_list.length)"></newest-post>
 </div>
 <app-footer></app-footer>

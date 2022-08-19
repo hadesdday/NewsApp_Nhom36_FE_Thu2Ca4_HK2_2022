@@ -59,7 +59,6 @@ export class PostDetailsComponent implements OnInit {
       this.postService.get_news_details(this.post_url).subscribe(res => {
         const $dom = load(res);
 
-        $dom(".newsFeature__header-title").addClass("green");
         $dom(".newsFeature__boxAuthor").remove();
         $dom(".controll__box").remove();
         $dom(".vnn-template-noneditable").remove();
@@ -135,7 +134,6 @@ export class PostDetailsComponent implements OnInit {
           this.posts_list.push(currentItem);
       });
       this.isLoading = false;
-      // console.log(this.posts_list);
     });
   }
 

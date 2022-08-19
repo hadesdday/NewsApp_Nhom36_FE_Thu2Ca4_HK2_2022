@@ -15,8 +15,9 @@
                 <form [formGroup]="postCommentForm" (ngSubmit)="post_comment()">
                     <input type="hidden" name="article_id" formControlName="article_id">
                     <div class="row mt-4">
-                        <textarea name="" id="" cols="30" rows="3" placeholder="Nội dung" formControlName="content"
-                            class="form-control w-95" placeholder="Nội dung" aria-describedby="addon-wrapping"></textarea>
+                        <textarea cols="25" rows="3" placeholder="Nội dung" formControlName="content"
+                            class="form-control w-95" placeholder="Nội dung"
+                            aria-describedby="addon-wrapping"></textarea>
                     </div>
                     <div class="row mt-5">
                         <div class="col">
@@ -40,7 +41,8 @@
             <div class="comments mt-1" *ngIf="comments_list.length ===0">
                 <div class="container">
                     <div class="row">
-                        <p class="text-center"><i class="far fa-newspaper fs-40 p-3"></i> Hãy là người đầu tiên bình luận trong
+                        <p class="text-center"><i class="far fa-newspaper fs-40 p-3"></i> Hãy là người đầu tiên bình
+                            luận trong
                             bài.</p>
                     </div>
                 </div>
@@ -66,23 +68,7 @@
                     </div>
                 </div>
                 <div class="comment mt-2" *ngFor="let item of get_posts_comment_with_amount(1,comments_list.length)">
-                    <div class="col-md-1">
-                        <div class="row">
-                            <div class="col-7 user__avatar">
-                                <div class="rounded-circle bg-dark text-center">
-                                    <p class="text-light">{{item?.fullname?.charAt(0)}}</p>
-                                </div>
-                            </div>
-                            <div class="col-5">
-                                <p>{{item?.email}}</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col cmt__content">
-                            <p>{{item?.content}}</p>
-                        </div>
-                    </div>
+                    <post-comment [comment]="item"></post-comment>
                 </div>
             </div>
             <div class="related__posts mt-3">
@@ -91,15 +77,15 @@
                 </div>
                 <div class="post row mt-3" *ngFor="let item of get_posts_with_amount(0,5)">
                     <div class="col-md-3 col-sm-12">
-                        <img src="{{item?.media}}" alt="" srcset="" height="168px" class="w-100">
+                        <img src="{{item?.media}}" alt="'../../assets/images/skeleton-loading.gif'" class="w-100">
                     </div>
-                    <div class="col-md-8 col-sm-12">
-                        <div class="row">
-                            <a href="bai-viet/{{item?.link}}">
+                    <div class="col-md-9 col-sm-12">
+                        <div class="row w-100">
+                            <a href="bai-viet/{{item?.link}}" class="rel__link">
                                 <h6>{{item?.title}}</h6>
                             </a>
                         </div>
-                        <div class="row">
+                        <div class="row w-100">
                             <p>{{item?.description}}</p>
                         </div>
                     </div>
@@ -110,13 +96,16 @@
             <button>Lưu bài viết</button>
             <div class="p-4 ads__banner">
                 <div class="mt-5">
-                    <app-advertisement [url]="'../../../assets/images/ads7.jpeg'"></app-advertisement>
+                    <app-advertisement [url]="'../../../assets/images/ads7.jpeg'"
+                        [ref]="'https://websosanh.vn/s/tivi+smart+samsung+43+inch.htm'"></app-advertisement>
                 </div>
                 <div class="mt-5">
-                    <app-advertisement [url]="'../../../assets/images/ads8.jpg'"></app-advertisement>
+                    <app-advertisement [url]="'../../../assets/images/ads8.jpg'"
+                        [ref]="'https://shopee.vn/m/sale-cuoi-thang-don-luong-ve'"></app-advertisement>
                 </div>
                 <div class="mt-5">
-                    <app-advertisement [url]="'../../../assets/images/ads9.jpg'"></app-advertisement>
+                    <app-advertisement [url]="'../../../assets/images/ads9.jpg'"
+                        [ref]="'https://tiki.vn/khuyen-mai/sieu-hoi-doi-song'"></app-advertisement>
                 </div>
             </div>
         </div>
