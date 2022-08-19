@@ -57,32 +57,18 @@ export class HomeComponent implements OnInit {
         var singleQuote = curr.title[0].trim().split("&amp;apos;").join("'");
         var andSymbol = singleQuote.split("&amp;amp;").join("&");
         var finalTitle = andSymbol;
-
+        var imgUrl = curr['media:content'][0]?.$.url;
         let currentItem: Article = {
           category: curr.category[0].trim(),
           description: curr.description[0].trim(),
-          guid: curr.guid[0].trim().replace("https://vietnamnet.vn/","bai-viet/"),
-          link: curr.link[0].trim().replace("https://vietnamnet.vn/","bai-viet/"),
-          media: "",
+          guid: curr.guid[0].trim().replace("https://vietnamnet.vn/", "bai-viet/"),
+          link: curr.link[0].trim().replace("https://vietnamnet.vn/", "bai-viet/"),
+          media: imgUrl,
           pubDate: curr.pubDate[0].trim(),
           title: finalTitle
         };
-
-        Object.keys(curr).forEach(function (key, index) {
-          var article = curr[key];
-          if (index === 6) {
-            var url = article[0]?.$;
-            Object.keys(url).forEach(function (key, index) {
-              if (index === 2) {
-                currentItem.media = url[key];
-                return;
-              }
-            });
-          }
-        });
         this.article_list.push(currentItem);
       });
-      console.log(this.article_list);
     });
   }
 
@@ -96,29 +82,16 @@ export class HomeComponent implements OnInit {
         var singleQuote = curr.title[0].trim().split("&amp;apos;").join("'");
         var andSymbol = singleQuote.split("&amp;amp;").join("&");
         var finalTitle = andSymbol;
-
+        var imgUrl = curr['media:content'][0]?.$.url;
         let currentItem: Article = {
           category: curr.category[0].trim(),
           description: curr.description[0].trim(),
-          guid: curr.guid[0].trim().replace("https://vietnamnet.vn/","bai-viet/"),
-          link: curr.link[0].trim().replace("https://vietnamnet.vn/","bai-viet/"),
-          media: "",
+          guid: curr.guid[0].trim().replace("https://vietnamnet.vn/", "bai-viet/"),
+          link: curr.link[0].trim().replace("https://vietnamnet.vn/", "bai-viet/"),
+          media: imgUrl,
           pubDate: curr.pubDate[0].trim(),
           title: finalTitle
         };
-
-        Object.keys(curr).forEach(function (key, index) {
-          var article = curr[key];
-          if (index === 6) {
-            var url = article[0]?.$;
-            Object.keys(url).forEach(function (key, index) {
-              if (index === 2) {
-                currentItem.media = url[key];
-                return;
-              }
-            });
-          }
-        });
         this.ts_news.push(currentItem);
       });
     });
@@ -134,29 +107,17 @@ export class HomeComponent implements OnInit {
         var singleQuote = curr.title[0].trim().split("&amp;apos;").join("'");
         var andSymbol = singleQuote.split("&amp;amp;").join("&");
         var finalTitle = andSymbol;
-
+        var imgUrl = curr['media:content'][0]?.$.url;
         let currentItem: Article = {
           category: curr.category[0].trim(),
           description: curr.description[0].trim(),
-          guid: curr.guid[0].trim().replace("https://vietnamnet.vn/","bai-viet/"),
-          link: curr.link[0].trim().replace("https://vietnamnet.vn/","bai-viet/"),
-          media: "",
+          guid: curr.guid[0].trim().replace("https://vietnamnet.vn/", "bai-viet/"),
+          link: curr.link[0].trim().replace("https://vietnamnet.vn/", "bai-viet/"),
+          media: imgUrl,
           pubDate: curr.pubDate[0].trim(),
           title: finalTitle
         };
 
-        Object.keys(curr).forEach(function (key, index) {
-          var article = curr[key];
-          if (index === 6) {
-            var url = article[0]?.$;
-            Object.keys(url).forEach(function (key, index) {
-              if (index === 2) {
-                currentItem.media = url[key];
-                return;
-              }
-            });
-          }
-        });
         this.tech_news.push(currentItem);
       });
     });
@@ -172,29 +133,16 @@ export class HomeComponent implements OnInit {
         var singleQuote = curr.title[0].trim().split("&amp;apos;").join("'");
         var andSymbol = singleQuote.split("&amp;amp;").join("&");
         var finalTitle = andSymbol;
-
+        var imgUrl = curr['media:content'][0]?.$.url;
         let currentItem: Article = {
           category: curr.category[0].trim(),
           description: curr.description[0].trim(),
-          guid: curr.guid[0].trim().replace("https://vietnamnet.vn/","bai-viet/"),
-          link: curr.link[0].trim().replace("https://vietnamnet.vn/","bai-viet/"),
-          media: "",
+          guid: curr.guid[0].trim().replace("https://vietnamnet.vn/", "bai-viet/"),
+          link: curr.link[0].trim().replace("https://vietnamnet.vn/", "bai-viet/"),
+          media: imgUrl,
           pubDate: curr.pubDate[0].trim(),
           title: finalTitle
         };
-
-        Object.keys(curr).forEach(function (key, index) {
-          var article = curr[key];
-          if (index === 6) {
-            var url = article[0]?.$;
-            Object.keys(url).forEach(function (key, index) {
-              if (index === 2) {
-                currentItem.media = url[key];
-                return;
-              }
-            });
-          }
-        });
         this.business_news.push(currentItem);
       });
     });
@@ -210,29 +158,16 @@ export class HomeComponent implements OnInit {
         var singleQuote = curr.title[0].trim().split("&amp;apos;").join("'");
         var andSymbol = singleQuote.split("&amp;amp;").join("&");
         var finalTitle = andSymbol;
-
+        var imgUrl = curr['media:content'][0]?.$.url;
         let currentItem: Article = {
           category: curr.category[0].trim(),
           description: curr.description[0].trim(),
-          guid: curr.guid[0].trim().replace("https://vietnamnet.vn/","bai-viet/"),
-          link: curr.link[0].trim().replace("https://vietnamnet.vn/","bai-viet/"),
-          media: "",
+          guid: curr.guid[0].trim().replace("https://vietnamnet.vn/", "bai-viet/"),
+          link: curr.link[0].trim().replace("https://vietnamnet.vn/", "bai-viet/"),
+          media: imgUrl,
           pubDate: curr.pubDate[0].trim(),
           title: finalTitle
         };
-
-        Object.keys(curr).forEach(function (key, index) {
-          var article = curr[key];
-          if (index === 6) {
-            var url = article[0]?.$;
-            Object.keys(url).forEach(function (key, index) {
-              if (index === 2) {
-                currentItem.media = url[key];
-                return;
-              }
-            });
-          }
-        });
         this.world_news.push(currentItem);
       });
     });
@@ -248,29 +183,16 @@ export class HomeComponent implements OnInit {
         var singleQuote = curr.title[0].trim().split("&amp;apos;").join("'");
         var andSymbol = singleQuote.split("&amp;amp;").join("&");
         var finalTitle = andSymbol;
-
+        var imgUrl = curr['media:content'][0]?.$.url;
         let currentItem: Article = {
           category: curr.category[0].trim(),
           description: curr.description[0].trim(),
-          guid: curr.guid[0].trim().replace("https://vietnamnet.vn/","bai-viet/"),
-          link: curr.link[0].trim().replace("https://vietnamnet.vn/","bai-viet/"),
-          media: "",
+          guid: curr.guid[0].trim().replace("https://vietnamnet.vn/", "bai-viet/"),
+          link: curr.link[0].trim().replace("https://vietnamnet.vn/", "bai-viet/"),
+          media: imgUrl,
           pubDate: curr.pubDate[0].trim(),
           title: finalTitle
         };
-
-        Object.keys(curr).forEach(function (key, index) {
-          var article = curr[key];
-          if (index === 6) {
-            var url = article[0]?.$;
-            Object.keys(url).forEach(function (key, index) {
-              if (index === 2) {
-                currentItem.media = url[key];
-                return;
-              }
-            });
-          }
-        });
         this.sport_news.push(currentItem);
       });
     });
@@ -279,41 +201,29 @@ export class HomeComponent implements OnInit {
   load_education_news() {
     this.postService.get_list("giao-duc").subscribe((res: ArticleResponse) => {
       var items = res.item;
-
       Object.entries(items).map(([key, value]) => {
         var curr: any = value;
 
         var singleQuote = curr.title[0].trim().split("&amp;apos;").join("'");
         var andSymbol = singleQuote.split("&amp;amp;").join("&");
         var finalTitle = andSymbol;
+        var imgUrl = curr['media:content'][0]?.$.url;
 
         let currentItem: Article = {
           category: curr.category[0].trim(),
           description: curr.description[0].trim(),
-          guid: curr.guid[0].trim().replace("https://vietnamnet.vn/","bai-viet/"),
-          link: curr.link[0].trim().replace("https://vietnamnet.vn/","bai-viet/"),
-          media: "",
+          guid: curr.guid[0].trim().replace("https://vietnamnet.vn/", "bai-viet/"),
+          link: curr.link[0].trim().replace("https://vietnamnet.vn/", "bai-viet/"),
+          media: imgUrl,
           pubDate: curr.pubDate[0].trim(),
           title: finalTitle
         };
-
-        Object.keys(curr).forEach(function (key, index) {
-          var article = curr[key];
-          if (index === 6) {
-            var url = article[0]?.$;
-            Object.keys(url).forEach(function (key, index) {
-              if (index === 2) {
-                currentItem.media = url[key];
-                return;
-              }
-            });
-          }
-        });
         this.education_news.push(currentItem);
       });
       // this.isLoading = false;
       // uncomment de hien modal
     });
+    //xoa de hien modal
     this.isLoading = false;
   }
 

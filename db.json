@@ -4,12 +4,11 @@
       "id": 1,
       "password": "hoang",
       "email": "lele9h0st@gmail.com",
-      "phone": "0971280168",
+      "phone": "0987654321",
       "name": "Trần Huy Hoàng",
-      "address": "123/4 Thủ Đức Thành phố Hồ Chí Minh",
-      "dateBirth": "2001-07-12",
-      "gender": "male",
-      "comfirmToken": "ok"
+      "address": "dia chi",
+      "dateBirth": "2001-08-27",
+      "gender": "male"
     },
     {
       "email": "hoang@gmail.com",
@@ -109,6 +108,13 @@
       "fullname": "Nguyễn Văn Hiếu",
       "content": "cau mong chau doan tu voi gia dinh 🤷‍♀️",
       "id": 12
+    },
+    {
+      "article_id": 2051473,
+      "email": "lele9h0st@gmail.com",
+      "fullname": "Trần Huy Hoàng",
+      "content": "tiểu vương quốc thanh hóa",
+      "id": 13
     }
   ]
 }

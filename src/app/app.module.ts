@@ -59,9 +59,12 @@ import { PostModule } from './post/post.module';
 import { ProfileModule } from "./profile/profile.module";
 import { SharedModule } from './shared/shared.module';
 import { SafeHtmlPipe } from './_pipes/safe-html.pipe';
+import { SubPostsComponent } from './pages/home/sub-posts/sub-posts.component';
+import { SubNewComponent } from './pages/home/sub-new/sub-new.component';
+import { SubHotComponent } from './pages/home/sub-hot/sub-hot.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, NotfoundComponent, ContactComponent, SafeHtmlPipe],
+  declarations: [AppComponent, HomeComponent, NotfoundComponent, ContactComponent, SafeHtmlPipe, SubPostsComponent, SubNewComponent, SubHotComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -117,11 +120,13 @@ import { SafeHtmlPipe } from './_pipes/safe-html.pipe';
     SharedModule,
     PostModule,
     AuthModule,
-      ToastNoAnimationModule.forRoot({
+    ToastNoAnimationModule.forRoot({
       timeOut: 1500,
       positionClass: 'toast-top-right',
       preventDuplicates: true,
-      }),
+      easing: "ease-in",
+      easeTime: 1500
+    }),
   ],
   providers: [MdbCookiesManagementService, MdbStorageManagementService],
   bootstrap: [AppComponent],

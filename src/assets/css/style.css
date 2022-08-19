@@ -1,5 +1,6 @@
 .newsFeature__header-title {
   font-weight: bold;
+  color:black;
 }
 
 .newsFeature__main img {
@@ -14,6 +15,11 @@
   margin-top: 1.5rem;
 }
 
-iframe{
+iframe {
   width: 100%;
+}
+
+.video-detail__text h1 {
+  font-weight: bold;
+  color: black;
 }

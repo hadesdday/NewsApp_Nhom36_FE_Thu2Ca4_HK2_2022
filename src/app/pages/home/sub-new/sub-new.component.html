@@ -1,0 +1,17 @@
+<div class="row border-bottom middle__title">
+    <h3><a routerLink="/chu-de/{{get_slug(title)}}" class="text-body">{{title}}</a></h3>
+</div>
+
+<div class="row p-4">
+    <div class="col-md-3">
+        <img class="w-100" mdbLazyLoading [loadingPlaceholder]="'../../../assets/images/skeleton-loading.gif'"
+            [attr.data-src]="posts[0]?.media" alt="'../../../assets/images/skeleton-loading.gif'" />
+    </div>
+    <div class="col-md-9">
+        <a href="{{posts[0]?.link}}" class="news-title" target="_blank">{{posts[0]?.title}}</a>
+    </div>
+</div>
+<div class="row p-4 pt-0">
+    <a href="{{item.link}}" class="news-title mt-3" *ngFor="let item of posts.slice(1,posts.length)"
+        target="_blank">{{item.title}}</a>
+</div>

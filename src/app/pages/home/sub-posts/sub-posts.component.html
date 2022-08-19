@@ -1,0 +1,12 @@
+<div class="row sub__posts mt-5 lazy d-flex justify-content-between lazy">
+    <div class="col-md-2 p-3" *ngFor="let item of subPosts">
+        <div class="row">
+            <img mdbLazyLoading [loadingPlaceholder]="'../../../assets/images/skeleton-loading.gif'"
+                [attr.data-src]="item.media" alt="'../../../assets/images/skeleton-loading.gif'"
+                class="img-fluid my-3 img__sub" />
+        </div>
+        <div class="row">
+            <a href="{{item.link}}" class="text-break news-title" target="_blank">{{item.title}}</a>
+        </div>
+    </div>
+</div>
