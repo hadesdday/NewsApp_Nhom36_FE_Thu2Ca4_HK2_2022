@@ -20,12 +20,11 @@ export class PostService {
 
   search_article_by_keyword(keyword: string) {
     const headers = new HttpHeaders().set('Content-Type', 'text/plain; charset=utf-8');
-    return this.http.get("https://api-news-vietnamnet.herokuapp.com/api/search/" + keyword, { headers, responseType: 'text' })
+    return this.http.get(`${API_URL.SEARCH}${keyword}`, { headers, responseType: 'text' })
       .pipe(catchError(err => this.commonService.handleError(err, "Lỗi khi tìm kiếm " + keyword)));
   }
 
   post_comment(body: any) {
-    console.log(body);
     return this.http.post<Comment>(API_URL.COMMENT, body)
       .pipe(catchError(err => this.commonService.handleError(err, "Lỗi khi đăng bình luận")));
   }
@@ -37,8 +36,8 @@ export class PostService {
 
   get_news_details(url: string) {
     const headers = new HttpHeaders().set('Content-Type', 'text/plain; charset=utf-8');
-    return this.http.get(`https://api-news-vietnamnet.herokuapp.com/article/${url}`, { headers, responseType: 'text' })
-      .pipe(catchError(err => this.commonService.handleError(err, "Lỗi khi lay du lieu bai viet ")));
+    return this.http.get(`${API_URL.ARTICLE_DETAILS}${url}`, { headers, responseType: 'text' })
+      .pipe(catchError(err => this.commonService.handleError(err, "Lỗi khi lấy dữ liệu bài viết")));
   }
   
 }

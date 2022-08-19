@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { DomSanitizer, SafeHtml, Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { load } from 'cheerio';
 import { Article, ArticleResponse } from 'src/app/_model/post.model';
 import { PostService } from '../post.service';
+import { Comment } from 'src/app/_model/comment.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-post-details',
@@ -16,12 +18,13 @@ export class PostDetailsComponent implements OnInit {
   public postCommentForm!: FormGroup;
   comments_list!: Comment[];
   post_details!: any;
-  post_id!: string;
+  post_id!: number;
   post_url!: string;
   title!: string;
   posts_list!: Article[];
+  isLoading = true;
 
-  constructor(private formBuilder: FormBuilder, private postService: PostService, private domSanitizer: DomSanitizer, private activatedRoute: ActivatedRoute) {
+  constructor(private formBuilder: FormBuilder, private postService: PostService, private domSanitizer: DomSanitizer, private activatedRoute: ActivatedRoute, private titleService: Title, private toastService: ToastrService) {
     this.comments_list = [];
     this.posts_list = [];
   }
@@ -38,6 +41,12 @@ export class PostDetailsComponent implements OnInit {
       fullname: new FormControl('', [Validators.required]),
       content: new FormControl('', [Validators.required]),
     });
+    var loggedUser = JSON.parse(localStorage.getItem('auth-user') || '{}');
+    if (loggedUser) {
+      const { email, name } = loggedUser;
+      this.postCommentForm.get("email")?.setValue(email);
+      this.postCommentForm.get("fullname")?.setValue(name);
+    }
   }
 
   sanitize(html: any): SafeHtml {
@@ -57,6 +66,13 @@ export class PostDetailsComponent implements OnInit {
         $dom("table").remove();
         const slug = $dom(".breadcrumb-box__link p a").attr("href");
         this.title = slug!.split("/")[1];
+
+        var title = $dom(".newsFeature__header-title").text();
+        if (title === "") {
+          title = $dom(".video-detail__text h1").text();
+        }
+        this.titleService.setTitle(title + " | News");
+
         $dom("head").append('<link rel="stylesheet" href="/assets/css/style.css">');
         this.post_details = this.sanitize($dom.html());
         this.get_post_list(this.title);
@@ -64,7 +80,15 @@ export class PostDetailsComponent implements OnInit {
 
       var dashed = this.post_url.split("-");
       var id = dashed[dashed.length - 1].replace(".html", "");
-      this.post_id = id;
+      this.post_id = Number(id);
+      this.get_comment_by_post_id(this.post_id);
+      this.postCommentForm.get("article_id")?.setValue(this.post_id);
+    });
+  }
+
+  get_comment_by_post_id(id: number) {
+    this.postService.get_comments_by_post_id(id).subscribe(res => {
+      this.comments_list = res;
     });
   }
 
@@ -107,16 +131,44 @@ export class PostDetailsComponent implements OnInit {
             });
           }
         });
-        this.posts_list.push(currentItem);
+        if (currentItem.link !== this.post_url)
+          this.posts_list.push(currentItem);
       });
-      // this.isLoading = false;
+      this.isLoading = false;
       // console.log(this.posts_list);
+    });
+  }
+
+  post_comment() {
+    this.postService.post_comment(this.postCommentForm.value).subscribe(res => {
+      if (res) {
+        this.toastService.success("Gửi bình luận thành công", "Thành công");
+      } else {
+        this.toastService.error("Gửi bình luận thất bại", "Thất bại");
+      }
+      this.postCommentForm.reset();
+      var loggedUser = JSON.parse(localStorage.getItem('auth-user') || '{}');
+      if (loggedUser) {
+        const { email, name } = loggedUser;
+        this.postCommentForm.get("email")?.setValue(email);
+        this.postCommentForm.get("fullname")?.setValue(name);
+      }
+      this.postCommentForm.get("article_id")?.setValue(this.post_id);
+      this.get_comment_by_post_id(this.post_id);
     });
   }
 
   get_posts_with_amount(startIndex: number, endIndex: number) {
     return this.posts_list.slice(startIndex, endIndex);
   }
+  get_posts_comment_with_amount(startIndex: number, endIndex: number) {
+    return this.comments_list.slice(startIndex, endIndex);
+  }
 
-
+  generateRandom(min: number, max: number) {
+    let rand = Math.random();
+    rand = Math.floor(rand * (max - min));
+    rand = rand + min;
+    return rand;
+  }
 }

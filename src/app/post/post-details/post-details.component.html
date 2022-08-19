@@ -1,4 +1,7 @@
 <app-navbar></app-navbar>
+<div id="overlay" *ngIf="isLoading">
+    <div class="circle-loading"></div>
+</div>
 <div class="container w-90 mt-5 post__details">
     <div class="row">
         <div class="col-md-8 border-end">
@@ -9,21 +12,20 @@
                 <div class="row mt-5">
                     <h2>Bình luận</h2>
                 </div>
-                <form [formGroup]="postCommentForm">
+                <form [formGroup]="postCommentForm" (ngSubmit)="post_comment()">
                     <input type="hidden" name="article_id" formControlName="article_id">
                     <div class="row mt-4">
-                        <textarea name="" id="" cols="30" rows="10" placeholder="Nội dung" formControlName="content"
-                            class="form-control" placeholder="Nhập ma article"
-                            aria-describedby="addon-wrapping"></textarea>
+                        <textarea name="" id="" cols="30" rows="3" placeholder="Nội dung" formControlName="content"
+                            class="form-control w-95" placeholder="Nội dung" aria-describedby="addon-wrapping"></textarea>
                     </div>
                     <div class="row mt-5">
                         <div class="col">
                             <input type="email" name="email" placeholder="Email" formControlName="email"
-                                class="form-control" placeholder="Nhập ma article" aria-describedby="addon-wrapping">
+                                class="form-control" placeholder="Email" aria-describedby="addon-wrapping">
                         </div>
                         <div class="col">
                             <input type="text" name="fullname" placeholder="Họ và tên" formControlName="fullname"
-                                class="form-control" placeholder="Nhập ma article" aria-describedby="addon-wrapping">
+                                class="form-control" placeholder="Họ và tên" aria-describedby="addon-wrapping">
                         </div>
                         <div class="col">
                             <button type="submit" class="btn btn-primary btn-rounded" id="button-accept-register"
@@ -35,42 +37,50 @@
                 </form>
             </div>
             <hr>
-            <div class="comments mt-1">
+            <div class="comments mt-1" *ngIf="comments_list.length ===0">
+                <div class="container">
+                    <div class="row">
+                        <p class="text-center"><i class="far fa-newspaper fs-40 p-3"></i> Hãy là người đầu tiên bình luận trong
+                            bài.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="comments mt-1" *ngIf="comments_list.length > 0">
                 <div class="comment">
                     <div class="col-md-1">
                         <div class="row">
                             <div class="col-7 user__avatar">
                                 <div class="rounded-circle bg-dark text-center">
-                                    <p class="text-light">a</p>
+                                    <p class="text-light">{{comments_list?.[0]?.fullname?.charAt(0)}}</p>
                                 </div>
                             </div>
                             <div class="col-5">
-                                <p>abc@gmail.com</p>
+                                <p>{{comments_list?.[0]?.email}}</p>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col cmt__content">
-                            <p>Đây là bình luận bài biết</p>
+                            <p>{{comments_list?.[0]?.content}}</p>
                         </div>
                     </div>
                 </div>
-                <div class="comment mt-2">
+                <div class="comment mt-2" *ngFor="let item of get_posts_comment_with_amount(1,comments_list.length)">
                     <div class="col-md-1">
                         <div class="row">
                             <div class="col-7 user__avatar">
                                 <div class="rounded-circle bg-dark text-center">
-                                    <p class="text-light">a</p>
+                                    <p class="text-light">{{item?.fullname?.charAt(0)}}</p>
                                 </div>
                             </div>
                             <div class="col-5">
-                                <p>abc@gmail.com</p>
+                                <p>{{item?.email}}</p>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col cmt__content">
-                            <p>Đây là bình luận bài biết</p>
+                            <p>{{item?.content}}</p>
                         </div>
                     </div>
                 </div>
