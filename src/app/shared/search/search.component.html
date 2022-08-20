@@ -1,5 +1,6 @@
 <div class="d-flex justify-content-center mt-4">
-    <input type="text" name="keyword1" value="" class="w-50" placeholder="Tìm kiếm" [(ngModel)]="keyword" (keypress)="search($event)"/>
+    <input type="text" placeholder="Nhập từ khóa tìm kiếm" class="form-control w-50" aria-describedby="addon-wrapping"
+        [(ngModel)]="keyword" (keypress)="search($event)" />
     <a [routerLink]="['/search', keyword,get_selected_option()]" type="button"
         class="btn text-primary bg-danger ml-20 search__action"><i class="fas fa-search text-light"></i></a>
 </div>

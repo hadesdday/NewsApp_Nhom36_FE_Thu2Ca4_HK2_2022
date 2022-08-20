@@ -37,7 +37,7 @@
 
 .button__search {
   position: relative;
-  right: 30px;
+  right: 5%;
   height: 100%;
   i {
     margin-top: 10px;
@@ -150,5 +150,10 @@
 @media only screen and (min-width: 768px) {
   .app__logo {
     margin-left: 30px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .button__search {
+    right: 0;
   }
 }

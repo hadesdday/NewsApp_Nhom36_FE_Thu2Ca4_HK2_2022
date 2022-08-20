@@ -64,29 +64,17 @@ export class PostListComponent implements OnInit {
 
         var finalDescription = curr.description[0].trim().split("&amp;apos;").join("'");
         finalDescription = finalDescription.split("&amp;amp;").join("&");
+        var imgUrl = curr['media:content'][0]?.$.url;
 
         let currentItem: Article = {
           category: curr.category[0].trim(),
           description: finalDescription,
           guid: curr.guid[0].trim().replace("https://vietnamnet.vn/", "bai-viet/"),
-          link: curr.link[0].trim().replace("https://vietnamnet.vn/",  "bai-viet/"),
-          media: "",
+          link: curr.link[0].trim().replace("https://vietnamnet.vn/", "bai-viet/"),
+          media: imgUrl,
           pubDate: curr.pubDate[0].trim(),
           title: finalTitle
         };
-
-        Object.keys(curr).forEach(function (key, index) {
-          var article = curr[key];
-          if (index === 6) {
-            var url = article[0]?.$;
-            Object.keys(url).forEach(function (key, index) {
-              if (index === 2) {
-                currentItem.media = url[key];
-                return;
-              }
-            });
-          }
-        });
         this.posts_list.push(currentItem);
       });
       this.isLoading = false;

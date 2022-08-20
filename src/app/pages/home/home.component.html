@@ -4,10 +4,10 @@
 </div>
 <div class="container mt-5">
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-8" *ngIf="ts_news.length>0">
             <div class="row">
                 <div class="row">
-                    <img [src]="ts_news[0]?.media" alt="'../../../assets/images/skeleton-loading.gif'" class="w-100">
+                    <img [src]="ts_news[0].media" alt="'../../../assets/images/skeleton-loading.gif'" class="w-100">
                 </div>
                 <div class="row">
                     <div class="col d-flex flex-row-reverse fw-light fs-11">Theo Vietnamnet
@@ -15,26 +15,26 @@
                 </div>
                 <div class="row">
                     <div class="d-flex justify-content-center">
-                        <a [href]="'chu-de/'+get_slug(ts_news[0]?.category||'')">
-                            <p class="fs-11 text-muted">{{ts_news[0]?.category}}</p>
+                        <a [href]="'chu-de/'+get_slug(ts_news[0].category||'')">
+                            <p class="fs-11 text-muted">{{ts_news[0].category}}</p>
                         </a>
                     </div>
                 </div>
                 <div class="row">
                     <div class="d-flex justify-content-center">
-                        <a href="{{ts_news[0]?.link}}" class="hot-title" target="_blank">
-                            <h6 id="hot-post">{{ts_news[0]?.title}}</h6>
+                        <a href="{{ts_news[0].link}}" class="hot-title" target="_blank">
+                            <h6 id="hot-post">{{ts_news[0].title}}</h6>
                         </a>
                     </div>
                 </div>
                 <div class="row">
                     <div class="d-flex justify-content-center">
-                        <p class="text-center hot-content">{{ts_news[0]?.description}}</p>
+                        <p class="text-center hot-content">{{ts_news[0].description}}</p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="d-flex justify-content-center">
-                        <p class="fw-light fs-11">{{get_duration(ts_news[0]?.pubDate||"")}}
+                        <p class="fw-light fs-11">{{get_duration(ts_news[0].pubDate||"")}}
                             <span class="p-1"></span>
                             Nguồn : Vietnamnet
                         </p>
