@@ -2,13 +2,13 @@
 <div id="overlay" *ngIf="isLoading">
     <div class="circle-loading"></div>
 </div>
-<div class="container mt-5">
+<div class="container mt-5" *ngIf="posts_list.length > 0">
     <h1 class="fw-bold">{{get_title_by_slug(title)}}</h1>
     <div class="hr__line mt-4"></div>
     <div class="row mt-5 mb-5">
         <div class="col-md-6">
             <div class="row">
-                <img [src]="posts_list?.[0]?.media" alt="'../../../assets/images/skeleton-loading.gif'" class="w-100"
+                <img [src]="posts_list[0].media" alt="'../../../assets/images/skeleton-loading.gif'" class="w-100"
                     alt="">
             </div>
             <div class="row">
@@ -17,19 +17,19 @@
             </div>
             <div class="row">
                 <div class="d-flex justify-content-start">
-                    <a href="{{posts_list?.[0]?.link}}" class="hot-title" target="_blank">
-                        <h6 class="hot-post">{{posts_list?.[0]?.title}}</h6>
+                    <a href="{{posts_list[0].link}}" class="hot-title" target="_blank">
+                        <h6 class="hot-post">{{posts_list[0].title}}</h6>
                     </a>
                 </div>
             </div>
             <div class="row">
                 <div class="d-flex justify-content-start">
-                    <p class="text-start hot-content">{{posts_list?.[0]?.description}}</p>
+                    <p class="text-start hot-content">{{posts_list[0].description}}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="d-flex justify-content-start">
-                    <p class="fw-light fs-11">{{get_duration(posts_list?.[0]?.pubDate||"")}}
+                    <p class="fw-light fs-11">{{get_duration(posts_list[0].pubDate||"")}}
                         <span class="p-1"></span>
                         Nguồn : Vietnamnet
                     </p>
@@ -49,7 +49,7 @@
         </div>
         <div class="col-md-3">
             <div class="row">
-                <img [src]="posts_list?.[1]?.media" alt="'../../../assets/images/skeleton-loading.gif'" class="w-100"
+                <img [src]="posts_list[1].media" alt="'../../../assets/images/skeleton-loading.gif'" class="w-100"
                     alt="">
             </div>
             <div class="row">
@@ -58,19 +58,19 @@
             </div>
             <div class="row">
                 <div class="d-flex justify-content-start">
-                    <a href="{{posts_list?.[1]?.link}}" class="hot-title" target="_blank">
-                        <h6 class="hot-post">{{posts_list?.[1]?.title}}</h6>
+                    <a href="{{posts_list[1].link}}" class="hot-title" target="_blank">
+                        <h6 class="hot-post">{{posts_list[1].title}}</h6>
                     </a>
                 </div>
             </div>
             <div class="row">
                 <div class="d-flex justify-content-start">
-                    <p class="text-start hot-content">{{posts_list?.[1]?.description}}</p>
+                    <p class="text-start hot-content">{{posts_list[1].description}}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="d-flex justify-content-start">
-                    <p class="fw-light fs-11">{{get_duration(posts_list?.[1]?.pubDate||"")}}
+                    <p class="fw-light fs-11">{{get_duration(posts_list[1].pubDate||"")}}
                         <span class="p-1"></span>
                         Nguồn : Vietnamnet
                     </p>
@@ -78,7 +78,8 @@
             </div>
             <div class="row">
                 <div class="d-flex justify-content-center mt-3">
-                    <app-advertisement [url]="'../../../assets/images/ads7.jpeg'" [ref]="'https://websosanh.vn/s/tivi+smart+samsung+43+inch.htm'"></app-advertisement>
+                    <app-advertisement [url]="'../../../assets/images/ads7.jpeg'"
+                        [ref]="'https://websosanh.vn/s/tivi+smart+samsung+43+inch.htm'"></app-advertisement>
                 </div>
             </div>
         </div>
@@ -86,25 +87,25 @@
             <div *ngFor="let item of get_posts_with_amount(2,4) ;index as ind">
                 <div class="row">
                     <div class="d-flex justify-content-start">
-                        <a href="{{item?.link}}" class="hot-title" target="_blank">
-                            <h6 class="hot-post">{{item?.title}}</h6>
+                        <a href="{{item.link}}" class="hot-title" target="_blank">
+                            <h6 class="hot-post">{{item.title}}</h6>
                         </a>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 col-sm-12">
                         <div class="d-flex justify-content-start">
-                            <p class="text-start hot-content">{{item?.description}}</p>
+                            <p class="text-start hot-content">{{item.description}}</p>
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-12">
-                        <img [src]="item?.media" alt="'../../../assets/images/skeleton-loading.gif'" class="w-100"
+                        <img [src]="item.media" alt="'../../../assets/images/skeleton-loading.gif'" class="w-100"
                             alt="">
                     </div>
                 </div>
                 <div class="row mb-3" [ngClass]="ind <1 ? 'border-bottom':''">
                     <div class="d-flex justify-content-start">
-                        <p class="fw-light fs-11">{{get_duration(item?.pubDate||"")}}
+                        <p class="fw-light fs-11">{{get_duration(item.pubDate||"")}}
                             <span class="p-1"></span>
                             Nguồn : Vietnamnet
                         </p>
@@ -116,13 +117,13 @@
     <div class="row border-top lazy">
         <div class="col-md-3 p-3" *ngFor="let item of get_posts_with_amount(5,9)">
             <div class="row">
-                <img [attr.data-src]="item?.media" mdbLazyLoading
+                <img [attr.data-src]="item.media" mdbLazyLoading
                     [loadingPlaceholder]="'../../../assets/images/skeleton-loading.gif'" class="img__sub" alt="">
             </div>
             <div class="row mt-3 w-90">
                 <div class="d-flex justify-content-start">
-                    <a href="{{item?.link}}" class="hot-title" target="_blank">
-                        <h6 class="new__post">{{item?.title}}</h6>
+                    <a href="{{item.link}}" class="hot-title" target="_blank">
+                        <h6 class="new__post">{{item.title}}</h6>
                     </a>
                 </div>
             </div>

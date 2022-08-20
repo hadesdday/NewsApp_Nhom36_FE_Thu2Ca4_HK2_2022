@@ -4,7 +4,7 @@
 </div>
 <div class="container w-90 mt-5 post__details">
     <div class="row">
-        <div class="col-md-8 border-end">
+        <div class="col-md-8">
             <div class="post__content">
                 <div [innerHtml]="post_details"></div>
             </div>
@@ -53,17 +53,17 @@
                         <div class="row">
                             <div class="col-7 user__avatar">
                                 <div class="rounded-circle bg-dark text-center">
-                                    <p class="text-light">{{comments_list?.[0]?.fullname?.charAt(0)}}</p>
+                                    <p class="text-light">{{comments_list[0].fullname.charAt(0)}}</p>
                                 </div>
                             </div>
                             <div class="col-5">
-                                <p>{{comments_list?.[0]?.email}}</p>
+                                <p>{{comments_list[0].email}}</p>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col cmt__content">
-                            <p>{{comments_list?.[0]?.content}}</p>
+                            <p>{{comments_list[0].content}}</p>
                         </div>
                     </div>
                 </div>

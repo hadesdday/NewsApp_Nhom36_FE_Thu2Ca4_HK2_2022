@@ -107,29 +107,18 @@ export class PostDetailsComponent implements OnInit {
         finalDescription = finalDescription.split("&amp;amp;").join("&");
 
         var url = curr.link[0].trim().split("https://vietnamnet.vn/")[1];
+        var imgUrl = curr['media:content'][0]?.$.url;
 
         let currentItem: Article = {
           category: curr.category[0].trim(),
           description: finalDescription,
           guid: curr.guid[0].trim(),
           link: url,
-          media: "",
+          media: imgUrl,
           pubDate: curr.pubDate[0].trim(),
           title: finalTitle
         };
 
-        Object.keys(curr).forEach(function (key, index) {
-          var article = curr[key];
-          if (index === 6) {
-            var url = article[0]?.$;
-            Object.keys(url).forEach(function (key, index) {
-              if (index === 2) {
-                currentItem.media = url[key];
-                return;
-              }
-            });
-          }
-        });
         if (currentItem.link !== this.post_url)
           this.posts_list.push(currentItem);
       });
