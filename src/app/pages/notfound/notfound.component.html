@@ -1,1 +1,27 @@
-<p>notfound works!</p>
+<app-navbar></app-navbar>
+<div class="container not__found">
+    <div class="row">
+        <div class="d-flex justify-content-center">
+            <h1>4<i class="fas fa-dizzy text-info"></i>4</h1>
+        </div>
+        <div class="d-flex justify-content-center ">
+            <h2>Không tìm thấy đường dẫn này</h2>
+        </div>
+        <div class="d-flex justify-content-center row mt-3 mb-1">
+            <div class="col-md-10">
+                <input mdbInput type="text" class="form-control" placeholder="Tìm kiếm" aria-label="Search"
+                    name="keyword" ngModel [(ngModel)]="keyword" [value]="keyword" (keypress)="search($event)">
+            </div>
+            <div class="col-md-2">
+                <a [routerLink]="['/search', keyword||'','od=0&time=0&title=chinh-tri']"
+                    class="button__search btn bg-danger text-center search__act" type="button"><i
+                        class="fas fa-search text-light"></i></a>
+            </div>
+        </div>
+        <div class="row text-center mt-4 back__to__home">
+            <a routerLink="/home"><button type="button" class="btn btn-danger btn-rounded p-3">Trở về trang
+                    chủ</button></a>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

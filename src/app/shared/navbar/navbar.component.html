@@ -4,7 +4,7 @@
         <form class="w-100">
             <input mdbInput type="text" class="form-control" placeholder="Tìm kiếm" aria-label="Search" name="keyword"
                 ngModel [(ngModel)]="keyword" [value]="keyword" (keypress)="search($event)">
-            <a [routerLink]="['/search', keyword,'od=0&time=0&title=chinh-tri']"
+            <a [routerLink]="['/search', keyword||'','od=0&time=0&title=chinh-tri']"
                 class="button__search btn bg-danger text-center" type="button" (click)="closeSearchBox()"><i
                     class="fas fa-search text-light"></i></a>
         </form>
