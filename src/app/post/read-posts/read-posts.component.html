@@ -1,0 +1,32 @@
+<app-navbar></app-navbar>
+<div class="container mt-5">
+    <div class="left-panel ">
+        <div class="img-group">
+            <img src="https://mdbootstrap.com/img/new/standard/city/047.webp" class="profile-img " alt="" />
+            <i class="fas fa-camera fa-lg"><a href=""></a></i>
+        </div>
+        <div><strong>{{currentUser.name}}</strong></div>
+        <div class="link-group">
+            <div><a href="/change-password">Thay đổi mật khẩu</a></div>
+            <div><a href="/read-posts">Tin đã lưu</a></div>
+            <div><a href="#">Tin đã đọc</a></div>
+            <div><a (click)="openPopconfirm($event)" class="red">Xóa tài khoản</a></div>
+        </div>
+    </div>
+    <div class="right-panel w-50 ">
+        <div class="row border-bottom">
+            <h1 class="title">Tin đã đọc</h1>
+        </div>
+        <div *ngIf="isExisted">
+            <div class="row mt-2" *ngFor="let item of read_news">
+                <div class="col-md-11">
+                    <a href="{{item.link}}" class="news-title">{{item.title}}</a>
+                </div>
+                <div class="col-md-1">
+                    <i class="fas fa-trash text-danger delete__action"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

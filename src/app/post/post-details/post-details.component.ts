@@ -23,6 +23,7 @@ export class PostDetailsComponent implements OnInit {
   title!: string;
   posts_list!: Article[];
   isLoading = true;
+  post_title!: string;
 
   constructor(private formBuilder: FormBuilder, private postService: PostService, private domSanitizer: DomSanitizer, private activatedRoute: ActivatedRoute, private titleService: Title, private toastService: ToastrService) {
     this.comments_list = [];
@@ -82,7 +83,19 @@ export class PostDetailsComponent implements OnInit {
       this.post_id = Number(id);
       this.get_comment_by_post_id(this.post_id);
       this.postCommentForm.get("article_id")?.setValue(this.post_id);
+      this.save_read_post();
     });
+  }
+
+  save_read_post() {
+    var loggedUser = JSON.parse(localStorage.getItem('auth-user') || '{}');
+    if (loggedUser) {
+      const { email } = loggedUser;
+
+      this.postService.get_read_news(email).subscribe(res => {
+        console.log(res);
+      });
+    }
   }
 
   get_comment_by_post_id(id: number) {

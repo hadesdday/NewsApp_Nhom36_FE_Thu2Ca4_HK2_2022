@@ -123,5 +123,22 @@
       "content": "Rất xinh đẹp tuyệt vời ạ 🥰",
       "id": 14
     }
+  ],
+  "read-posts": [
+    {
+      "email": "lele9h0st@gmail.com",
+      "posts":[
+        {"title":"title1","link":"demo link"},
+        {"title":"title2","link":"demo link1"}
+      ],
+      "id":1
+    },
+    {
+      "email": "222@gmail.com",
+      "posts":[
+        {"title":"title2","link":"demo link2"}
+      ],
+      "id":2
+    }
   ]
 }
