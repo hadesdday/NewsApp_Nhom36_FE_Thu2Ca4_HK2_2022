@@ -8,7 +8,8 @@
       "name": "Trần Huy Hoàng",
       "address": "dia chi",
       "dateBirth": "2001-08-27",
-      "gender": "male"
+      "gender": "male",
+      "comfirmToken": "ok"
     },
     {
       "email": "hoang@gmail.com",
@@ -122,6 +123,22 @@
       "fullname": "Trần Huy Hoàng",
       "content": "Rất xinh đẹp tuyệt vời ạ 🥰",
       "id": 14
+    }
+  ],
+  "saved-post": [
+    {
+      "id_user": 1,
+      "id_post": "2051854",
+      "title": "Mất 50 triệu vẫn chưa thể chuộc con đang bị giam lỏng ở Campuchia",
+      "link_post": "mat-50-trieu-van-chua-the-chuoc-con-dang-bi-giam-long-o-campuchia-2051854.html",
+      "id": 1
+    },
+    {
+      "id_user": 1,
+      "id_post": "2051844",
+      "title": "'Không đặt vấn đề sân bay Tân Sơn Nhất là của Bộ GTVT hay của TP.HCM'",
+      "link_post": "khong-dat-van-de-san-bay-tan-son-nhat-la-cua-bo-gtvt-hay-cua-tp-hcm-2051844.html",
+      "id": 2
     }
   ]
 }

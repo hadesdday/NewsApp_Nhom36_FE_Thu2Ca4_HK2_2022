@@ -12,8 +12,9 @@ import { PostService } from './post.service';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { PostCommentComponent } from './post-comment/post-comment.component';
 import { NewestPostComponent } from './post-list/newest-post/newest-post.component';
+import { SavedPostComponent } from '../profile/saved-post/saved-post.component';
 @NgModule({
-  declarations: [SearchResultComponent, PostListComponent,  AdvertisementComponent, PostDetailsComponent, PostCommentComponent, NewestPostComponent],
+  declarations: [SearchResultComponent, PostListComponent,  AdvertisementComponent, PostDetailsComponent, PostCommentComponent, NewestPostComponent, SavedPostComponent],
   imports: [
     CommonModule,
     PostRoutingModule,
