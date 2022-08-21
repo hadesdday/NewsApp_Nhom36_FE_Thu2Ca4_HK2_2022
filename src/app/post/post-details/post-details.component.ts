@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { DomSanitizer, SafeHtml, Title } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
-import { load } from 'cheerio';
-import { Article, ArticleResponse } from 'src/app/_model/post.model';
-import { PostService } from '../post.service';
-import { Comment } from 'src/app/_model/comment.model';
-import { ToastrService } from 'ngx-toastr';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {DomSanitizer, SafeHtml, Title} from '@angular/platform-browser';
+import {ActivatedRoute} from '@angular/router';
+import {load} from 'cheerio';
+import {Article, ArticleResponse} from 'src/app/_model/post.model';
+import {PostService} from '../post.service';
+import {Comment} from 'src/app/_model/comment.model';
+import {ToastrService} from 'ngx-toastr';
+import {TokenStorageService} from "../../_service/token-storage.service";
 
 @Component({
   selector: 'app-post-details',
@@ -23,10 +24,12 @@ export class PostDetailsComponent implements OnInit {
   title!: string;
   posts_list!: Article[];
   isLoading = true;
-
-  constructor(private formBuilder: FormBuilder, private postService: PostService, private domSanitizer: DomSanitizer, private activatedRoute: ActivatedRoute, private titleService: Title, private toastService: ToastrService) {
+  post_title!: string;
+  isSignin!:boolean;
+  constructor(private formBuilder: FormBuilder, private postService: PostService, private domSanitizer: DomSanitizer, private activatedRoute: ActivatedRoute, private titleService: Title, private toastService: ToastrService, private tokenStorage: TokenStorageService) {
     this.comments_list = [];
     this.posts_list = [];
+    this.isSignin=this.tokenStorage.isSignin()
   }
 
   ngOnInit(): void {
@@ -43,7 +46,7 @@ export class PostDetailsComponent implements OnInit {
     });
     var loggedUser = JSON.parse(localStorage.getItem('auth-user') || '{}');
     if (loggedUser) {
-      const { email, name } = loggedUser;
+      const {email, name} = loggedUser;
       this.postCommentForm.get("email")?.setValue(email);
       this.postCommentForm.get("fullname")?.setValue(name);
     }
@@ -70,6 +73,7 @@ export class PostDetailsComponent implements OnInit {
         if (title === "") {
           title = $dom(".video-detail__text h1").text();
         }
+        this.post_title = title;
         this.titleService.setTitle(title + " | News");
 
         $dom("head").append('<link rel="stylesheet" href="/assets/css/style.css">');
@@ -136,7 +140,7 @@ export class PostDetailsComponent implements OnInit {
       this.postCommentForm.reset();
       var loggedUser = JSON.parse(localStorage.getItem('auth-user') || '{}');
       if (loggedUser) {
-        const { email, name } = loggedUser;
+        const {email, name} = loggedUser;
         this.postCommentForm.get("email")?.setValue(email);
         this.postCommentForm.get("fullname")?.setValue(name);
       }
@@ -148,6 +152,7 @@ export class PostDetailsComponent implements OnInit {
   get_posts_with_amount(startIndex: number, endIndex: number) {
     return this.posts_list.slice(startIndex, endIndex);
   }
+
   get_posts_comment_with_amount(startIndex: number, endIndex: number) {
     return this.comments_list.slice(startIndex, endIndex);
   }
@@ -157,5 +162,10 @@ export class PostDetailsComponent implements OnInit {
     rand = Math.floor(rand * (max - min));
     rand = rand + min;
     return rand;
+  }
+
+  save_post() {
+    let user = this.tokenStorage.getUser();
+    this.postService.save_post(user.id, this.post_id + "", this.post_title,this.post_url)
   }
 }

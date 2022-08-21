@@ -1,0 +1,27 @@
+<app-navbar></app-navbar>
+<div class="container mt-5">
+<!--  <div class="left-panel ">-->
+<!--    <p class="saved-post-title">Tin đã lưu</p>-->
+<!--    <div class="link-group">-->
+<!--      <div><a href="/">Trang chủ</a></div>-->
+<!--      <div><a href="/profile">Trang thông tin cá nhân</a></div>-->
+<!--    </div>-->
+<!--  </div>-->
+
+  <div class="right-panel w-50 ">
+    <p class="saved-post-title">Tin đã lưu</p>
+    <div class="button-group">
+      <button (click)="delete_saved_posts()" type="button" class="btn btn-light">xóa</button>
+      <button (click)="choose_all()" type="button" class="btn btn-light">chọn tất cả</button>
+    </div>
+    <ul class="list-group list-group-light">
+      <li *ngFor="let item of items" class="list-group-item">
+        <input mdbCheckbox class="form-check-input me-1" type="checkbox" value="" id="{{item.id}}"/>
+        <a href="/bai-viet/{{item.link_post}}">{{item.title}}</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+<app-footer></app-footer>

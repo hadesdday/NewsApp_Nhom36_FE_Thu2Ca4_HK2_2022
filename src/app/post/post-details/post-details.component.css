@@ -1,0 +1,40 @@
+.post__details {
+  font-size: 120%;
+}
+
+.w-90 {
+  width: 90% !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .post__details {
+    width: 100% !important;
+  }
+  .user__avatar {
+    width: 60px;
+  }
+}
+.cmt__content {
+  margin-left: 3rem;
+}
+
+.fs-40 {
+  font-size: 40px;
+}
+
+.w-95 {
+  width: 95% !important;
+}
+
+.rel__link {
+  color: black;
+}
+.rel__link h6 {
+  font-size: 110%;
+  font-weight: 600;
+}
+.rel__link:hover {
+  text-decoration: underline;
+}
+
+/*# sourceMappingURL=post-details.component.css.map */
