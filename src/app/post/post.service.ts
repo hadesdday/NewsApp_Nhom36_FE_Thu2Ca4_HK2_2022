@@ -41,29 +41,36 @@ export class PostService {
       .pipe(catchError(err => this.commonService.handleError(err, "Lỗi khi lấy dữ liệu bài viết")));
   }
 
-  save_post(id_user: string, id_post: string, title: string,link:string) {
+  save_post(id_user: string, id_post: string, title: string, link: string) {
     this.http.get<any>(API_URL.ARTICLE_SAVED).subscribe(res => {
       const post = res.find((a: any) => {
         return a.id_user === id_user && a.id_post === id_post
       })
       if (!post) {
-         this.http.post<any>(API_URL.ARTICLE_SAVED, {
+        this.http.post<any>(API_URL.ARTICLE_SAVED, {
           "id_user": id_user,
           "id_post": id_post,
           "title": title,
-          "link_post":link
+          "link_post": link
         }).subscribe(res => {
-          alert("saved success");
+          this.commonService.toastSuccess("Đã lưu thành công")
         }, error => {
-          alert("saved false ")
+          this.commonService.toastError("Lưu thất bại! xin vui lòng thử lại")
+
         })
       } else {
-        alert("bạn đã lưu tin tức này!")
+        this.commonService.toastAlert("Bạn đã lưu tin này!")
       }
     });
   }
-  get_savedPost(id_user:string){
-    return this.http.get<Comment[]>(`${API_URL.ARTICLE_SAVED}?id_usert=${id_user}`)
-      .pipe(catchError(err => this.commonService.handleError(err, "Lỗi khi lấy bình luận")));
+
+  get_savedPost(id_user: string) {
+    return this.http.get<any>(`${API_URL.ARTICLE_SAVED}?id_usert=${id_user}`)
+      .pipe(catchError(err => this.commonService.handleError(err, "Lỗi khi lấy tin tức đã lưu")));
+  }
+
+  delete_saved_post(id: string) {
+    return this.http.delete<any>(API_URL.ARTICLE_SAVED + "/" + id)
+      .pipe(catchError(err => this.commonService.handleError(err, "Lỗi khi lấy tin tức đã lưu")));
   }
 }

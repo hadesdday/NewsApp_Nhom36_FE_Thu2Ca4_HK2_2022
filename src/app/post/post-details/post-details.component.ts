@@ -25,10 +25,11 @@ export class PostDetailsComponent implements OnInit {
   posts_list!: Article[];
   isLoading = true;
   post_title!: string;
-
+  isSignin!:boolean;
   constructor(private formBuilder: FormBuilder, private postService: PostService, private domSanitizer: DomSanitizer, private activatedRoute: ActivatedRoute, private titleService: Title, private toastService: ToastrService, private tokenStorage: TokenStorageService) {
     this.comments_list = [];
     this.posts_list = [];
+    this.isSignin=this.tokenStorage.isSignin()
   }
 
   ngOnInit(): void {

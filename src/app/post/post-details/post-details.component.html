@@ -93,7 +93,7 @@
             </div>
         </div>
         <div class="col-md-4">
-            <button (click)="save_post()">Lưu bài viết</button>
+            <button *ngIf="isSignin==true" (click)="save_post()">Lưu bài viết</button>
             <div class="p-4 ads__banner">
                 <div class="mt-5">
                     <app-advertisement [url]="'../../../assets/images/ads7.jpeg'"
