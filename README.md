@@ -5,7 +5,7 @@
 <p>19130078 - Trần Huy Hoàng</p>
 <p>19130031 - Nguyễn Hoàng Đạt</p>
 
-## Thư viên được sử dụng trong project :
+## Thư viện được sử dụng trong project :
 <p>RxJs</p>
 <p>Mdbootstrap for angular</p>
 <p>emailjs</p>
@@ -13,6 +13,7 @@
 <p>slugify</p>
 <p>ngx-toastr</p>
 <p>ngx-skeleton-loader</p>
+<p>Cheerio</p>
 
 ## Framework : Angular
 
