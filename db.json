@@ -8,7 +8,8 @@
       "name": "Trần Huy Hoàng",
       "address": "dia chi",
       "dateBirth": "2001-08-27",
-      "gender": "male"
+      "gender": "male",
+      "comfirmToken": "ok"
     },
     {
       "email": "hoang@gmail.com",
@@ -124,6 +125,7 @@
       "id": 14
     }
   ],
+   "saved-post": [],
   "read-posts": [
     {
       "email": "lele9h0st@gmail.com",

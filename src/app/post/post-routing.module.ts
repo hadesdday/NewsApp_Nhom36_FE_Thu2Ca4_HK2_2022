@@ -7,11 +7,12 @@ import { ReadPostsComponent } from './read-posts/read-posts.component';
 import { SearchResultComponent } from './search-result/search-result.component';
 
 const routes: Routes = [
-  { path: 'search/:keyword/:tag', component: SearchResultComponent },
-  { path: 'chu-de/:title', component: PostListComponent },
-  { path: 'bai-viet/:url', component: PostDetailsComponent },
+  {path: 'search/:keyword/:tag', component: SearchResultComponent},
+  {path: 'chu-de/:title', component: PostListComponent},
+  {path: 'bai-viet/:url', component: PostDetailsComponent},
   { path: 'read-posts', component: ReadPostsComponent },
-  // { path: '**', component: NotfoundComponent }
+  // // {path: '**', component: NotfoundComponent}
+
 ];
 
 @NgModule({
@@ -20,4 +21,5 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class PostRoutingModule { }
+export class PostRoutingModule {
+}

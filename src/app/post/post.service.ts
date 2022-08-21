@@ -1,17 +1,18 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { catchError } from 'rxjs';
-import { API_URL } from '../_api/apiURL';
-import { ArticleResponse, ReadPostResponse } from '../_model/post.model';
-import { Comment } from '../_model/comment.model';
-import { CommonService } from '../_service/common.service';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {catchError} from 'rxjs';
+import {API_AUTH, API_URL} from '../_api/apiURL';
+import {ArticleResponse, ReadPostResponse} from '../_model/post.model';
+import {Comment} from '../_model/comment.model';
+import {CommonService} from '../_service/common.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
 
-  constructor(private http: HttpClient, private commonService: CommonService) { }
+  constructor(private http: HttpClient, private commonService: CommonService) {
+  }
 
   get_list(slug: string) {
     return this.http.get<ArticleResponse>(`${API_URL.GET_LIST}${slug}`)
@@ -20,7 +21,7 @@ export class PostService {
 
   search_article_by_keyword(keyword: string) {
     const headers = new HttpHeaders().set('Content-Type', 'text/plain; charset=utf-8');
-    return this.http.get(`${API_URL.SEARCH}${keyword}`, { headers, responseType: 'text' })
+    return this.http.get(`${API_URL.SEARCH}${keyword}`, {headers, responseType: 'text'})
       .pipe(catchError(err => this.commonService.handleError(err, "Lỗi khi tìm kiếm " + keyword)));
   }
 
@@ -36,7 +37,7 @@ export class PostService {
 
   get_news_details(url: string) {
     const headers = new HttpHeaders().set('Content-Type', 'text/plain; charset=utf-8');
-    return this.http.get(`${API_URL.ARTICLE_DETAILS}${url}`, { headers, responseType: 'text' })
+    return this.http.get(`${API_URL.ARTICLE_DETAILS}${url}`, {headers, responseType: 'text'})
       .pipe(catchError(err => this.commonService.handleError(err, "Lỗi khi lấy dữ liệu bài viết")));
   }
 

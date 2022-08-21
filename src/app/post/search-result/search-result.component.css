@@ -35,4 +35,14 @@
   margin: 0 auto;
 }
 
+.news-title a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 110%;
+}
+.news-title:hover {
+  text-decoration: underline;
+}
+
 /*# sourceMappingURL=search-result.component.css.map */

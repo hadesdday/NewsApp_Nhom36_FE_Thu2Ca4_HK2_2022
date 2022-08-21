@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+.container .left-panel {
+  display: flex;
+  width: 20%;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+}
+.container .left-panel .link-group {
+  margin-top: 80px;
+}
+.container .left-panel .link-group .red {
+  color: red;
+}
+.container .right-panel {
+  border: 1px solid black;
+  padding: 30px 20px 60px;
+}
+.container .right-panel .saved-post-title {
+  font-weight: bold;
+  font-size: 30px;
+}
+.container .right-panel .list-group {
+  overflow: hidden;
+  overflow-y: scroll;
+  height: 600px;
+}
+.container .right-panel .button-group {
+  margin-bottom: 10px;
+}
+.container .right-panel .button-group button {
+  margin: 0px 10px;
+}
+
+/*# sourceMappingURL=saved-post.component.css.map */
