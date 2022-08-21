@@ -125,5 +125,31 @@
       "id": 14
     }
   ],
-  "saved-post": []
+  "saved-post": [],
+  "read-posts": [
+    {
+      "email": "lele9h0st@gmail.com",
+      "posts": [
+        {
+          "title": "\bÔ tô khách chao đảo lao xuống ruộng, hành khách la hét cầu cứu",
+          "link": "bai-viet/o-to-khach-chao-dao-lao-xuong-ruong-hanh-khach-la-het-cau-cuu-2051917.html"
+        },
+        {
+          "title": "Lời khai của người phụ nữ giả danh bác sĩ bắt cóc trẻ sơ sinh",
+          "link": "bai-viet/loi-khai-cua-nguoi-phu-nu-gia-danh-bac-si-bat-coc-tre-so-sinh-2051928.html"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "email": "222@gmail.com",
+      "posts": [
+        {
+          "title": "title2",
+          "link": "demo link2"
+        }
+      ],
+      "id": 2
+    }
+  ]
 }

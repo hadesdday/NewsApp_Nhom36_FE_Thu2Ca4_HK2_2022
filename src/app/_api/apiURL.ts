@@ -25,6 +25,7 @@ export const API_AUTH = {
 
 export const API_URL = {
   COMMENT: "http://localhost:3000/comments",
+    READ_POST: "http://localhost:3000/read-posts",
   GET_LIST: "https://api-news-vietnamnet.herokuapp.com/api/get/",
   SEARCH: "https://api-news-vietnamnet.herokuapp.com/api/search/",
   ARTICLE_DETAILS: "https://api-news-vietnamnet.herokuapp.com/article/",

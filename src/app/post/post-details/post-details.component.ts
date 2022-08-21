@@ -1,13 +1,13 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {DomSanitizer, SafeHtml, Title} from '@angular/platform-browser';
-import {ActivatedRoute} from '@angular/router';
-import {load} from 'cheerio';
-import {Article, ArticleResponse} from 'src/app/_model/post.model';
-import {PostService} from '../post.service';
-import {Comment} from 'src/app/_model/comment.model';
-import {ToastrService} from 'ngx-toastr';
-import {TokenStorageService} from "../../_service/token-storage.service";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { DomSanitizer, SafeHtml, Title } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
+import { load } from 'cheerio';
+import { Article, ArticleResponse, ReadPostResponse } from 'src/app/_model/post.model';
+import { PostService } from '../post.service';
+import { Comment } from 'src/app/_model/comment.model';
+import { ToastrService } from 'ngx-toastr';
+import { TokenStorageService } from "../../_service/token-storage.service";
 
 @Component({
   selector: 'app-post-details',
@@ -25,11 +25,14 @@ export class PostDetailsComponent implements OnInit {
   posts_list!: Article[];
   isLoading = true;
   post_title!: string;
-  isSignin!:boolean;
+  isSignin!: boolean;
+
+  temp!: any;
+
   constructor(private formBuilder: FormBuilder, private postService: PostService, private domSanitizer: DomSanitizer, private activatedRoute: ActivatedRoute, private titleService: Title, private toastService: ToastrService, private tokenStorage: TokenStorageService) {
     this.comments_list = [];
     this.posts_list = [];
-    this.isSignin=this.tokenStorage.isSignin()
+    this.isSignin = this.tokenStorage.isSignin()
   }
 
   ngOnInit(): void {
@@ -46,7 +49,7 @@ export class PostDetailsComponent implements OnInit {
     });
     var loggedUser = JSON.parse(localStorage.getItem('auth-user') || '{}');
     if (loggedUser) {
-      const {email, name} = loggedUser;
+      const { email, name } = loggedUser;
       this.postCommentForm.get("email")?.setValue(email);
       this.postCommentForm.get("fullname")?.setValue(name);
     }
@@ -79,6 +82,24 @@ export class PostDetailsComponent implements OnInit {
         $dom("head").append('<link rel="stylesheet" href="/assets/css/style.css">');
         this.post_details = this.sanitize($dom.html());
         this.get_post_list(this.title);
+
+        var loggedUser = JSON.parse(localStorage.getItem('auth-user') || '{}');
+        if (loggedUser) {
+          const { email } = loggedUser;
+          this.postService.get_read_news(email).subscribe((res: ReadPostResponse) => {
+            this.temp = res;
+            var read_post = this.temp[0];
+            var currentPost = {
+              "title": this.post_title,
+              "link": `bai-viet/${this.post_url}`
+            };
+            var existed = read_post.posts.find((x: any) => x?.link === currentPost.link);
+            if (existed === undefined) {
+              read_post.posts.push(currentPost);
+              this.save_read_post(read_post);
+            }
+          });
+        }
       });
 
       var dashed = this.post_url.split("-");
@@ -86,7 +107,18 @@ export class PostDetailsComponent implements OnInit {
       this.post_id = Number(id);
       this.get_comment_by_post_id(this.post_id);
       this.postCommentForm.get("article_id")?.setValue(this.post_id);
+
     });
+  }
+
+  save_read_post(post: ReadPostResponse) {
+    var loggedUser = JSON.parse(localStorage.getItem('auth-user') || '{}');
+    if (loggedUser) {
+      const { email } = loggedUser;
+      post.email = email;
+      this.postService.save_read_post(post).subscribe(res => {
+      });
+    }
   }
 
   get_comment_by_post_id(id: number) {
@@ -140,7 +172,7 @@ export class PostDetailsComponent implements OnInit {
       this.postCommentForm.reset();
       var loggedUser = JSON.parse(localStorage.getItem('auth-user') || '{}');
       if (loggedUser) {
-        const {email, name} = loggedUser;
+        const { email, name } = loggedUser;
         this.postCommentForm.get("email")?.setValue(email);
         this.postCommentForm.get("fullname")?.setValue(name);
       }
@@ -166,6 +198,6 @@ export class PostDetailsComponent implements OnInit {
 
   save_post() {
     let user = this.tokenStorage.getUser();
-    this.postService.save_post(user.id, this.post_id + "", this.post_title,this.post_url)
+    this.postService.save_post(user.id, this.post_id + "", this.post_title, this.post_url)
   }
 }
