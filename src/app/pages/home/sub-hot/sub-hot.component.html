@@ -4,7 +4,7 @@
             [attr.data-src]="posts[0]?.media" alt="'../../../assets/images/skeleton-loading.gif'">
     </div>
     <div class="col">
-        <a href="{{posts[0]?.link}}" class="text-break news-title" target="_blank">{{posts[0]?.title}}</a>
+        <a routerLink="{{'/'+posts[0]?.link}}" class="text-break news-title">{{posts[0]?.title}}</a>
     </div>
 </div>
 <div class="row pt-4" *ngFor="let item of posts.slice(1,posts.length)">
@@ -13,6 +13,6 @@
             [attr.data-src]="item.media" alt="'../../../assets/images/skeleton-loading.gif'">
     </div>
     <div class="col">
-        <a href="{{item.link}}" class="text-break news-title" target="_blank">{{item.title}}</a>
+        <a routerLink="{{'/'+item.link}}" class="text-break news-title">{{item.title}}</a>
     </div>
 </div>
