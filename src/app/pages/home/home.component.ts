@@ -220,11 +220,8 @@ export class HomeComponent implements OnInit {
         };
         this.education_news.push(currentItem);
       });
-      // this.isLoading = false;
-      // uncomment de hien modal
+      this.isLoading = false;
     });
-    //xoa de hien modal
-    this.isLoading = false;
   }
 
   get_duration(date: string) {
