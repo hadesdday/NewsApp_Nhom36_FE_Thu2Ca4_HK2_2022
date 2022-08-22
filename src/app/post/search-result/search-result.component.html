@@ -63,7 +63,7 @@
             </div>
             <div class="col-md-5">
                 <div class="row">
-                    <p class="news-title"><a href="{{response_list[0].link}}">{{response_list[0].title}}</a></p>
+                    <p class="news-title"><a routerLink="/{{response_list[0].link}}">{{response_list[0].title}}</a></p>
                 </div>
                 <div class="row">
                     <p class="text-break">{{response_list[0].description}}</p>
@@ -80,7 +80,7 @@
             </div>
             <div class="col-md-5">
                 <div class="row">
-                    <p class="news-title"><a href="{{item.link}}">{{item.title}}</a></p>
+                    <p class="news-title"><a routerLink="/{{item.link}}">{{item.title}}</a></p>
                 </div>
                 <div class="row">
                     <p class="text-break">{{item.description}}</p>

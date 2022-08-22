@@ -36,3 +36,12 @@
     text-decoration: underline;
   }
 }
+
+.btn__save--post {
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    background-color: #f93154;
+    color: white;
+  }
+}

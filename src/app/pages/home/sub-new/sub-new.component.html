@@ -8,10 +8,10 @@
             [attr.data-src]="posts[0]?.media" alt="'../../../assets/images/skeleton-loading.gif'" />
     </div>
     <div class="col-md-9">
-        <a href="{{posts[0]?.link}}" class="news-title" target="_blank">{{posts[0]?.title}}</a>
+        <a routerLink="{{'/'+posts[0]?.link}}" class="news-title">{{posts[0]?.title}}</a>
     </div>
 </div>
 <div class="row p-4 pt-0">
-    <a href="{{item.link}}" class="news-title mt-3" *ngFor="let item of posts.slice(1,posts.length)"
-        target="_blank">{{item.title}}</a>
+    <a routerLink="{{'/'+item.link}}" class="news-title mt-3"
+        *ngFor="let item of posts.slice(1,posts.length)">{{item.title}}</a>
 </div>

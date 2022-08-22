@@ -125,7 +125,15 @@
       "id": 14
     }
   ],
-  "saved-post": [],
+  "saved-post": [
+    {
+      "id_user": 1,
+      "id_post": "2052146",
+      "title": "Mỹ-Hàn tổ chức tập trận lớn nhất trong nhiều năm",
+      "link_post": "my-han-to-chuc-tap-tran-lon-nhat-trong-nhieu-nam-2052146.html",
+      "id": 1
+    }
+  ],
   "read-posts": [
     {
       "email": "lele9h0st@gmail.com",
@@ -141,6 +149,46 @@
         {
           "title": "Nhận bằng cử nhân truyền thông chứng nhận quốc tế ở Đại học Văn Lang",
           "link": "bai-viet/nhan-bang-cu-nhan-truyen-thong-chung-nhan-quoc-te-o-dai-hoc-van-lang-2051307.html"
+        },
+        {
+          "title": "Blackpink tái xuất trong MV 'Pink Venom' mang đậm văn hóa Á Đông",
+          "link": "bai-viet/blackpink-tai-xuat-trong-mv-pink-venom-mang-dam-van-hoa-a-dong-2051302.html"
+        },
+        {
+          "title": "Trung tướng Trần Ngọc Hà bày cách nhận diện chiêu lừa đảo 'việc nhẹ lương cao'",
+          "link": "bai-viet/trung-tuong-tran-ngoc-ha-bay-cach-nhan-dien-chieu-lua-dao-viec-nhe-luong-cao-2052294.html"
+        },
+        {
+          "title": "Bỏ chục triệu mua đồ trang trí đón Trung thu sớm",
+          "link": "bai-viet/bo-chuc-trieu-sam-den-long-do-choi-don-trung-thu-som-2051341.html"
+        },
+        {
+          "title": "Người phụ nữ đẻ con liên tiếp để tránh án phạt tù",
+          "link": "bai-viet/nguoi-phu-nu-de-con-lien-tiep-de-tranh-an-phat-tu-2039973.html"
+        },
+        {
+          "title": "Nữ sinh TP.HCM mất tích khai bỏ nhà đi do áp lực học hành",
+          "link": "bai-viet/nu-sinh-tp-hcm-mat-tich-khai-bo-nha-di-do-ap-luc-hoc-hanh-2052296.html"
+        },
+        {
+          "title": "Chủ tịch nước làm việc với Thường trực Hội đồng Tư vấn đặc xá",
+          "link": "bai-viet/chu-tich-nuoc-lam-viec-voi-thuong-truc-hoi-dong-tu-van-dac-xa-2052279.html"
+        },
+        {
+          "title": "Loạt xe khách chạy như đi bộ, công an bắn tốc độ 'rùa bò'",
+          "link": "bai-viet/loat-xe-khach-chay-nhu-di-bo-cong-an-ban-toc-do-rua-bo-2052280.html"
+        },
+        {
+          "title": "Người đàn ông dùng súng bắn vào đầu tự sát ở bệnh viện",
+          "link": "bai-viet/nguoi-dan-ong-dung-sung-ban-vao-dau-tu-sat-o-benh-vien-2052273.html"
+        },
+        {
+          "title": "Thanh niên đăng Tiktok xúc phạm người miền Trung bị phạt 10 triệu đồng",
+          "link": "bai-viet/thanh-nien-dang-tiktok-xuc-pham-nguoi-mien-trung-bi-phat-10-trieu-dong-2052282.html"
+        },
+        {
+          "title": "Diễn viên 84 tuổi đóng 'Tây du ký' gây sốt nhờ vẻ ngoài thanh lịch",
+          "link": "bai-viet/dien-vien-84-tuoi-dong-tay-du-ky-gay-sot-nho-ve-ngoai-thanh-lich-2052271.html"
         }
       ],
       "id": 1

@@ -61,6 +61,7 @@ export class PostDetailsComponent implements OnInit {
 
   get_data() {
     this.activatedRoute.params.subscribe(params => {
+      this.isLoading = true;
       this.post_url = params['url'];
       this.postService.get_news_details(this.post_url).subscribe(res => {
         const $dom = load(res);
@@ -187,13 +188,6 @@ export class PostDetailsComponent implements OnInit {
 
   get_posts_comment_with_amount(startIndex: number, endIndex: number) {
     return this.comments_list.slice(startIndex, endIndex);
-  }
-
-  generateRandom(min: number, max: number) {
-    let rand = Math.random();
-    rand = Math.floor(rand * (max - min));
-    rand = rand + min;
-    return rand;
   }
 
   save_post() {
