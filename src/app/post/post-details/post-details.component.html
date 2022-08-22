@@ -93,7 +93,9 @@
             </div>
         </div>
         <div class="col-md-4">
-            <button *ngIf="isSignin==true" (click)="save_post()">Lưu bài viết</button>
+            <button *ngIf="isSignin==true" (click)="save_post()"
+                class="btn btn-outline-danger btn-rounded btn__save--post" mdbTooltip="Lưu bài viết" placement="top"><i
+                    class="far fa-bookmark"></i></button>
             <div class="p-4 ads__banner">
                 <div class="mt-5">
                     <app-advertisement [url]="'../../../assets/images/ads7.jpeg'"

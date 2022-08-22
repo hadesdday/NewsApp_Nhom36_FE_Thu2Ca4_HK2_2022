@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MdbLazyLoadingModule } from 'code/mdb-angular-ui-kit/lazy-loading';
+import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { SavedPostComponent } from '../profile/saved-post/saved-post.component';
 import { SharedModule } from '../shared/shared.module';
@@ -21,7 +22,8 @@ import { SearchResultComponent } from './search-result/search-result.component';
     MdbLazyLoadingModule,
     SharedModule,
     NgxSkeletonLoaderModule.forRoot(),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MdbTooltipModule
   ],
   providers: [
     PostService
