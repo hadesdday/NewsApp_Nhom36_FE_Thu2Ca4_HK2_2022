@@ -5,6 +5,7 @@ import { TokenStorageService } from "../../../_service/token-storage.service";
 import { AuthService } from "../../../_service/auth.service";
 import { generateToken } from "../../signin/recover-pass-form/recover-pass-form.component";
 import { Title } from '@angular/platform-browser';
+import { API_AUTH } from 'src/app/_api/apiURL';
 
 @Component({
   selector: 'app-non-activated-account',
@@ -27,7 +28,7 @@ export class NonActivatedAccountComponent implements OnInit {
       this.emailParam = params['email'];
       if (this.emailParam == null)
         this.router.navigate(['home'])
-      this.http.get<any>("http://localhost:3000/user").subscribe(res => {
+      this.http.get<any>(API_AUTH.USER1).subscribe(res => {
         const user = res.find((a: any) => {
           return a.email === this.emailParam
         })

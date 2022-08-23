@@ -1,16 +1,16 @@
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {BehaviorSubject, catchError, Observable} from "rxjs";
-import {User} from "../_model/user";
-import {generateToken} from "../auth/signin/recover-pass-form/recover-pass-form.component";
-import emailjs, {EmailJSResponseStatus} from '@emailjs/browser';
-import {API_AUTH} from "../_api/apiURL";
-import {TokenStorageService} from "./token-storage.service";
-import {Router} from "@angular/router";
-import {CommonService} from "./common.service";
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { BehaviorSubject, catchError, Observable } from "rxjs";
+import { User } from "../_model/user";
+import { generateToken } from "../auth/signin/recover-pass-form/recover-pass-form.component";
+import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
+import { API_AUTH } from "../_api/apiURL";
+import { TokenStorageService } from "./token-storage.service";
+import { Router } from "@angular/router";
+import { CommonService } from "./common.service";
 
 const httpOptions = {
-  headers: new HttpHeaders({'Content-Type': 'application/json'})
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
 @Injectable({
@@ -36,7 +36,7 @@ export class AuthService {
               "email": user.email,
               "password": user.password,
             })
-          }else{
+          } else {
             this.tokenStorage.deleteRememberInfo()
           }
           siginForm.reset();
@@ -55,7 +55,7 @@ export class AuthService {
 
     let token = generateToken()
     this.sendActivatedKey(email, token)
-    return this.http.post<any>('http://localhost:3000/user', {
+    return this.http.post<any>(API_AUTH.USER1, {
       "email": email,
       "password": password,
       "phone": null,
@@ -71,7 +71,7 @@ export class AuthService {
 
 
     let isSended = false;
-    const confirmURL = "http://localhost:4200/confirm-register?email=" + email + "&token=" + token;
+    const confirmURL = `${API_AUTH.CONFIRM_REGISTER}?email=` + email + "&token=" + token;
     emailjs.init("aguJ3ZJ1XwxnQhJBl");
     const templateParams = {
       to_name: email,
@@ -91,9 +91,9 @@ export class AuthService {
       }, function (error) {
         console.log('FAILED...', error);
       });
-  //   if (isSended) {
-  //     this.commonService.toastSuccess("Đã gửi mã kích hoạt đến mail của bạn! vui lòng check mail để kích hoạt tài khoản!")
-  //   } else
-  //     this.commonService.toastError("Đã xáy ra lỗi khi gửi mail! xin vui lòng thử lại")
+    //   if (isSended) {
+    //     this.commonService.toastSuccess("Đã gửi mã kích hoạt đến mail của bạn! vui lòng check mail để kích hoạt tài khoản!")
+    //   } else
+    //     this.commonService.toastError("Đã xáy ra lỗi khi gửi mail! xin vui lòng thử lại")
   }
 }

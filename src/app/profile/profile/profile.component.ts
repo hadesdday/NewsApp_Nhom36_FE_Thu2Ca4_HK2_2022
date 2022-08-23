@@ -57,7 +57,7 @@ export class ProfileComponent implements OnInit {
       "gender": this.currentUser.gender,
       "comfirmToken": this.currentUser.comfirmToken
     }
-    this.http.put("http://localhost:3000/user/" + this.currentUser.id, user).subscribe(res => {
+    this.http.put(API_AUTH.USER + this.currentUser.id, user).subscribe(res => {
       this.commonService.toastSuccess("Thay đổi thông tin thành công thành công!")
       this.tokenStorage.saveUser(user);
       this.currentUser = this.tokenStorage.getUser();
@@ -77,7 +77,7 @@ export class ProfileComponent implements OnInit {
 
     this.popconfirmRef = this.popconfirmService.open(PopupConfirmComponent, target)
     this.popconfirmRef.onConfirm.subscribe(() => {
-      this.http.delete<any>("http://localhost:3000/user/"
+      this.http.delete<any>(API_AUTH.USER
         + this.tokenStorage.getUser()['id']
       ).subscribe(() => {
         localStorage.clear()

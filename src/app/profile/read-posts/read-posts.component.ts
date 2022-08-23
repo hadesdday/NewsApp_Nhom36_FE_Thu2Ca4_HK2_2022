@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { MdbPopconfirmRef, MdbPopconfirmService } from "mdb-angular-ui-kit/popconfirm";
 import { ToastrService } from 'ngx-toastr';
 import { PopupConfirmComponent } from 'src/app/profile/popup-confirm/popup-confirm.component';
+import { API_AUTH } from 'src/app/_api/apiURL';
 import { ReadPostResponse } from 'src/app/_model/post.model';
 import { TokenStorageService } from 'src/app/_service/token-storage.service';
 import { PostService } from '../../post/post.service';
@@ -45,7 +46,7 @@ export class ReadPostsComponent implements OnInit {
 
     this.popconfirmRef = this.popconfirmService.open(PopupConfirmComponent, target)
     this.popconfirmRef.onConfirm.subscribe(() => {
-      this.http.delete<any>("http://localhost:3000/user/"
+      this.http.delete<any>(API_AUTH.USER
         + this.tokenStorage.getUser()['id']
       ).subscribe(() => {
 
