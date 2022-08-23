@@ -53,4 +53,8 @@ ul {
   color: black;
 }
 
+.contact__link:hover {
+  text-decoration: underline;
+}
+
 /*# sourceMappingURL=footer.component.css.map */

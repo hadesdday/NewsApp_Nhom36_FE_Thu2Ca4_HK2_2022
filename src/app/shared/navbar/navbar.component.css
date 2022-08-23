@@ -14,10 +14,6 @@
   border-bottom: 1px solid black;
 }
 
-.news-topic:hover {
-  opacity: 0.5;
-}
-
 .btn__login {
   background-color: #567b95;
   color: white;
@@ -31,11 +27,23 @@
   margin: -8px 100px;
 }
 
+.news-topic {
+  transition: all 0.2s linear !important;
+}
+
+.active {
+  color: #f93154 !important;
+  border-bottom: 1px solid #f93154 !important;
+}
+
 .nav-item {
-  transition: all 0.3s linear !important;
+  transition: all 0.2s linear !important;
 }
 .nav-item:hover {
-  opacity: 0.6;
+  border-bottom: 1px solid #f93154 !important;
+}
+.nav-item:hover a {
+  color: #f93154 !important;
 }
 
 .mr-20 {

@@ -1,43 +1,39 @@
 <app-navbar></app-navbar>
 <div class="container d-flex justify-content-center mt-5">
   <div class="signin-form justify-content-center ">
-    <div class="signin-title"><h1>Đăng nhập</h1></div>
+    <div class="signin-title">
+      <h1>Đăng nhập</h1>
+    </div>
     <form [formGroup]="siginForm" (ngSubmit)="sigin()">
       <div class="alert" role="alert" *ngIf="siginForm.get('email')!.hasError('email') &&
     siginForm.get('email')!.touched">
-        Đây không phải là email
+        Email không hợp lệ
       </div>
       <div class="input-group flex-nowrap ">
         <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-user"></i></span>
         <input formControlName="email" type="text" class="form-control" placeholder="Nhập email" aria-label="email"
-               aria-describedby="addon-wrapping"/>
+          aria-describedby="addon-wrapping" />
       </div>
       <div class="input-group flex-nowrap ">
         <span class="input-group-text" id="addon-wrapping2"><i class="fa-solid fa-lock"></i></span>
-        <input formControlName="password" type="password" class="form-control" placeholder="Nhập mật khẩu" aria-label="password"
-               aria-describedby="addon-wrapping"/>
+        <input formControlName="password" type="password" class="form-control" placeholder="Nhập mật khẩu"
+          aria-label="password" aria-describedby="addon-wrapping" />
       </div>
 
       <div class="term-check">
         <div class="form-check ">
-          <input
-            mdbCheckbox
-            class="form-check-input"
-            type="checkbox"
-            value=""
-            id="flexCheckChecked"
-            formControlName="rememberCheck"
-          />
+          <input mdbCheckbox class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
+            formControlName="rememberCheck" />
           <label class="form-check-label" for="flexCheckChecked">
             Ghi nhớ đăng nhập
           </label>
 
         </div>
-        <div class="forgot-pass"><a routerLink="/recovery-password" >Quên mật khẩu?</a></div>
+        <div class="forgot-pass"><a routerLink="/recovery-password">Quên mật khẩu?</a></div>
       </div>
       <div class="signin-btn-groups">
-        <button class="btn btn-primary btn-rounded"  type="submit" id="button-accept-signin" mdbRipple
-                rippleColor="danger">
+        <button class="btn btn-primary btn-rounded" type="submit" id="button-accept-signin" mdbRipple
+          rippleColor="danger">
           Đăng nhập
         </button>
       </div>
