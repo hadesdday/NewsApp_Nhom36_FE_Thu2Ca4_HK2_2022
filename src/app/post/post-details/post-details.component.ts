@@ -164,23 +164,32 @@ export class PostDetailsComponent implements OnInit {
   }
 
   post_comment() {
-    this.postService.post_comment(this.postCommentForm.value).subscribe(res => {
-      if (res) {
-        this.toastService.success("Gửi bình luận thành công", "Thành công");
-      } else {
-        this.toastService.error("Gửi bình luận thất bại", "Thất bại");
-      }
-      this.postCommentForm.reset();
-      var loggedUser = JSON.parse(localStorage.getItem('auth-user') || '{}');
-      if (loggedUser) {
-        const { email, name } = loggedUser;
-        this.postCommentForm.get("email")?.setValue(email);
-        this.postCommentForm.get("fullname")?.setValue(name);
-      }
-      this.postCommentForm.get("article_id")?.setValue(this.post_id);
-      this.get_comment_by_post_id(this.post_id);
-    });
-  }
+    var email = this.postCommentForm.get("email")?.value;
+    var fullname = this.postCommentForm.get("fullname")?.value;
+    var content = this.postCommentForm.get("content")?.value;
+    var article_id = this.postCommentForm.get("article_id")?.value;
+    if (!email || !fullname || !content || !article_id) {
+      this.toastService.error("Vui lòng nhập đầy đủ thông tin", "Lỗi");
+      return;
+    } else {
+      this.postService.post_comment(this.postCommentForm.value).subscribe(res => {
+        if (res) {
+          this.toastService.success("Gửi bình luận thành công", "Thành công");
+        } else {
+          this.toastService.error("Gửi bình luận thất bại", "Thất bại");
+        }
+        this.postCommentForm.reset();
+        var loggedUser = JSON.parse(localStorage.getItem('auth-user') || '{}');
+        if (loggedUser) {
+          const { email, name } = loggedUser;
+          this.postCommentForm.get("email")?.setValue(email);
+          this.postCommentForm.get("fullname")?.setValue(name);
+        }
+        this.postCommentForm.get("article_id")?.setValue(this.post_id);
+        this.get_comment_by_post_id(this.post_id);
+      });
+    }
+}
 
   get_posts_with_amount(startIndex: number, endIndex: number) {
     return this.posts_list.slice(startIndex, endIndex);
