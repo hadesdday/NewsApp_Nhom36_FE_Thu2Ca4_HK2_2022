@@ -4,6 +4,8 @@
 
 export const environment = {
   production: false,
+  BASE_URL: "https://worldnow.herokuapp.com/",
+  DB_URL: "https://fake-restful-news.herokuapp.com/",
 };
 
 /*
