@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {ActivatedRoute, Router} from "@angular/router";
-import {TokenStorageService} from "../../../_service/token-storage.service";
-import {CommonService} from "../../../_service/common.service";
+import { HttpClient } from "@angular/common/http";
+import { ActivatedRoute, Router } from "@angular/router";
+import { TokenStorageService } from "../../../_service/token-storage.service";
+import { CommonService } from "../../../_service/common.service";
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-confirm-account',
@@ -12,31 +13,32 @@ import {CommonService} from "../../../_service/common.service";
 export class ConfirmAccountComponent implements OnInit {
   emailParam: any;
   tokenParam: any;
-  constructor( private http: HttpClient, private router: Router,private commonService: CommonService, private tokenStorage: TokenStorageService, private route: ActivatedRoute) { }
+  constructor(private titleService: Title, private http: HttpClient, private router: Router, private commonService: CommonService, private tokenStorage: TokenStorageService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
+      this.titleService.setTitle("Xác nhận tài khoản | News");
       this.emailParam = params['email'];
       this.tokenParam = params['token'];
-      if(this.emailParam==null||this.tokenParam==null)
+      if (this.emailParam == null || this.tokenParam == null)
         this.router.navigate(['home'])
       this.http.get<any>("http://localhost:3000/user").subscribe(res => {
         const user = res.find((a: any) => {
-          return a.email ===this.emailParam
+          return a.email === this.emailParam
         })
         if (user) {
           this.tokenStorage.saveUser(user);
           localStorage.setItem("isSignin", "true");
           console.log(user);
-          if(user.comfirmToken=== this.tokenParam){
-            user.comfirmToken="ok"
-            this.http.put("http://localhost:3000/user/" +user.id, user).subscribe(res => {
+          if (user.comfirmToken === this.tokenParam) {
+            user.comfirmToken = "ok"
+            this.http.put("http://localhost:3000/user/" + user.id, user).subscribe(res => {
 
             })
-          }else{
+          } else {
             this.router.navigate(['signin'])
           }
-        }else{
+        } else {
           this.commonService.toastError("Đã có lỗi xảy ra!! Xin vui lòng thử lại")
           this.router.navigate(['signin'])
         }

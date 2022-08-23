@@ -1,10 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {HttpClient} from "@angular/common/http";
-import {Router} from "@angular/router";
-import {AuthService} from "../../../_service/auth.service";
-import {TokenStorageService} from "../../../_service/token-storage.service";
-import {API_AUTH} from 'src/app/_api/apiURL';
+import { HttpClient } from "@angular/common/http";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import { Title } from '@angular/platform-browser';
+import { Router } from "@angular/router";
+import { AuthService } from "../../../_service/auth.service";
+import { TokenStorageService } from "../../../_service/token-storage.service";
 
 @Component({
   selector: 'app-signin-form',
@@ -15,16 +15,17 @@ export class SigninFormComponent implements OnInit {
   public siginForm !: FormGroup;
   rememberAccount: any;
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private authService: AuthService, private tokenStorage: TokenStorageService) {
+  constructor(private titleService: Title, private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private authService: AuthService, private tokenStorage: TokenStorageService) {
   }
 
   ngOnInit(): void {
+    this.titleService.setTitle("Đăng nhập | News");
     this.rememberAccount = this.tokenStorage.getRememberAccount()
 
     this.siginForm = this.formBuilder.group({
       email: new FormControl(this.rememberAccount.email, [Validators.required, Validators.email]),
       password: new FormControl(this.rememberAccount.password, [Validators.required]),
-      rememberCheck: new FormControl(this.rememberAccount!={})
+      rememberCheck: new FormControl(this.rememberAccount != {})
     })
   }
 

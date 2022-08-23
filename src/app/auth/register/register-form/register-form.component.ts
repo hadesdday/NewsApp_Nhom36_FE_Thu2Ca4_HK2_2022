@@ -4,6 +4,7 @@ import {
   AbstractControl, FormBuilder,
   FormControl, FormGroup, Validators
 } from "@angular/forms";
+import { Title } from "@angular/platform-browser";
 import {Router} from "@angular/router";
 import {AuthService} from "../../../_service/auth.service";
 import {CommonService} from "../../../_service/common.service";
@@ -25,7 +26,8 @@ export class RegisterFormComponent implements OnInit {
   public registerForm !: FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient,private commonService: CommonService, private router: Router, private authService: AuthService) {
+  constructor(private titleService: Title, private formBuilder: FormBuilder, private http: HttpClient,private commonService: CommonService, private router: Router, private authService: AuthService) {
+    this.titleService.setTitle("Đăng ký tài khoản | News");
   }
 
   ngOnInit(): void {
