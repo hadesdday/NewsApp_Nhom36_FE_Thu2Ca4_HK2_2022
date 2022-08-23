@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: true,
+  production: false,
   BASE_URL: "https://worldnow.herokuapp.com/",
   DB_URL: "https://fake-restful-news.herokuapp.com/",
 };
