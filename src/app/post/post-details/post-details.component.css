@@ -37,4 +37,13 @@
   text-decoration: underline;
 }
 
+.btn__save--post {
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+}
+.btn__save--post:hover {
+  background-color: #f93154;
+  color: white;
+}
+
 /*# sourceMappingURL=post-details.component.css.map */

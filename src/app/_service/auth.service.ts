@@ -30,8 +30,15 @@ export class AuthService {
       if (user) {
         if (user.comfirmToken === "ok") {
           this.tokenStorage.saveUser(user);
-          console.log(user);
           localStorage.setItem("isSignin", "true");
+          if (siginForm.value.rememberCheck == true) {
+            this.tokenStorage.rememberAccount({
+              "email": user.email,
+              "password": user.password,
+            })
+          }else{
+            this.tokenStorage.deleteRememberInfo()
+          }
           siginForm.reset();
           this.router.navigate(['home'])
         } else {

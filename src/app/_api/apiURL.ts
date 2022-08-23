@@ -29,5 +29,6 @@ export const API_URL = {
   GET_LIST: "https://api-news-vietnamnet.herokuapp.com/api/get/",
   SEARCH: "https://api-news-vietnamnet.herokuapp.com/api/search/",
   ARTICLE_DETAILS: "https://api-news-vietnamnet.herokuapp.com/article/",
-  ARTICLE_SAVED: "http://localhost:3000/saved-post"
+  ARTICLE_SAVED: "http://localhost:3000/saved-post",
+  CONTACT:"http://localhost:3000/contact"
 }

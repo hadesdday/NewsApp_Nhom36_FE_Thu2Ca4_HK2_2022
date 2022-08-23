@@ -6,6 +6,7 @@ import {
 } from "@angular/forms";
 import {Router} from "@angular/router";
 import {AuthService} from "../../../_service/auth.service";
+import {CommonService} from "../../../_service/common.service";
 
 export function comparePassword(c: AbstractControl) {
   const v = c.value;
@@ -24,7 +25,7 @@ export class RegisterFormComponent implements OnInit {
   public registerForm !: FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private authService: AuthService) {
+  constructor(private formBuilder: FormBuilder, private http: HttpClient,private commonService: CommonService, private router: Router, private authService: AuthService) {
   }
 
   ngOnInit(): void {
@@ -53,11 +54,11 @@ export class RegisterFormComponent implements OnInit {
         alert("email đã đăng kí tài khoản. xin sử dụng email khác !")
       } else if (!this.registerForm.hasError('passwordnotmatch', ['pw']) && this.registerForm.value['termCheck'] == true) {
         this.authService.register(this.registerForm.value['email'], this.registerForm.controls['pw'].value.password).subscribe(res => {
-          alert("register success");
+          this.commonService.toastSuccess("Đăng kí thành công thành công!")
 
           this.router.navigate(['signin']);
         }, error => {
-          alert("register false ")
+          this.commonService.toastError("Đăng kí thất bại!! Xin vui lòng thử lại")
         })
       }
     })

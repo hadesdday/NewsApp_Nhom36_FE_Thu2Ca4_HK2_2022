@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import {Injectable} from '@angular/core';
+import {Router} from '@angular/router';
 
-const TOKEN_KEY = 'auth-token';
+const REMEMBER_KEY = 'remember-token';
 const USER_KEY = 'auth-user'
 
 @Injectable({
@@ -13,7 +13,9 @@ export class TokenStorageService {
   }
 
   signOut(): void {
-    localStorage.clear();
+
+    localStorage.removeItem(USER_KEY);
+    localStorage.removeItem("isSignin");
     this.router.navigate(['/signin']);
   }
 
@@ -31,6 +33,22 @@ export class TokenStorageService {
     localStorage.setItem(USER_KEY, JSON.stringify(user));
   }
 
+  public rememberAccount(account: any): void {
+    localStorage.setItem(REMEMBER_KEY, JSON.stringify(account));
+  }
+
+  public getRememberAccount(): any {
+    const account = localStorage.getItem(REMEMBER_KEY);
+    if (account) {
+      return JSON.parse(account)
+    }
+    return {}
+  }
+
+  public deleteRememberInfo(): void {
+    localStorage.removeItem(REMEMBER_KEY);
+  }
+
   public getUser(): any {
     const user = localStorage.getItem(USER_KEY);
     if (user) {
@@ -38,7 +56,8 @@ export class TokenStorageService {
     }
     return {}
   }
-  public isSignin():any{
-   return localStorage.getItem("isSignin") == "true"
+
+  public isSignin(): any {
+    return localStorage.getItem("isSignin") == "true"
   }
 }

@@ -26,5 +26,10 @@
         height: 150px;
       }
     }
+    .submit-panel{
+      display: flex;
+      flex-direction: row-reverse;
+      margin-top: 10px;
+    }
   }
 }

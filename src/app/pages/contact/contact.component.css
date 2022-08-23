@@ -22,5 +22,10 @@
 .container .contact-panel .input-group .context {
   height: 150px;
 }
+.container .contact-panel .submit-panel {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 10px;
+}
 
 /*# sourceMappingURL=contact.component.css.map */
