@@ -7,7 +7,7 @@
     <form [formGroup]="registerForm" (ngSubmit)="register()">
       <div class="alert" role="alert" *ngIf="registerForm.get('email')!.hasError('email') &&
     registerForm.get('email')!.touched">
-        this is not an email
+        Email không hợp lệ
       </div>
       <div class="input-group flex-nowrap ">
         <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-user"></i></span>
@@ -22,7 +22,7 @@
         </div>
         <div class="alert" role="alert" *ngIf="registerForm.hasError('passwordnotmatch', ['pw']) &&
     registerForm.get('pw')!.get('re_password')!.touched">
-          Password does not match!
+          Mật khẩu không trùng khớp
         </div>
         <div class="input-group flex-nowrap ">
 
@@ -32,7 +32,8 @@
             name="re_password" />
         </div>
       </div>
-      <div class="alert" role="alert" *ngIf="submitted && registerForm.controls.termCheck.errors">Accept Ts & Cs is required</div>
+      <div class="alert" role="alert" *ngIf="submitted && registerForm.controls.termCheck.errors">Accept Ts & Cs is
+        required</div>
       <div class="term-check">
         <div class="form-check ">
           <input mdbCheckbox class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
