@@ -29,7 +29,8 @@
       "dateBirth": null,
       "gender": null,
       "comfirmToken": "ok",
-      "id": 3
+      "id": 3,
+      "recoveryToken": ""
     }
   ],
   "comments": [

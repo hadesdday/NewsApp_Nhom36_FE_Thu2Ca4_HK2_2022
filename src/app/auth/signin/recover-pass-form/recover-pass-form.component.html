@@ -6,7 +6,7 @@
     <form [formGroup]="recoverForm" (ngSubmit)="recover()">
       <div class="alert" role="alert" *ngIf="recoverForm.get('recovery_email')!.hasError('email') &&
     recoverForm.get('recovery_email')!.touched">
-        this is not an email
+        Email không hợp lệ
       </div>
       <div class="input-group flex-nowrap ">
         <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-user"></i></span>

@@ -46,8 +46,7 @@ export class ReadPostsComponent implements OnInit {
       this.http.delete<any>("http://localhost:3000/user/"
         + this.tokenStorage.getUser()['id']
       ).subscribe(() => {
-        alert("http://localhost:3000/user/"
-          + this.tokenStorage.getUser()['id'])
+
         this.tokenStorage.signOut();
         this.router.navigate(['home'])
       })

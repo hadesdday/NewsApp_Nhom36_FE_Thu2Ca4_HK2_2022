@@ -35,9 +35,7 @@ export class SavedPostComponent implements OnInit {
     let isError = false
     const ul = document.getElementsByClassName("list-group")[0]
     const lis = ul.getElementsByClassName('list-group-item')
-    console.log(lis)
     for (let i = 0; i < lis.length; i++) {
-      console.log(lis[i].getElementsByTagName('input')[0].checked)
       const input = lis[i].getElementsByTagName('input')[0]
       if (input.checked) {
         ul.removeChild(lis[i])
