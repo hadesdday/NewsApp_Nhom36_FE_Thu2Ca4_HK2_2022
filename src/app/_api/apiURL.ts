@@ -1,3 +1,5 @@
+import { environment } from "src/environments/environment";
+
 export const API_SUB = [
   "Chính trị",
   "Thời sự",
@@ -16,19 +18,19 @@ export const API_SUB = [
 ];
 
 export const API_AUTH = {
-  LOGIN: "http://localhost:3000/login/",
-  USER: "http://localhost:3000/user/",
-  USER1: "http://localhost:3000/user",
-  RECOVER: "http://localhost:4200/change-password",
-  CONFIRM_REGISTER: "http://localhost:4200/confirm-register",
+  LOGIN: `${environment.dbEnvironment}login/`,
+  USER: `${environment.dbEnvironment}user/`,
+  USER1: `${environment.dbEnvironment}user`,
+  RECOVER: `${environment}change-password`,
+  CONFIRM_REGISTER: `${environment.environment}confirm-register`,
 }
 
 export const API_URL = {
-  COMMENT: "http://localhost:3000/comments",
-  READ_POST: "http://localhost:3000/read-posts",
-  GET_LIST: "https://api-news-vietnamnet.herokuapp.com/api/get/",
-  SEARCH: "https://api-news-vietnamnet.herokuapp.com/api/search/",
-  ARTICLE_DETAILS: "https://api-news-vietnamnet.herokuapp.com/article/",
-  ARTICLE_SAVED: "http://localhost:3000/saved-post",
-  CONTACT: "http://localhost:3000/contact"
+  COMMENT: `${environment.dbEnvironment}comments`,
+  READ_POST: `${environment.dbEnvironment}read-posts`,
+  GET_LIST: `https://api-news-vietnamnet.herokuapp.com/api/get/`,
+  SEARCH: `https://api-news-vietnamnet.herokuapp.com/api/search/`,
+  ARTICLE_DETAILS: `https://api-news-vietnamnet.herokuapp.com/article/`,
+  ARTICLE_SAVED: `${environment.dbEnvironment}saved-post`,
+  CONTACT: `${environment.dbEnvironment}contact`
 }
