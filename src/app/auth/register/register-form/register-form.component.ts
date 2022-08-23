@@ -6,6 +6,7 @@ import {
 } from "@angular/forms";
 import { Title } from "@angular/platform-browser";
 import {Router} from "@angular/router";
+import { API_AUTH } from "src/app/_api/apiURL";
 import {AuthService} from "../../../_service/auth.service";
 import {CommonService} from "../../../_service/common.service";
 
@@ -45,7 +46,7 @@ export class RegisterFormComponent implements OnInit {
   register() {
     this.submitted = true;
     let registered = false;
-    this.http.get<any>("http://localhost:3000/user").subscribe(res => {
+    this.http.get<any>(API_AUTH.USER1).subscribe(res => {
       const user = res.find((a: any) => {
         return a.email === this.registerForm.value['email']
       })

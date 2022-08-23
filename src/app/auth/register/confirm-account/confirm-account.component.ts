@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { TokenStorageService } from "../../../_service/token-storage.service";
 import { CommonService } from "../../../_service/common.service";
 import { Title } from '@angular/platform-browser';
+import { API_AUTH } from 'src/app/_api/apiURL';
 
 @Component({
   selector: 'app-confirm-account',
@@ -22,7 +23,7 @@ export class ConfirmAccountComponent implements OnInit {
       this.tokenParam = params['token'];
       if (this.emailParam == null || this.tokenParam == null)
         this.router.navigate(['home'])
-      this.http.get<any>("http://localhost:3000/user").subscribe(res => {
+      this.http.get<any>(API_AUTH.USER1).subscribe(res => {
         const user = res.find((a: any) => {
           return a.email === this.emailParam
         })
@@ -32,7 +33,7 @@ export class ConfirmAccountComponent implements OnInit {
           console.log(user);
           if (user.comfirmToken === this.tokenParam) {
             user.comfirmToken = "ok"
-            this.http.put("http://localhost:3000/user/" + user.id, user).subscribe(res => {
+            this.http.put(API_AUTH.USER + user.id, user).subscribe(res => {
 
             })
           } else {
