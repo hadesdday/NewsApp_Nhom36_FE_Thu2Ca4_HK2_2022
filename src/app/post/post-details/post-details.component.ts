@@ -85,7 +85,7 @@ export class PostDetailsComponent implements OnInit {
         this.get_post_list(this.title);
 
         var loggedUser = JSON.parse(localStorage.getItem('auth-user') || '{}');
-        if (loggedUser.email !==undefined) {
+        if (loggedUser.email !== undefined) {
           const { email } = loggedUser;
           this.postService.get_read_news(email).subscribe((res: ReadPostResponse) => {
             this.temp = res;

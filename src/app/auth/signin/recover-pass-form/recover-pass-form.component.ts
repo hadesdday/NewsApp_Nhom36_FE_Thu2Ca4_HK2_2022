@@ -4,7 +4,8 @@ import { HttpClient } from "@angular/common/http";
 import { Router } from "@angular/router";
 import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
 import { API_AUTH } from 'src/app/_api/apiURL';
-import {CommonService} from "../../../_service/common.service";
+import { CommonService } from "../../../_service/common.service";
+import { Title } from '@angular/platform-browser';
 
 export function generateToken() {
   var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -25,11 +26,11 @@ export function generateToken() {
 export class RecoverPassFormComponent implements OnInit {
   public recoverForm !: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router,private commonService: CommonService) {
+  constructor(private titleService: Title, private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private commonService: CommonService) {
   }
 
   ngOnInit(): void {
-
+    this.titleService.setTitle("Khôi phục tài khoản | News");
     this.recoverForm = this.formBuilder.group({
       recovery_email: new FormControl("", [Validators.required, Validators.email])
     });
