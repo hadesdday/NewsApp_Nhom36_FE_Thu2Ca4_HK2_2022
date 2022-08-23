@@ -1,4 +1,6 @@
-import { environment } from "src/environments/environment";
+
+const BASE_URL = "https://worldnow.herokuapp.com/";
+const DB_URL = "https://fake-restful-news.herokuapp.com/";
 
 export const API_SUB = [
   "Chính trị",
@@ -18,19 +20,19 @@ export const API_SUB = [
 ];
 
 export const API_AUTH = {
-  LOGIN: `${environment.DB_URL}login/`,
-  USER: `${environment.DB_URL}user/`,
-  USER1: `${environment.DB_URL}user`,
-  RECOVER: `${environment}change-password`,
-  CONFIRM_REGISTER: `${environment.BASE_URL}confirm-register`,
+  LOGIN: `${DB_URL}login/`,
+  USER: `${DB_URL}user/`,
+  USER1: `${DB_URL}user`,
+  RECOVER: `${BASE_URL}change-password`,
+  CONFIRM_REGISTER: `${BASE_URL}confirm-register`,
 }
 
 export const API_URL = {
-  COMMENT: `${environment.DB_URL}comments`,
-  READ_POST: `${environment.DB_URL}read-posts`,
+  COMMENT: `${DB_URL}comments`,
+  READ_POST: `${DB_URL}read-posts`,
   GET_LIST: `https://api-news-vietnamnet.herokuapp.com/api/get/`,
   SEARCH: `https://api-news-vietnamnet.herokuapp.com/api/search/`,
   ARTICLE_DETAILS: `https://api-news-vietnamnet.herokuapp.com/article/`,
-  ARTICLE_SAVED: `${environment.DB_URL}saved-post`,
-  CONTACT: `${environment.DB_URL}contact`
+  ARTICLE_SAVED: `${DB_URL}saved-post`,
+  CONTACT: `${DB_URL}contact`
 }
