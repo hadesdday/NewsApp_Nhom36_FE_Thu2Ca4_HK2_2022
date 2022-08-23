@@ -4,6 +4,7 @@ import {HttpClient} from "@angular/common/http";
 import {ActivatedRoute, Router} from "@angular/router";
 import {TokenStorageService} from "../../../_service/token-storage.service";
 import { API_AUTH } from 'src/app/_api/apiURL';
+import {CommonService} from "../../../_service/common.service";
 
 export function comparePassword(c: AbstractControl) {
   const v = c.value;
@@ -25,7 +26,7 @@ export class ChangePassComponent implements OnInit {
   emailParam: any;
   tokenParam: any;
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private tokenStorage: TokenStorageService, private route: ActivatedRoute) {
+  constructor(private formBuilder: FormBuilder, private http: HttpClient,private commonService: CommonService, private router: Router, private tokenStorage: TokenStorageService, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
@@ -51,8 +52,9 @@ changePasswordFunc(){
     this.currentUser.password = this.changePassForm.controls['new_pw'].value.newPass;
     this.currentUser.recoveryToken="";
     this.http.put(API_AUTH.USER + this.currentUser.id, this.currentUser).subscribe(res => {
-      alert("change success")
+      this.commonService.toastSuccess("thay đổi mật khẩu thành công!")
       this.tokenStorage.saveUser(this.currentUser);
+      localStorage.setItem("isSignin", "true");
       this.currentUser = this.tokenStorage.getUser();
       console.log(this.currentUser)
       this.router.navigate(["profile"])

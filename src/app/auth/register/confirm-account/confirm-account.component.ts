@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {ActivatedRoute, Router} from "@angular/router";
 import {TokenStorageService} from "../../../_service/token-storage.service";
+import {CommonService} from "../../../_service/common.service";
 
 @Component({
   selector: 'app-confirm-account',
@@ -11,7 +12,7 @@ import {TokenStorageService} from "../../../_service/token-storage.service";
 export class ConfirmAccountComponent implements OnInit {
   emailParam: any;
   tokenParam: any;
-  constructor( private http: HttpClient, private router: Router, private tokenStorage: TokenStorageService, private route: ActivatedRoute) { }
+  constructor( private http: HttpClient, private router: Router,private commonService: CommonService, private tokenStorage: TokenStorageService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
@@ -25,17 +26,18 @@ export class ConfirmAccountComponent implements OnInit {
         })
         if (user) {
           this.tokenStorage.saveUser(user);
+          localStorage.setItem("isSignin", "true");
           console.log(user);
           if(user.comfirmToken=== this.tokenParam){
             user.comfirmToken="ok"
             this.http.put("http://localhost:3000/user/" +user.id, user).subscribe(res => {
-              alert("success")
+
             })
           }else{
             this.router.navigate(['signin'])
           }
         }else{
-          alert("something is wrong")
+          this.commonService.toastError("Đã có lỗi xảy ra!! Xin vui lòng thử lại")
           this.router.navigate(['signin'])
         }
       })

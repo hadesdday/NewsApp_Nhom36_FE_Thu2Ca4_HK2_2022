@@ -4,7 +4,7 @@
       "id": 1,
       "password": "hoang",
       "email": "lele9h0st@gmail.com",
-      "phone": "0987654321",
+      "phone": "0987654328",
       "name": "Trần Huy Hoàng",
       "address": "dia chi",
       "dateBirth": "2001-08-27",
@@ -29,7 +29,8 @@
       "dateBirth": null,
       "gender": null,
       "comfirmToken": "ok",
-      "id": 3
+      "id": 3,
+      "recoveryToken": ""
     }
   ],
   "comments": [
@@ -128,10 +129,10 @@
   "saved-post": [
     {
       "id_user": 1,
-      "id_post": "2052146",
-      "title": "Mỹ-Hàn tổ chức tập trận lớn nhất trong nhiều năm",
-      "link_post": "my-han-to-chuc-tap-tran-lon-nhat-trong-nhieu-nam-2052146.html",
-      "id": 1
+      "id_post": "2051951",
+      "title": "Cảng tàu khách nổi tiếng ở Quảng Ninh thành quán nhậu",
+      "link_post": "cang-tau-khach-thanh-quan-nhau-2051951.html",
+      "id": 4
     }
   ],
   "read-posts": [
@@ -189,6 +190,14 @@
         {
           "title": "Diễn viên 84 tuổi đóng 'Tây du ký' gây sốt nhờ vẻ ngoài thanh lịch",
           "link": "bai-viet/dien-vien-84-tuoi-dong-tay-du-ky-gay-sot-nho-ve-ngoai-thanh-lich-2052271.html"
+        },
+        {
+          "title": "Nguồn tiền từ đâu để làm đường sắt cao tốc TP.HCM - Cần Thơ 170.000 tỉ đồng?",
+          "link": "bai-viet/nguon-tien-tu-dau-de-lam-duong-sat-cao-toc-tphcm-can-tho-170000-ti-dong-2052369.html"
+        },
+        {
+          "title": "Cảng tàu khách nổi tiếng ở Quảng Ninh thành quán nhậu",
+          "link": "bai-viet/cang-tau-khach-thanh-quan-nhau-2051951.html"
         }
       ],
       "id": 1

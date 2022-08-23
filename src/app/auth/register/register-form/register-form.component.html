@@ -7,7 +7,7 @@
     <form [formGroup]="registerForm" (ngSubmit)="register()">
       <div class="alert" role="alert" *ngIf="registerForm.get('email')!.hasError('email') &&
     registerForm.get('email')!.touched">
-        this is not an email
+        Đây không phải là email!
       </div>
       <div class="input-group flex-nowrap ">
         <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-user"></i></span>
@@ -22,7 +22,7 @@
         </div>
         <div class="alert" role="alert" *ngIf="registerForm.hasError('passwordnotmatch', ['pw']) &&
     registerForm.get('pw')!.get('re_password')!.touched">
-          Password does not match!
+          Mật khẩu không chính xác!
         </div>
         <div class="input-group flex-nowrap ">
 

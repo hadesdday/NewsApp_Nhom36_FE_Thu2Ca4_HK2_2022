@@ -51,16 +51,18 @@ export class RegisterFormComponent implements OnInit {
         registered = true;
       }
       if (registered) {
-        alert("email đã đăng kí tài khoản. xin sử dụng email khác !")
+        this.commonService.toastAlert("email này đã được đăng kí trước đó! xin vui lòng xử dụng email khác!!")
       } else if (!this.registerForm.hasError('passwordnotmatch', ['pw']) && this.registerForm.value['termCheck'] == true) {
         this.authService.register(this.registerForm.value['email'], this.registerForm.controls['pw'].value.password).subscribe(res => {
-          this.commonService.toastSuccess("Đăng kí thành công thành công!")
+          this.commonService.toastSuccess("Đăng kí thành công thành công! Đã gửi mã kích hoạt đến mail của bạn! vui lòng check mail để kích hoạt tài khoản!")
 
           this.router.navigate(['signin']);
         }, error => {
           this.commonService.toastError("Đăng kí thất bại!! Xin vui lòng thử lại")
         })
       }
+    },error => {
+      this.commonService.toastError("Đăng kí thất bại!! Xin vui lòng thử lại")
     })
   }
 }

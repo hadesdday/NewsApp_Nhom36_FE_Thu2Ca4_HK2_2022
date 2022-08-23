@@ -4,6 +4,7 @@ import { HttpClient } from "@angular/common/http";
 import { Router } from "@angular/router";
 import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
 import { API_AUTH } from 'src/app/_api/apiURL';
+import {CommonService} from "../../../_service/common.service";
 
 export function generateToken() {
   var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -24,7 +25,7 @@ export function generateToken() {
 export class RecoverPassFormComponent implements OnInit {
   public recoverForm !: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router,private commonService: CommonService) {
   }
 
   ngOnInit(): void {
@@ -43,7 +44,7 @@ export class RecoverPassFormComponent implements OnInit {
       var token = generateToken();
       user['recoveryToken'] = token;
       this.http.put(API_AUTH.USER + user.id, user).subscribe(res => {
-        alert("add token")
+        this.commonService.toastSuccess("Kiểm tra mail để lấy lại mật khẩu")
       })
 
       const recoveryURL = `${API_AUTH.RECOVER}?email=` + user.email + "&token=" + token;
@@ -65,7 +66,6 @@ export class RecoverPassFormComponent implements OnInit {
           console.log('FAILED...', error);
         });
       console.log(user)
-      alert("success")
     });
 
   }

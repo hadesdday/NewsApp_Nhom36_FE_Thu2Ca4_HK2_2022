@@ -86,13 +86,14 @@ export class AuthService {
     emailjs.send('service_x24s21g', 'template_n4y5t2w', templateParams)
       .then(function (response) {
         console.log('SUCCESS!', response.status, response.text);
+
         isSended = true;
       }, function (error) {
         console.log('FAILED...', error);
       });
-    if (isSended) {
-      this.commonService.toastSuccess("Đã gửi mã kích hoạt đến mail của bạn! vui lòng check mail để kích hoạt tài khoản!")
-    } else
-      this.commonService.toastError("Đã xáy ra lỗi khi gửi mail! xin vui lòng thử lại")
+  //   if (isSended) {
+  //     this.commonService.toastSuccess("Đã gửi mã kích hoạt đến mail của bạn! vui lòng check mail để kích hoạt tài khoản!")
+  //   } else
+  //     this.commonService.toastError("Đã xáy ra lỗi khi gửi mail! xin vui lòng thử lại")
   }
 }

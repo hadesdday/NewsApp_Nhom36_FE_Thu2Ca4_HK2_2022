@@ -5,7 +5,7 @@
     <form [formGroup]="siginForm" (ngSubmit)="sigin()">
       <div class="alert" role="alert" *ngIf="siginForm.get('email')!.hasError('email') &&
     siginForm.get('email')!.touched">
-        this is not an email
+        Đây không phải là email
       </div>
       <div class="input-group flex-nowrap ">
         <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-user"></i></span>
