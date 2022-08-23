@@ -1,12 +1,13 @@
-import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
-import {TokenStorageService} from "../../_service/token-storage.service";
-import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
-import {HttpClient} from "@angular/common/http";
+import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
+import { TokenStorageService } from "../../_service/token-storage.service";
+import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
+import { HttpClient } from "@angular/common/http";
 import { API_AUTH } from 'src/app/_api/apiURL';
-import {MdbPopconfirmRef, MdbPopconfirmService} from "mdb-angular-ui-kit/popconfirm";
-import {PopupConfirmComponent} from "../popup-confirm/popup-confirm.component";
-import {CommonService} from "../../_service/common.service";
+import { MdbPopconfirmRef, MdbPopconfirmService } from "mdb-angular-ui-kit/popconfirm";
+import { PopupConfirmComponent } from "../popup-confirm/popup-confirm.component";
+import { CommonService } from "../../_service/common.service";
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-profile',
@@ -19,10 +20,11 @@ export class ProfileComponent implements OnInit {
 
   popconfirmRef: MdbPopconfirmRef<PopupConfirmComponent> | null = null;
 
-  constructor(private formBuilder: FormBuilder,private commonService: CommonService, private router: Router, private tokenStorage: TokenStorageService, private http: HttpClient, private popconfirmService: MdbPopconfirmService) {
+  constructor(private titleService: Title, private formBuilder: FormBuilder, private commonService: CommonService, private router: Router, private tokenStorage: TokenStorageService, private http: HttpClient, private popconfirmService: MdbPopconfirmService) {
   }
 
   ngOnInit(): void {
+    this.titleService.setTitle("Thông tin tài khoản | News");
     this.currentUser = this.tokenStorage.getUser();
     console.log(this.currentUser)
 
@@ -65,7 +67,7 @@ export class ProfileComponent implements OnInit {
 
   }
 
-  changeGender({e}: { e: any }) {
+  changeGender({ e }: { e: any }) {
     this.currentUser.gender = e.target.value;
     console.log(e.target.value);
   }
@@ -74,13 +76,13 @@ export class ProfileComponent implements OnInit {
     const target = event.target as HTMLElement;
 
     this.popconfirmRef = this.popconfirmService.open(PopupConfirmComponent, target)
-    this.popconfirmRef.onConfirm.subscribe(()=>{
-        this.http.delete<any>("http://localhost:3000/user/"
-        +this.tokenStorage.getUser()['id']
-      ).subscribe(()=>{
-          localStorage.clear()
-          this.router.navigate(['home'])
-        })
+    this.popconfirmRef.onConfirm.subscribe(() => {
+      this.http.delete<any>("http://localhost:3000/user/"
+        + this.tokenStorage.getUser()['id']
+      ).subscribe(() => {
+        localStorage.clear()
+        this.router.navigate(['home'])
+      })
     })
   }
 }

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { MdbPopconfirmRef, MdbPopconfirmService } from "mdb-angular-ui-kit/popconfirm";
 import { ToastrService } from 'ngx-toastr';
@@ -23,9 +24,10 @@ export class ReadPostsComponent implements OnInit {
   isExisted = false;
   temp!: any;
 
-  constructor(private toastrService: ToastrService, private postService: PostService, private router: Router, private tokenStorage: TokenStorageService, private http: HttpClient, private popconfirmService: MdbPopconfirmService) { }
+  constructor(private titleService: Title, private toastrService: ToastrService, private postService: PostService, private router: Router, private tokenStorage: TokenStorageService, private http: HttpClient, private popconfirmService: MdbPopconfirmService) { }
 
   ngOnInit(): void {
+    this.titleService.setTitle("Tin đã đọc | News");
     this.currentUser = this.tokenStorage.getUser();
     this.get_data();
   }

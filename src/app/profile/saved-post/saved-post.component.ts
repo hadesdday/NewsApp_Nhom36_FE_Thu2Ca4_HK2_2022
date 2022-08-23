@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {PostService} from "../../post/post.service";
-import {TokenStorageService} from "../../_service/token-storage.service";
-import {CommonService} from "../../_service/common.service";
+import { Component, OnInit } from '@angular/core';
+import { PostService } from "../../post/post.service";
+import { TokenStorageService } from "../../_service/token-storage.service";
+import { CommonService } from "../../_service/common.service";
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-saved-post',
@@ -11,10 +12,11 @@ import {CommonService} from "../../_service/common.service";
 export class SavedPostComponent implements OnInit {
   items: any;
 
-  constructor(private postService: PostService, private tokenStorage: TokenStorageService, private commonService: CommonService) {
+  constructor(private titleService: Title, private postService: PostService, private tokenStorage: TokenStorageService, private commonService: CommonService) {
   }
 
   ngOnInit(): void {
+    this.titleService.setTitle("Tin đã lưu | News");
     this.postService.get_savedPost(this.tokenStorage.getUser().id).subscribe(res => {
       console.log(res)
       this.items = res
