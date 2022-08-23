@@ -4,8 +4,8 @@
 
 export const environment = {
   production: true,
-  environment: "http://localhost:4200/",
-  dbEnvironment: "http://localhost:3000/",
+  BASE_URL: "http://localhost:4200/",
+  DB_URL: "http://localhost:3000/",
 };
 
 /*
