@@ -17,7 +17,6 @@ export class PostListComponent implements OnInit {
   title!: string;
   slug!: string;
   posts_list!: Article[];
-  article_response!: Observable<ArticleResponse>;
 
   isLoading = true;
 
@@ -28,7 +27,6 @@ export class PostListComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((param) => {
       this.isLoading = true;
-      this.article_response = this.activatedRoute.data.pipe(map((data) => data?.list));
       this.load_data();
     });
   }

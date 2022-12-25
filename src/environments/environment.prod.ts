@@ -1,5 +1,6 @@
 export const environment = {
   production: true,
-  BASE_URL: "https://worldnow.herokuapp.com/",
-  DB_URL: "https://fake-restful-news.herokuapp.com/",
+  BASE_URL: "https://news-app-vanhieu.vercel.app/",
+  DB_URL: "https://fake-db-news.onrender.com/",
+  SCRAPING_API: "https://api-news.onrender.com/"
 };
