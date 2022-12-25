@@ -14,7 +14,8 @@ export const API_SUB = [
   "Xe",
   "Công nghệ",
   "Bất động sản",
-  "Du lịch"
+  "Du lịch",
+  "Công nghệ thông tin"
 ];
 
 export const API_AUTH = {
@@ -28,9 +29,9 @@ export const API_AUTH = {
 export const API_URL = {
   COMMENT: `${environment.DB_URL}comments`,
   READ_POST: `${environment.DB_URL}read-posts`,
-  GET_LIST: `https://api-news-vietnamnet.herokuapp.com/api/get/`,
-  SEARCH: `https://api-news-vietnamnet.herokuapp.com/api/search/`,
-  ARTICLE_DETAILS: `https://api-news-vietnamnet.herokuapp.com/article/`,
+  GET_LIST: `${environment.SCRAPING_API}api/get/`,
+  SEARCH: `${environment.SCRAPING_API}api/search/`,
+  ARTICLE_DETAILS: `${environment.SCRAPING_API}article/`,
   ARTICLE_SAVED: `${environment.DB_URL}saved-post`,
   CONTACT: `${environment.DB_URL}contact`
 }
