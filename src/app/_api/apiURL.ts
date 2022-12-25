@@ -14,8 +14,7 @@ export const API_SUB = [
   "Xe",
   "Công nghệ",
   "Bất động sản",
-  "Du lịch",
-  "Công nghệ thông tin"
+  "Du lịch"
 ];
 
 export const API_AUTH = {
